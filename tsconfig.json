@@ -24,8 +24,7 @@
       "@globals": ["styles/globals.sass"],
       "@theme": ["styles/theme/index.sass"],
       "@component/*": ["components/*"],
-      "@animation/*": ["animations/*"],
-      "@layout/*": ["layouts/*"]
+      "@data/*": ["data/*"]
     },
     "rootDir": ".",
     "baseUrl": "."
