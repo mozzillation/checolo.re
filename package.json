@@ -8,7 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@turf/turf": "^5.1.6",
+    "d3-geo": "^2.0.1",
     "next": "10.0.5",
+    "point-in-polygon-hao": "^0.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   }

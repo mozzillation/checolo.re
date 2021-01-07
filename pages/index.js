@@ -1,65 +1,78 @@
+import {Component} from 'react'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import getCurrentRegion from './api/getCurrentRegion'
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+export default class Index extends Component{
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+  constructor(props){
+    super(props)
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+    this.state = {
+      latitude: null,
+      longitude: null,
+      isLoading: false,
+      isError: false,
+    }
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+    this.onError = this.onError.bind(this)
+  }
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+  onError(error){
+    console.log(error)
+    this.setState({
+      isLoading: false,
+      isError: true
+    })
+  }
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+  componentDidMount() {
+    if ("geolocation" in navigator) {
+      this.setState({isLoading: true})
+      navigator.geolocation.getCurrentPosition((position) => {
+         const point = [position.coords.longitude, position.coords.latitude]
+         const {features} = this.props.regions
+
+         const region = getCurrentRegion(point, features)
+
+         console.log(region)
+
+         this.setState({
+           latitude: position.coords.latitude,
+           longitude: position.coords.longitude,
+           region: region,
+           isLoading: false
+         })
+       }, (error) => this.onError(error));
+
+     } else {
+        this.onError({code: 0})
+     }
+  }
+
+  render(){
+
+    if (this.state.isLoading) return (<>loading..</>)
+    if (this.state.isError) return (<>errore</>)
+    return (
+      <div>
+        {this.state.region?.map((region) => <div key={region}>{region.name}</div>)}
+      </div>
+    )
+  }
+}
+
+
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch('https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_IT_regions.geojson')
+  const regions = await res.json()
+
+  return {
+    props: {
+      regions
+    },
+  }
 }
