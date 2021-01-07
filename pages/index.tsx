@@ -12,7 +12,7 @@ export default class Index extends Component {
 			latitude: null,
 			longitude: null,
 			isLoading: false,
-			isError: false,
+			isError: false
 		}
 
 		this.onError = this.onError.bind(this)
@@ -28,9 +28,9 @@ export default class Index extends Component {
 
 
 	componentDidMount() {
-		if ("geolocation" in navigator) {
+		if ('geolocation' in navigator) {
 			this.setState({ isLoading: true })
-			navigator.geolocation.getCurrentPosition((position) => {
+			navigator.geolocation.getCurrentPosition(position => {
 				const point = [position.coords.longitude, position.coords.latitude]
 				const { features } = this.props.regions
 				const region = getCurrentRegion({ point, features })
@@ -38,10 +38,10 @@ export default class Index extends Component {
 				this.setState({
 					latitude: position.coords.latitude,
 					longitude: position.coords.longitude,
-					region: region,
+					region,
 					isLoading: false
 				})
-			}, (error) => this.onError(error));
+			},error => this.onError(error))
 
 		} else {
 			this.onError({ code: 0 })
@@ -54,7 +54,7 @@ export default class Index extends Component {
 		if (this.state.isError) return (<>errore</>)
 		return (
 			<div>
-				{this.state.region ?.map((region) => <div key={region}>{region.name}</div>)}
+				{this.state.region ?.map(region => <div key={region}>{region.name}</div>)}
 			</div>
 		)
 	}
@@ -66,6 +66,6 @@ export async function getStaticProps() {
 	return {
 		props: {
 			regions
-		},
+		}
 	}
 }
