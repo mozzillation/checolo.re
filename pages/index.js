@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import Head from 'next/head'
 
-import getCurrentRegion from './api/getCurrentRegion'
+import getCurrentRegion from '@api/getCurrentRegion'
 
 export default class Index extends Component{
 
@@ -33,10 +33,7 @@ export default class Index extends Component{
       navigator.geolocation.getCurrentPosition((position) => {
          const point = [position.coords.longitude, position.coords.latitude]
          const {features} = this.props.regions
-
-         const region = getCurrentRegion(point, features)
-
-         console.log(region)
+         const region = getCurrentRegion({point, features})
 
          this.setState({
            latitude: position.coords.latitude,

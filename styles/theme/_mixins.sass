@@ -1,0 +1,65 @@
+// Event wrapper
+// @author Harry Roberts
+// @param {Bool} $self [false] - Whether or not to include current selector
+// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+=on-event($self: false)
+  @if $self
+    &,
+    &:hover,
+    &:active
+      @content
+  @else
+    &:hover,
+    &:active
+      @content
+
+// Make a context based selector a little more friendly
+// @author Hugo Giraudel
+// @param {String} $context
+=when-inside($context)
+  #{$context} &
+    @content
+
+/**
+ * Animate properties
+ * @param {String} - properties you want to animate
+=animate($transitions...)
+  $unfoldedTransitions: ()
+
+  @each $transition in $transitions
+    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma)
+
+  transition: $unfoldedTransitions
+  -webkit-transition: $unfoldedTransitions
+  -moz-transition: $unfoldedTransitions
+  -o-transition: $unfoldedTransitions
+  -ms-transition: $unfoldedTransitions
+
+/**
+ * Define aspect ratio of element
+=aspect-ratio($width, $height)
+  position: relative
+
+  &:before
+    display: block
+    content: ""
+    width: 100%
+    padding-top: $height / $width * 100%
+
+  > div
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+/**
+ * Breakpoint helper
+=mq($mq-breakpoint, $mq-breakpoints: $breakpoints)
+  // If $mq-breakpoint is a key that exists in
+  // $mq-breakpoints, get and use the value
+  @if map-has-key($mq-breakpoints, $mq-breakpoint)
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
+
+  @media screen and (max-width: #{$mq-breakpoint})
+    @content

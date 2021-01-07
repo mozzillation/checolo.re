@@ -1,0 +1,75 @@
+{
+  "extends": ["tslint:recommended", "tslint-react"],
+  "rules": {
+    "arrow-parens": [
+      true,
+      "ban-single-arg-parens"
+    ],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "static-field",
+          "static-method",
+          "instance-field",
+          "constructor",
+          "instance-method"
+        ]
+      }
+    ],
+    "only-arrow-functions": [
+      true,
+      "allow-named-functions"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape",
+      "avoid-template"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never",
+        "esSpecCompliant": true
+      }
+    ],
+    "interface-name": [
+      false,
+      "never-prefix"
+    ],
+    "curly": [
+      true,
+      "ignore-same-line"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-module",
+      "check-preblock"
+    ],
+    "object-literal-sort-keys": false,
+    "no-var-requires": false,
+    "max-classes-per-file": false,
+    "forin": false
+  },
+  "jsRules": {
+    "max-line-length": {
+      "options": [
+        160
+      ]
+    }
+  }
+}
