@@ -10,6 +10,9 @@
     "typecheck": "tsc --noEmit",
     "precommit": "concurrently --kill-others-on-fail -n \"lint-fix,typecheck\" -c \"cyan.bold,yellow.bold,green.bold\" \"yarn:lint-fix\" \"yarn:typecheck\""
   },
+  "pre-commit": [
+    "precommit"
+  ],
   "dependencies": {
     "@turf/turf": "^5.1.6",
     "@types/geojson": "^7946.0.7",

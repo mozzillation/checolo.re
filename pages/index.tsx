@@ -1,10 +1,19 @@
 import { Component } from 'react'
 import Head from 'next/head'
 
+import { IndexProps } from '@utils/domain'
 import getCurrentRegion from '@api/getCurrentRegion'
 import getRegionsGeoJson from '@api/getRegionsGeoJson'
 
-export default class Index extends Component {
+interface IndexState {
+	latitude: number
+	longitude: number
+	isLoading: boolean
+	isError: boolean
+	region: any[]
+}
+
+export default class Index extends Component<IndexProps, IndexState> {
 
 	constructor(props) {
 		super(props)
@@ -12,14 +21,14 @@ export default class Index extends Component {
 			latitude: null,
 			longitude: null,
 			isLoading: false,
-			isError: false
+			isError: false,
+			region: null
 		}
 
 		this.onError = this.onError.bind(this)
 	}
 
 	onError(error) {
-		console.log(error)
 		this.setState({
 			isLoading: false,
 			isError: true
@@ -41,7 +50,7 @@ export default class Index extends Component {
 					region,
 					isLoading: false
 				})
-			},error => this.onError(error))
+			}, error => this.onError(error))
 
 		} else {
 			this.onError({ code: 0 })
