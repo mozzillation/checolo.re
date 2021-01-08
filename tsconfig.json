@@ -19,8 +19,8 @@
     "jsx": "preserve",
     "paths": {
       "@/*": ["*"],
-      "@api/*": ["pages/api/*"],
-      "@utils/*": ["utils/*"],
+      "@api": ["pages/api/index.ts"],
+      "@utils": ["utils/index.ts"],
       "@globals": ["styles/globals.sass"],
       "@theme": ["styles/theme/index.sass"],
       "@component/*": ["components/*"],

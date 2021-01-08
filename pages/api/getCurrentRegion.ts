@@ -1,5 +1,19 @@
 import * as d3 from 'd3-geo'
-import { GetCurrentRegionProps } from '@utils/domain'
+import { Feature } from 'geojson'
+
+export interface GetCurrentRegionProps {
+	point: number[]
+	features: Feature[]
+}
+
+
+/**
+ * Returns current user region by point
+ *
+ * @param {array} point current coord of user
+ * @param {array} features list of all Italian Regions
+ * @return {array} region(s) as array of properties
+ */
 
 const getCurrentRegion = ({ point, features }: GetCurrentRegionProps) => {
 	const currentRegion = new Array()
@@ -11,7 +25,6 @@ const getCurrentRegion = ({ point, features }: GetCurrentRegionProps) => {
 			})
 		}
 	})
-
 	return currentRegion
 }
 

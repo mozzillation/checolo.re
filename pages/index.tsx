@@ -1,20 +1,24 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import Head from 'next/head'
 
-import { IndexProps } from '@utils/domain'
-import getCurrentRegion from '@api/getCurrentRegion'
-import getRegionsGeoJson from '@api/getRegionsGeoJson'
+import { getCurrentRegion, getRegionsGeoJson } from '@api'
+
+import { Feature, FeatureCollection } from 'geojson'
+import { GetStaticProps } from 'next'
+
+interface IndexProps {
+	regions: FeatureCollection
+}
 
 interface IndexState {
 	latitude: number
 	longitude: number
 	isLoading: boolean
 	isError: boolean
-	region: any[]
+	region: null | any[]
 }
 
 export default class Index extends Component<IndexProps, IndexState> {
-
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -37,12 +41,16 @@ export default class Index extends Component<IndexProps, IndexState> {
 
 
 	componentDidMount() {
+
 		if ('geolocation' in navigator) {
+
 			this.setState({ isLoading: true })
-			navigator.geolocation.getCurrentPosition(position => {
+
+			navigator.geolocation.getCurrentPosition(async position => {
+
 				const point = [position.coords.longitude, position.coords.latitude]
 				const { features } = this.props.regions
-				const region = getCurrentRegion({ point, features })
+				const region = await getCurrentRegion({ point, features })
 
 				this.setState({
 					latitude: position.coords.latitude,
@@ -59,6 +67,7 @@ export default class Index extends Component<IndexProps, IndexState> {
 
 	render() {
 
+
 		if (this.state.isLoading) return (<>loading..</>)
 		if (this.state.isError) return (<>errore</>)
 		return (
@@ -69,8 +78,9 @@ export default class Index extends Component<IndexProps, IndexState> {
 	}
 }
 
+// ————————————————————————————————————————————————————————————————————————————
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
 	const regions = await getRegionsGeoJson()
 	return {
 		props: {
