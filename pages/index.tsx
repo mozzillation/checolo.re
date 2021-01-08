@@ -1,82 +1,65 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+
 
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
 
 import { Feature, FeatureCollection } from 'geojson'
 import { GetStaticProps } from 'next'
 
-interface IndexProps {
-	regions: FeatureCollection
-}
+
+import { PrimaryBtn } from '@component/Button'
 
 interface IndexState {
-	latitude: number
-	longitude: number
-	isLoading: boolean
-	isError: boolean
-	region: null | any[]
+	loading?: boolean
+	error?: boolean
+	region?: null | any[]
 }
 
-export default class Index extends Component<IndexProps, IndexState> {
-	constructor(props) {
-		super(props)
-		this.state = {
-			latitude: null,
-			longitude: null,
-			isLoading: false,
-			isError: false,
-			region: null
-		}
+const Index = ({ regions }: { regions: FeatureCollection }) => {
 
-		this.onError = this.onError.bind(this)
-	}
+	const [loading, setLoading] = useState(false)
+	const [error, setError] = useState(false)
+	const [region, setRegion] = useState(null)
 
-	onError(error) {
-		this.setState({
-			isLoading: false,
-			isError: true
-		})
+	const router = useRouter()
+
+
+	const onError = (err: { code: number, message: string }) => {
+		setLoading(false)
+		setLoading(true)
 	}
 
 
-	componentDidMount() {
-
+	const onGetLocation = () => {
 		if ('geolocation' in navigator) {
 
-			this.setState({ isLoading: true })
+			setLoading(true)
 
 			navigator.geolocation.getCurrentPosition(async position => {
-
 				const point = [position.coords.longitude, position.coords.latitude]
-				const { features } = this.props.regions
-				const region = await getCurrentRegion({ point, features })
+				const { features } = regions
+				const currentRegion = await getCurrentRegion({ point, features })
 
-				this.setState({
-					latitude: position.coords.latitude,
-					longitude: position.coords.longitude,
-					region,
-					isLoading: false
-				})
-			}, error => this.onError(error))
+				setRegion(currentRegion)
+				router.push(`/region/${currentRegion[0].name}`)
 
+			}, err => onError(err))
 		} else {
-			this.onError({ code: 0 })
+			onError({ code: 0, message: 'not authorized' })
 		}
 	}
 
-	render() {
+	if (loading) return (<>loading...</>)
+	if (error) return (<>errore</>)
 
-
-		if (this.state.isLoading) return (<>loading..</>)
-		if (this.state.isError) return (<>errore</>)
-		return (
-			<div>
-				{this.state.region ?.map(region => <div key={region}>{region.name}</div>)}
-			</div>
-		)
-	}
+	return (
+		<PrimaryBtn onClick={onGetLocation}>Vai alla mia regione</PrimaryBtn>
+	)
 }
+
+export default Index
 
 // ————————————————————————————————————————————————————————————————————————————
 
