@@ -50,7 +50,8 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 						...prev.appState,
 						loading: false
 					},
-					detectedRegion
+					detectedRegion,
+					selectedRegion: detectedRegion
 				}))
 
 				Router.push(`/region/${detectedRegion.name.toLowerCase()}`)
