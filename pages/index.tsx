@@ -1,58 +1,68 @@
-import React, { Component, useState } from 'react'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-
-
-import { getCurrentRegion, getRegionsGeoJson } from '@api'
-
-import { Feature, FeatureCollection } from 'geojson'
+import React, { useContext } from 'react'
+import Router from 'next/router'
 import { GetStaticProps } from 'next'
+import { FeatureCollection } from 'geojson'
 
+import { GlobalContext } from '@/components/GlobalContext'
+import { getCurrentRegion, getRegionsGeoJson } from '@api'
 
 import { PrimaryBtn } from '@component/Button'
 
-interface IndexState {
-	loading?: boolean
-	error?: boolean
-	region?: null | any[]
-}
-
 const Index = ({ regions }: { regions: FeatureCollection }) => {
 
-	const [loading, setLoading] = useState(false)
-	const [error, setError] = useState(false)
-	const [region, setRegion] = useState(null)
+	const [globalContext, dispatch] = useContext(GlobalContext)
 
-	const router = useRouter()
-
-
-	const onError = (err: { code: number, message: string }) => {
-		setLoading(false)
-		setLoading(true)
+	const onError = (error: { code: number, message: string }) => {
+		dispatch(prev => ({
+			...prev,
+			appState: {
+				...prev.appState,
+				error: true
+			},
+			error
+		}))
 	}
-
 
 	const onGetLocation = () => {
 		if ('geolocation' in navigator) {
 
-			setLoading(true)
+			dispatch(prev => ({
+				...prev,
+				appState: {
+					...prev.appState,
+					loading: true
+				}
+			}))
 
-			navigator.geolocation.getCurrentPosition(async position => {
-				const point = [position.coords.longitude, position.coords.latitude]
+			navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+				const point = [coords.longitude, coords.latitude]
 				const { features } = regions
-				const currentRegion = await getCurrentRegion({ point, features })
+				const detectedRegionList = await getCurrentRegion({ point, features })
 
-				setRegion(currentRegion)
-				router.push(`/region/${currentRegion[0].name}`)
+				const [detectedRegion] = detectedRegionList
 
-			}, err => onError(err))
+				// Save detected region
+				window.sessionStorage.setItem('detected_region', JSON.stringify(detectedRegion))
+
+				dispatch(prev => ({
+					...prev,
+					appState: {
+						...prev.appState,
+						loading: false
+					},
+					detectedRegion
+				}))
+
+				Router.push(`/region/${detectedRegion.name.toLowerCase()}`)
+
+			}, onError)
 		} else {
 			onError({ code: 0, message: 'not authorized' })
 		}
 	}
 
-	if (loading) return (<>loading...</>)
-	if (error) return (<>errore</>)
+	if (globalContext.appState.error) return (<>errore</>)
+	if (globalContext.appState.loading) return (<>loading...</>)
 
 	return (
 		<PrimaryBtn onClick={onGetLocation}>Vai alla mia regione</PrimaryBtn>
