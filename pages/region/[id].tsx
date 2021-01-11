@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '@/components/GlobalContext'
+import { Footer } from '@/components/Footer/Footer'
 
 
 const SingleRegion: React.FC = () => {
@@ -9,6 +10,7 @@ const SingleRegion: React.FC = () => {
 	return (
 		<>
 			qui singola pagina
+			<Footer />
 		</>
 	)
 }
