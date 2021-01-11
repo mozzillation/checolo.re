@@ -6,7 +6,8 @@ import { FeatureCollection } from 'geojson'
 import { GlobalContext } from '@component/GlobalContext'
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
 
-import { PrimaryBtn } from '@component/Button'
+import Flex from '@component/Flex'
+import { PrimaryBtn, SecondaryBtn } from '@component/Button'
 
 const Index = ({ regions }: { regions: FeatureCollection }) => {
 
@@ -67,11 +68,21 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 		}
 	}
 
-	if (globalContext.appState.error) return (<>errore</>)
-	if (globalContext.appState.loading) return (<>loading...</>)
-
 	return (
-		<PrimaryBtn onClick={onGetLocation}>Vai alla mia regione</PrimaryBtn>
+
+		<>
+			<Flex backgroundColor="#000000">
+				{globalContext.appState.error ? <>errore</> : null}
+				{globalContext.appState.loading ? <>loading...</> : null}
+
+				<div style={{ paddingBottom: 16 }}>
+					<PrimaryBtn onClick={onGetLocation}>Vai alla mia regione</PrimaryBtn>
+				</div>
+				<div>
+					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
+				</div>
+			</Flex>
+		</>
 	)
 }
 

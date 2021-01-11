@@ -1,9 +1,7 @@
 @import @theme
 
-.Primary
+.Primary, .Secondary
   width: auto
-  background: $black
-  color: $white
   outline: 0
   border: 0
   padding: $margin-smaller $margin
@@ -12,3 +10,14 @@
   text-transform: uppercase
   letter-spacing: 2px
   line-height: 24px
+  cursor: pointer
+  background: transparent
+  align-self: auto
+
+.Primary
+  background: $white
+  color: $black
+
+.Secondary
+  border: 2px solid $white
+  color: $white
