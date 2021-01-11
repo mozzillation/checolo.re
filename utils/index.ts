@@ -1,3 +1,4 @@
 import logger from './logger'
+import sessionStorageProperty from './sessionStorageProperty'
 
-export { logger }
+export { logger, sessionStorageProperty }
