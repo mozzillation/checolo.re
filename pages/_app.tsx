@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { GlobalContextProvider, INITIAL_STATE } from '@/components/GlobalContext'
+import { GlobalContextProvider, INITIAL_STATE } from '@component/GlobalContext'
 
 import '@globals'
 

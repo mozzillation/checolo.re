@@ -3,7 +3,7 @@ import Router from 'next/router'
 import { GetStaticProps } from 'next'
 import { FeatureCollection } from 'geojson'
 
-import { GlobalContext } from '@/components/GlobalContext'
+import { GlobalContext } from '@component/GlobalContext'
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
 
 import { PrimaryBtn } from '@component/Button'
@@ -33,6 +33,12 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 					loading: true
 				}
 			}))
+
+
+
+
+
+
 
 			navigator.geolocation.getCurrentPosition(async ({ coords }) => {
 				const point = [coords.longitude, coords.latitude]
