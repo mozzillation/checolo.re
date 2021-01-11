@@ -6,6 +6,7 @@ import { FeatureCollection } from 'geojson'
 import { GlobalContext } from '@component/GlobalContext'
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
 
+import Loading from '@component/Loading'
 import Flex from '@component/Flex'
 import { PrimaryBtn, SecondaryBtn } from '@component/Button'
 
@@ -18,6 +19,7 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 			...prev,
 			appState: {
 				...prev.appState,
+				false: false,
 				error: true
 			},
 			error
@@ -35,12 +37,6 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 				}
 			}))
 
-
-
-
-
-
-
 			navigator.geolocation.getCurrentPosition(async ({ coords }) => {
 				const point = [coords.longitude, coords.latitude]
 				const { features } = regions
@@ -55,7 +51,7 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 					...prev,
 					appState: {
 						...prev.appState,
-						loading: false
+						loading: true
 					},
 					detectedRegion
 				}))
@@ -71,9 +67,9 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 	return (
 
 		<>
-			<Flex backgroundColor="#000000">
+			<Flex backgroundColor='#000000'>
 				{globalContext.appState.error ? <>errore</> : null}
-				{globalContext.appState.loading ? <>loading...</> : null}
+				{globalContext.appState.loading ? <Loading /> : null}
 
 				<div style={{ paddingBottom: 16 }}>
 					<PrimaryBtn onClick={onGetLocation}>Vai alla mia regione</PrimaryBtn>
