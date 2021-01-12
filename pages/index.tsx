@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Router from 'next/router'
 import { GetStaticProps } from 'next'
 import { FeatureCollection } from 'geojson'
-
+import { AnimatePresence } from 'framer-motion'
 import { GlobalContext } from '@component/GlobalContext'
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
 
@@ -19,8 +19,8 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 			...prev,
 			appState: {
 				...prev.appState,
-				false: false,
-				error: true
+				error: true,
+				loading: false
 			},
 			error
 		}))
@@ -28,7 +28,6 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 	const onGetLocation = () => {
 		if ('geolocation' in navigator) {
-
 			dispatch(prev => ({
 				...prev,
 				appState: {
@@ -49,10 +48,6 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 				dispatch(prev => ({
 					...prev,
-					appState: {
-						...prev.appState,
-						loading: true
-					},
 					detectedRegion
 				}))
 
@@ -65,24 +60,29 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 	}
 
 	return (
-
-		<>
-			<Flex backgroundColor='#000000'>
+		<Flex>
+			<AnimatePresence>
 				{globalContext.appState.error ? <>errore</> : null}
 				{globalContext.appState.loading ? <Loading /> : null}
 
-				<div style={{ paddingBottom: 16 }}>
+				<div style={{ paddingBottom: 16 }} key={1}>
 					<PrimaryBtn onClick={onGetLocation}>Vai alla mia regione</PrimaryBtn>
 				</div>
-				<div>
+				<div key={2}>
 					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
 				</div>
-			</Flex>
-		</>
+
+			</AnimatePresence>
+
+		</Flex>
 	)
+
+
+
 }
 
 export default Index
+
 
 // ————————————————————————————————————————————————————————————————————————————
 

@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
-import { GlobalContext } from '@/components/GlobalContext'
-
+import { GlobalContext } from '@component/GlobalContext'
+import Flex from '@component/Flex'
 
 const SingleRegion: React.FC = () => {
 
 	const [globalContext, dispatch] = useContext(GlobalContext)
 
 	return (
-		<>
-			qui singola pagina
-		</>
+		<Flex>
+			Lombardia
+		</Flex>
 	)
 }
 

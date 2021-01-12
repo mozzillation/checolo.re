@@ -2,7 +2,7 @@ import { Component, createRef } from 'react'
 import styles from './Loading.module.sass'
 import { Circle } from 'phosphor-react'
 import { Back, gsap } from 'gsap'
-
+import { motion } from 'framer-motion'
 
 
 class Loading extends Component {
@@ -38,11 +38,11 @@ class Loading extends Component {
 
 	render() {
 		return (
-			<div className={styles.Loading} >
-				<Circle size={16} weight='fill' ref={this.Circle1} color={'#fff'} />
-				<Circle size={16} weight='fill' ref={this.Circle2} color={'#fff'} />
-				<Circle size={16} weight='fill' ref={this.Circle3} color={'#fff'} />
-			</div>
+			<motion.div className={styles.Loading} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
+				<Circle size={16} weight='fill' ref={this.Circle1} color={'#ffd602'} />
+				<Circle size={16} weight='fill' ref={this.Circle2} color={'#ff8200'} />
+				<Circle size={16} weight='fill' ref={this.Circle3} color={'#f03f22'} />
+			</motion.div>
 		)
 	}
 }
