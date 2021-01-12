@@ -28,6 +28,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sass": "^1.32.2",
+    "smoothscroll-polyfill": "^0.4.4",
     "tslint-react": "^5.0.0"
   },
   "devDependencies": {
