@@ -1,7 +1,10 @@
 @import theme/colors
 
+.wrapper
+  color: black
+
 .hero
-  min-height: 90vh
+  min-height: 100vh
   background-color: $yellow
   display: flex
   flex-direction: column
@@ -24,3 +27,16 @@
 
 .furtherMessage
   padding-bottom: 0.5rem
+
+.furtherIndicator svg
+  animation: down 4s cubic-bezier(0.35,0,0,0.35) infinite
+
+@keyframes down
+  0%
+    transform: translate3d(0, 0%, 0)
+  5%
+    transform: translate3d(0, 80%, 0)
+  10%
+    transform: translate3d(0, 80%, 0)
+  20%
+    transform: translate3d(0, 0%, 0)

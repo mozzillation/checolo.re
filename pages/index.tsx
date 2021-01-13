@@ -1,14 +1,14 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Router from 'next/router'
 import { GetStaticProps } from 'next'
 import { FeatureCollection } from 'geojson'
-import { AnimatePresence } from 'framer-motion'
 import { GlobalContext } from '@component/GlobalContext'
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
 
 import Loading from '@component/Loading'
 import Flex from '@component/Flex'
 import { PrimaryBtn, SecondaryBtn } from '@component/Button'
+import { motion } from 'framer-motion'
 
 const Index = ({ regions }: { regions: FeatureCollection }) => {
 
@@ -27,58 +27,90 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 	}
 
 	const onGetLocation = () => {
-		if ('geolocation' in navigator) {
-			dispatch(prev => ({
-				...prev,
-				appState: {
-					...prev.appState,
-					loading: true
-				}
-			}))
 
-			navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-				const point = [coords.longitude, coords.latitude]
-				const { features } = regions
-				const detectedRegionList = await getCurrentRegion({ point, features })
+		let detectedRegion
 
-				const [detectedRegion] = detectedRegionList
+		const locationFromSession = window.sessionStorage.getItem('detected_region')
 
-				// Save detected region
-				window.sessionStorage.setItem('detected_region', JSON.stringify(detectedRegion))
-
+		if (locationFromSession) {
+			// If there's already location data in storage,
+			// we use that data...
+			detectedRegion = JSON.parse(locationFromSession)
+			// ...otherwise we query location data
+		} else {
+			// if device supports geolocation
+			if ('geolocation' in navigator) {
 				dispatch(prev => ({
 					...prev,
 					appState: {
 						...prev.appState,
-						loading: false
-					},
-					detectedRegion,
-					selectedRegion: detectedRegion
+						loading: true
+					}
 				}))
+				// get position
+				navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+					const point = [coords.longitude, coords.latitude]
+					const { features } = regions
+					const detectedRegionList = await getCurrentRegion({ point, features })
+					// get the first detected region
+					detectedRegion = detectedRegionList[0]
+					// save detected region in storage
+					window.sessionStorage.setItem('detected_region', JSON.stringify(detectedRegion))
 
-				Router.push(`/region/${detectedRegion.name.toLowerCase()}`)
-
-			}, onError)
-		} else {
-			onError({ code: 0, message: 'not authorized' })
+				}, onError)
+				// if device DOES NOT support geolocation...
+			} else {
+				// ...we should redirect to region selection!
+				onError({ code: 0, message: 'not authorized' })
+			}
 		}
+
+		// if everything went well, we redirect user to proper region page
+		Router.push(`/region/${detectedRegion.name.toLowerCase()}`)
+
+		dispatch(prev => ({
+			...prev,
+			appState: {
+				...prev.appState,
+				loading: false
+			},
+			detectedRegion,
+			selectedRegion: detectedRegion
+		}))
+
+	}
+
+	// temporary, just to have some funnn
+	const v = {
+		animate: { transition: { staggerChildren: 0.15 } },
+		exit: { transition: { staggerChildren: 0.15, when: 'afterChildren' } }
+	}
+
+	const chv = {
+		initial: { opacity: 0, scale: 0.8, y: 20 },
+		animate: { opacity: 1, scale: 1, y: 0 },
+		exit: { opacity: 0, scale: 0.8, y: -60 }
 	}
 
 	return (
 		<Flex>
-			<AnimatePresence>
-				{globalContext.appState.error ? <>errore</> : null}
-				{globalContext.appState.loading ? <Loading /> : null}
+			{globalContext.appState.error ? <>errore</> : null}
+			{globalContext.appState.loading ? <Loading /> : null}
 
-				<div style={{ paddingBottom: 16 }} key={1}>
+			<motion.div
+				initial='initial'
+				animate='animate'
+				exit='exit'
+				variants={v}
+				style={{ textAlign: 'center' }}
+			>
+				<motion.div style={{ paddingBottom: 16 }} variants={chv} key={1}>
 					<PrimaryBtn onClick={onGetLocation}>Vai alla mia regione</PrimaryBtn>
-				</div>
-				<div key={2}>
+				</motion.div>
+				<motion.div variants={chv} key={2}>
 					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
-				</div>
-
-			</AnimatePresence>
-
+				</motion.div>
+			</motion.div>
 		</Flex>
 	)
 

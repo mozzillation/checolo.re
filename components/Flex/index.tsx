@@ -1,7 +1,13 @@
 import React from 'react'
 import styles from './Flex.module.sass'
 
-const Flex = ({ backgroundColor, children }: { backgroundColor?: string, children?: React.ReactNode }) => {
+interface FlexProps {
+	backgroundColor?: string,
+	children?: React.ReactNode
+}
+
+const Flex = (
+	{ backgroundColor, children }: FlexProps) => {
 
 	return (
 		<div className={styles.Flex} style={{ backgroundColor }}>

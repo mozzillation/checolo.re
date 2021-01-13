@@ -1,49 +1,67 @@
 import React, { useContext } from 'react'
-import { GlobalContext } from '@component/GlobalContext'
-import Flex from '@component/Flex'
-import { Footer } from '@/components/Footer/Footer'
+import { motion } from 'framer-motion'
+import { CaretDoubleDown } from 'phosphor-react'
 
-import { DatePicker } from '@/components/DatePicker'
-import { Toolbar } from '@/components/Toolbar/Toolbar'
+import { GlobalContext } from '@component/GlobalContext'
+import { DatePicker } from '@component/DatePicker'
+import { Toolbar } from '@component/Toolbar/Toolbar'
+import { Footer } from '@component/Footer/Footer'
 
 import styles from '@/styles/[id].module.sass'
-import { useRouter } from 'next/router'
-import { CaretDoubleDown } from 'phosphor-react'
+import Loading from '@/components/Loading'
+
+const HERO_VARIANTS = {
+	initial: { opacity: 0 },
+	animate: { opacity: 1, transition: { when: 'beforeChildren' } },
+	exit: { opacity: 0 }
+}
+
+const MESSAGE_VARIANTS = {
+	initial: { opacity: 0, y: 50, transition: { delay: 0.5 } },
+	animate: { opacity: 1, y: 0, transition: { delay: 0.5 } },
+	exit: { opacity: 0, y: -50 }
+}
 
 const SingleRegion: React.FC = () => {
 
-	const { query } = useRouter()
-
-	const regionName = query.id
-
 	const [{ selectedRegion }, dispatch] = useContext(GlobalContext)
 
-	return (<>
-		<Flex>
-			<div className={styles.hero} >
-				<Toolbar currentRegion={regionName} />
+	return selectedRegion ? (
+		<div className={styles.wrapper}>
+			<motion.div className={styles.hero}
+				initial='initial'
+				animate='animate'
+				exit='exit'
+				variants={HERO_VARIANTS}
+			>
+				<Toolbar currentRegion={selectedRegion.name} />
 				<DatePicker />
 				<Message>
-					<span>{regionName}</span> è in zona gialla
+					<span>{selectedRegion.name}</span> è in zona gialla
 				</Message>
 				<FurtherContentIndicator>
 					Cosa puoi fare?
 				</FurtherContentIndicator>
-			</div>
+			</motion.div>
 			<div>
 				Lista di cose
 			</div>
 			<Footer />
-		</Flex>
-	</>
-	)
+		</div>
+	) : <Loading />
 }
 
 const Message = ({ children }) => {
-	return <div className={styles.messageWrapper}>
-		<h2>{children}</h2>
-	</div>
 
+	return <motion.div
+		className={styles.messageWrapper}
+		initial='initial'
+		animate='animate'
+		exit='exit'
+		variants={MESSAGE_VARIANTS}
+	>
+		<h2>{children}</h2>
+	</motion.div>
 }
 
 const FurtherContentIndicator = ({ children }) => {

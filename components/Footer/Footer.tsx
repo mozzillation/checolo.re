@@ -20,7 +20,6 @@ export function Footer() {
       <div className={styles.content}>
         <div className={styles.logo}>Zone···Covid</div>
         <div className={styles.links}>
-          <a>Ciao</a>
           <div>Info</div>
           <div>Segnala un problema</div>
           <div>Privacy Policy</div>
