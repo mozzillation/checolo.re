@@ -1,5 +1,5 @@
 it:
-  last_update: 12/01/2021
+  last_update: 14/01/2021
   regions:
     0:
       area: abr
@@ -87,35 +87,27 @@ it:
       website: https://www.regione.veneto.it/web/guest/emergenza-coronavirus?articleId=7435047
   rules:
     0:
-      #title: "Ti puoi spostare solo per lavoro, motivi di salute o necessità"
       title: "È meglio se resti a casa"
-      #subtitle: "Per farlo ti serve l'autocertificazione"
       subtitle: "Ma se proprio devi uscire, porta con te l'autocertificazione"
       zone: rossa
     1:
-      #title: "Ti puoi muovere all'interno del tuo comune"
       title: "Puoi spostarti nel tuo comune, fino alle 22"
-      #subtitle: "Dalle 5 alle 22. Per il resto della giornata ti serve l'autocertificazione"
       subtitle: "O nel raggio di 30km se vivi in un comune con meno di 5000 abitanti"
       zone: arancio
     2: 
       title: "Puoi muoverti nella tua regione, fino alle 22"
-      #subtitle: "Dalle 5 alle 22. Per il resto della giornata ti serve l'autocertificazione"
       subtitle: "Se esci più tardi, porta con te l'autocertificazione"
       zone: gialla
     3: 
       title: "Puoi andare al supermercato"
-      #subtitle: "Solo dove ti è consentito spostarsi"
       subtitle: "Anche in un altro comune se non c'è nel tuo"
       zone: tutte
     4:
       title: "Puoi andare a fare una passeggiata"
-      #subtitle: "Ti è consentito solo vicino a casa dalle 5 alle 22"
       subtitle: "Ma non allontanarti troppo da casa :)"
       zone: rossa
     5:
       title: "Puoi andare a fare una passeggiata"
-      #subtitle: "Puoi camminare all'interno del tuo comune dalle 5 alle 22"
       subtitle: "Ma rimani nel tuo comune :)"
       zone: arancio
     6:
@@ -126,44 +118,20 @@ it:
       title: "Puoi raggiungere il tuo luogo di culto preferito"
       subtitle: "Solo dove ti è consentito spostarti"
       zone: tutte
-    8: 
-      title: "Puoi andare a gettare i rifiuti"
-      subtitle: "Ricordati di fare la differenziata"
-      zone: tutte
     9: 
       title: "Puoi uscire con il tuo animale da compagnia"
       subtitle: "Dove ti è consentito spostarti"
       zone: tutte
-    10:
-      title: "Puoi portare il tuo animale domestico dal veterinario"
-      subtitle: "In caso di urgenza e ti serve l'autocertificazione"
-      zone: tutte
     11:
-      title: "Puoi andare a fare sport"
+      title: "Puoi fare sport e andare in bici"
       subtitle: "Da solo e unicamente dove ti puoi spostare"
       zone: tutte
-    12:
-      title: "Puoi andare al parco"
-      subtitle: "Solo dove ti puoi spostare"
-      zone: tutte
-    13:
-      title: "Puoi andare a fare un giro in bici"
-      subtitle: "Solo dove ti puoi spostare"
-      zone: tutte
     14:
-      title: "Puoi accompagnare o prendere un amico/familiare che non puo usare un mezzo proprio"
-      subtitle: :Porta l'autocertificazione"
-    #15: 
-      #title: "Puoi ordinare del cibo a domicilio"
-      #subtitle: "Se è domenica sera consigliamo Pizza"
-      #zone: tutte
+      title: "Puoi accompagnare un'altra persona che non puo usare un mezzo proprio"
+      subtitle: "Porta l'autocertificazione"
     16:
       title: "Puoi andare a prendere del cibo da asporto"
       subtitle: "Solo dove ti puoi spostare e fino alle 20"
-      zone: tutte
-    17:
-      title: "Sempre aperte farmacie, parafarmacie, tabacchi ed edicole"
-      subtitle: "Oltre a tutti i negozi di alimentari"
       zone: tutte
     19:
       title: "Puoi andare a tagliarti i capelli"
@@ -173,7 +141,7 @@ it:
       title: "Puoi mangiare al ristorante o al bar"
       #subtitle: "Dalle 5 alle 18"
       subtitle: "Fino alle 18"
-      zona: gialla
+      zone: gialla
   misc:
     autocertificazione:
       title: "Scarica l'autocertificazione"
