@@ -24,6 +24,7 @@
       "@globals": ["styles/globals.sass"],
       "@theme": ["styles/theme/index.sass"],
       "@component/*": ["components/*"],
+      "@layout/*": ["layouts/*"],
       "@data/*": ["data/*"]
     },
     "rootDir": ".",

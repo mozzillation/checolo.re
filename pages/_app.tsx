@@ -1,14 +1,35 @@
 import { useEffect, useState } from 'react'
-import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { AppProps } from 'next/app'
+import { AnimatePresence } from 'framer-motion'
+
+
 import { GlobalContextProvider, INITIAL_STATE } from '@component/GlobalContext'
+import Page from '@layout/Page'
 
 import '@globals'
 import { sessionStorageProperty } from '@/utils'
 
-export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+export default function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
 
-	const globalState = useState(INITIAL_STATE)
+	const globalContext = useState(INITIAL_STATE)
+	const [globalState, dispatch] = globalContext
+
+	useEffect(() => {
+		const sessionData = window.sessionStorage.getItem('detected_region')
+
+		if (sessionData) {
+			const data = JSON.parse(sessionData)
+
+			dispatch(prev => ({
+				...prev,
+				detectedRegion: data,
+				selectedRegion: data
+			}))
+		}
+	}, [])
+
+	const { route } = router
 
 	useEffect(() => {
 
@@ -16,7 +37,6 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 			.then(detectedRegion => {
 
 				if (detectedRegion) {
-					const [_, dispatch] = globalState
 
 					dispatch(prev => ({
 						...prev,
@@ -34,8 +54,12 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 				<title>Zone Covid</title>
 				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 			</Head>
-			<GlobalContextProvider value={globalState}>
-				<Component {...pageProps} />
+			<GlobalContextProvider value={globalContext}>
+				<AnimatePresence exitBeforeEnter={true}>
+					<Page key={route}>
+						<Component {...pageProps} />
+					</Page>
+				</AnimatePresence>
 			</GlobalContextProvider>
 		</>
 	)
