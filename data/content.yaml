@@ -4,86 +4,107 @@ it:
     0:
       area: abr
       name: Abruzzo
+      declarative: L'Abruzzo è
       website: http://www.regione.abruzzo.it/content/ordinanze-circolari-comunicazioni
     1:
       area:
       name: Basilicata
+      declarative: La Basilicata è
       website: https://www.regione.basilicata.it/giunta/site/giunta/department.jsp?dep=100061&area=3064484&level=0
     2:
       area: cal
       name: Calabria
+      declarative: La Calabria è
       website: https://www.rcovid19.it/category/notizie/ordinanze/
     3:
       area: cam
       name: Campania
+      declarative: La Campania è
       website: http://www.regione.campania.it/regione/it/la-tua-campania/coronavirus-kyxz/ordinanze-del-presidente-della-regione-campania?page=1
     4:
       area: emr
       name: Emilia-Romagna
+      declarative: L'Emilia-Romagna è
       website: https://www.regione.emilia-romagna.it/coronavirus/norme
     5:
       area: fvg
       name: Friuli-Venezia Giulia
+      declarative: Il Friuli-Venezia Giulia è
       website: http://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/COVID19/
     6:
       area: laz
       name: Lazio
+      declarative: IL Lazio è
       website: https://www.salutelazio.it/notizie-dalla-regione-lazio
     7:
       area: lig
       name: Liguria
+      declarative: La Liguria è
       website: https://www.regione.liguria.it//homepage/salute-e-sociale/homepage-coronavirus.html
     8:
       area: lom
       name: Lombardia
+      declarative: La Lombardia è
       website: https://www.regione.lombardia.it/wps/portal/istituzionale/HP/coronavirus/misure
     9:
       area: mar
       name: Marche
+      declarative: Le Marche sono
       website: https://www.regione.marche.it/Regione-Utile/Salute/Coronavirus#Ordinanze-e-disposizioni
     10:
       area: mol
       name: Molise
+      declarative: Il Molise è
       website: http://www3.regione.molise.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/17083
     11:
       area: pab
       name: Provincia autonoma di Bolzano
+      declarative: La Provincia autonoma di Bolzano è
       website: http://www.provincia.bz.it/sicurezza-protezione-civile/protezione-civile/coronavirus.asp
     12:
       area: pat
       name: Provincia autonoma di Trento
+      declarative: La Provincia autonoma di Trento è
       website: https://www.ufficiostampa.provincia.tn.it/CORONAVIRUS-Aggiornamenti-e-comunicazioni
     13:
       area: pie
       name: Piemonte
+      declarative: Il Piemonte è
       website: https://www.regione.piemonte.it/web/temi/sanita/coronavirus-piemonte-ordinanze-circolari-disposizioni-attuative
     14:
       area: pug
       name: Puglia
+      declarative: La Puglia è
       website: https://regione.puglia.it/web/speciale-coronavirus
     15:
       area: sar
       name: Sardegna
+      declarative: La Sardegna è
       website: https://www.regione.sardegna.it/j/v/2573?&s=1&v=9&c=94254&n=10&nd=1
     16:
       area: sic
       name: Sicilia
+      declarative: La Sicilia è
       website: http://pti.regione.sicilia.it/portal/page/portal/PIR_PORTALE/PIR_Covid19OrdinanzePresidenzadellaRegione
     17:
       area: tos
       name: Toscana
+      declarative: La Toscana è
       website: https://www.regione.toscana.it/-/coronavirus
     18:
       area: umb
       name: Umbria
+      declarative: L'Umbria è
       website: https://www.regione.umbria.it/ordinanze-documenti-e-decreti-coronavirus
     19:
       area: vda
       name: Valle d'Aosta
+      declarative: La Valle d'Aosta è
       website: https://www.regione.vda.it/pressevda/Eventi/decreti_ordinanze_i.aspx
     20:
       area: ven
       name: Veneto
+      declarative: Il Veneto è
       website: https://www.regione.veneto.it/web/guest/emergenza-coronavirus?articleId=7435047
   rules:
     0:
