@@ -54,7 +54,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 		<>
 			{(globalState.appState.error ||
 				globalState.appState.loading) && <Flex>
-					{globalState.appState.error ? <>errore</> : null}
+					{/* {globalState.appState.error ? <>errore</> : null} */}
 					{globalState.appState.loading ? <Loading /> : null}
 				</Flex>}
 

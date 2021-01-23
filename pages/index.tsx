@@ -8,6 +8,9 @@ import { getCurrentRegion, getRegionsGeoJson } from '@api'
 import Flex from '@component/Flex'
 import { PrimaryBtn, SecondaryBtn } from '@component/Button'
 import { motion } from 'framer-motion'
+import { NavigationArrow } from 'phosphor-react'
+
+import styles from '../styles/index.module.sass'
 
 const Index = ({ regions }: { regions: FeatureCollection }) => {
 
@@ -21,8 +24,15 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 				error: true,
 				loading: false
 			},
-			error
+			error,
+			detectedRegion,
+			selectedRegion: detectedRegion
 		}))
+
+		const detectedRegion = { name: 'lombardia', code: 3 }
+
+		Router.push(`/region/${detectedRegion.name}`)
+
 	}
 
 	const onGetLocation = () => {
@@ -85,33 +95,53 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 	// temporary, just to have some funnn
 	const v = {
-		animate: { transition: { staggerChildren: 0.15 } },
-		exit: { transition: { staggerChildren: 0.15, when: 'afterChildren' } }
+		initial: { opacity: 0, transition: { staggerChildren: 0.15, staggerDirection: -1, when: 'beforeChildren' } },
+		animate: { opacity: 1, transition: { staggerChildren: 0.15 } },
+		exit: { opacity: 0, transition: { staggerChildren: 0.15, staggerDirection: -1, when: 'afterChildren' } }
 	}
 
 	const chv = {
-		initial: { opacity: 0, scale: 0.8, y: 20 },
+		initial: { opacity: 0, scale: 1, y: 200 },
 		animate: { opacity: 1, scale: 1, y: 0 },
-		exit: { opacity: 0, scale: 0.8, y: -60 }
+		exit: { opacity: 0, scale: 1, y: 200 }
 	}
 
 	return (
-		<Flex>
+		<motion.div className={styles.wrapper}>
 			<motion.div
 				initial='initial'
 				animate='animate'
 				exit='exit'
 				variants={v}
-				style={{ textAlign: 'center' }}
+				className={styles.mainContent}
+			>
+				<img src='/logo.svg' />
+				<span>Cosa puoi fare nella tua regione?</span>
+			</motion.div>
+			<motion.div
+				initial='initial'
+				animate='animate'
+				exit='exit'
+				variants={v}
+				className={styles.actionContainer}
 			>
 				<motion.div style={{ paddingBottom: 16 }} variants={chv} key={1}>
-					<PrimaryBtn onClick={onGetLocation}>Vai alla mia regione</PrimaryBtn>
+					<PrimaryBtn onClick={onGetLocation}>
+						<div style={{ display: 'flex', justifyContent: 'center' }}>
+							<span style={{ paddingRight: '.75rem' }}>Usa la mia posizione</span>
+							<NavigationArrow
+								size={24}
+								weight='fill'
+								mirrored={true}
+								style={{ alignSelf: 'center' }} />
+						</div>
+					</PrimaryBtn>
 				</motion.div>
 				<motion.div variants={chv} key={2}>
 					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
 				</motion.div>
 			</motion.div>
-		</Flex>
+		</motion.div>
 	)
 
 
