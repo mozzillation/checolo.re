@@ -119,6 +119,20 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78159",
                 "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_3_file.pdf",
+                "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "16/01/2021",
+                "date_end": "24/01/2021",
+                "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78456",
+                "priority": 0
             }
         ]
     },
@@ -206,6 +220,13 @@
                 "date_start": "10/01/2021",
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
+                "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_3_file.pdf",
                 "priority": 0
             }
         ]
@@ -302,6 +323,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78157",
                 "priority": 0
+            },
+            {
+                "code": 3,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_1_file.pdf",
+                "priority": 0
             }
         ]
     },
@@ -397,6 +425,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78160",
                 "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "16/01/2021",
+                "date_end": "24/01/2021",
+                "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78456",
+                "priority": 0
             }
         ]
     },
@@ -477,6 +512,13 @@
                 "date_start": "10/01/2021",
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
+                "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_3_file.pdf",
                 "priority": 0
             }
         ]
@@ -559,6 +601,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78156",
                 "priority": 0
+            },
+            {
+                "code": 3,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_0_file.pdf",
+                "priority": 0
             }
         ]
     },
@@ -625,6 +674,13 @@
                 "date_start": "10/01/2021",
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78158",
+                "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "16/01/2021",
+                "date_end": "24/01/2021",
+                "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78456",
                 "priority": 0
             }
         ]
@@ -707,6 +763,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
                 "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_3_file.pdf",
+                "priority": 0
             }
         ]
     },
@@ -787,6 +850,13 @@
                 "date_start": "10/01/2021",
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
+                "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_3_file.pdf",
                 "priority": 0
             }
         ]
@@ -883,6 +953,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
                 "priority": 0
+            },
+            {
+                "code": 1,
+                "date_start": "16/01/2021",
+                "date_end": "05/03/2021",
+                "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78456",
+                "priority": 0
             }
         ]
     },
@@ -963,6 +1040,13 @@
                 "date_start": "10/01/2021",
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
+                "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_3_file.pdf",
                 "priority": 0
             }
         ]
@@ -1045,6 +1129,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
                 "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_3_file.pdf",
+                "priority": 0
             }
         ]
     },
@@ -1111,6 +1202,13 @@
                 "date_start": "10/01/2021",
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
+                "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_3_file.pdf",
                 "priority": 0
             }
         ]
@@ -1200,6 +1298,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
                 "priority": 0
+            },
+            {
+                "code": 2,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_3_file.pdf",
+                "priority": 0
             }
         ]
     },
@@ -1266,6 +1371,13 @@
                 "date_start": "10/01/2021",
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
+                "priority": 0
+            },
+            {
+                "code": 1,
+                "date_start": "16/01/2021",
+                "date_end": "05/03/2021",
+                "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78456",
                 "priority": 0
             }
         ]
@@ -1362,6 +1474,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
                 "priority": 0
+            },
+            {
+                "code": 1,
+                "date_start": "16/01/2021",
+                "date_end": "05/03/2021",
+                "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78456",
+                "priority": 0
             }
         ]
     },
@@ -1450,6 +1569,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
                 "priority": 0
+            },
+            {
+                "code": 1,
+                "date_start": "16/01/2021",
+                "date_end": "05/03/2021",
+                "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78456",
+                "priority": 0
             }
         ]
     },
@@ -1516,6 +1642,13 @@
                 "date_start": "10/01/2021",
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
+                "priority": 0
+            },
+            {
+                "code": 1,
+                "date_start": "16/01/2021",
+                "date_end": "05/03/2021",
+                "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78456",
                 "priority": 0
             }
         ]
@@ -1605,6 +1738,13 @@
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
                 "priority": 0
+            },
+            {
+                "code": 3,
+                "date_start": "17/01/2021",
+                "date_end": "31/01/2021",
+                "link": "http://www.salute.gov.it/imgs/C_17_notizie_5272_2_file.pdf",
+                "priority": 0
             }
         ]
     },
@@ -1671,6 +1811,13 @@
                 "date_start": "10/01/2021",
                 "date_end": "15/01/2021",
                 "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAttoById?id=78114",
+                "priority": 0
+            },
+            {
+                "code": 1,
+                "date_start": "16/01/2021",
+                "date_end": "05/03/2021",
+                "link": "https://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=78456",
                 "priority": 0
             }
         ]

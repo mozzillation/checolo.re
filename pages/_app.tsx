@@ -9,6 +9,8 @@ import Page from '@layout/Page'
 
 import '@globals'
 import { sessionStorageProperty } from '@/utils'
+import Loading from '@/components/Loading'
+import Flex from '@/components/Flex'
 
 export default function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
 
@@ -50,6 +52,12 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 
 	return (
 		<>
+			{(globalState.appState.error ||
+				globalState.appState.loading) && <Flex>
+					{globalState.appState.error ? <>errore</> : null}
+					{globalState.appState.loading ? <Loading /> : null}
+				</Flex>}
+
 			<Head>
 				<title>Zone Covid</title>
 				<meta name='viewport' content='width=device-width, initial-scale=1.0' />

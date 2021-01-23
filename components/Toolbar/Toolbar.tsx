@@ -1,5 +1,4 @@
-import { Skeleton } from '../Skeleton'
-import { CaretDown } from 'phosphor-react'
+import { CaretDown, Info } from 'phosphor-react'
 import { motion } from 'framer-motion'
 
 import styles from './Toolbar.module.sass'
@@ -9,9 +8,9 @@ const duration = 0.5
 const transition = { type: 'tween', ease: 'easeOut', delay, duration }
 
 const V = {
-  initial: { opacity: 0, y: -100, transition },
+  initial: { opacity: 0, y: -200, transition },
   animate: { opacity: 1, y: 0, transition },
-  exit: { opacity: 0, y: -100, transition }
+  exit: { opacity: 0, y: -200, transition }
 }
 
 export function Toolbar({ currentRegion }: { currentRegion: string | string[] }) {
@@ -24,13 +23,15 @@ export function Toolbar({ currentRegion }: { currentRegion: string | string[] })
   >
     <div className={styles.selectorWrapper}>
       <div className={styles.currentRegion}>
-        {currentRegion ? currentRegion : <Skeleton />}
+        {currentRegion}
         <div className={styles.dropdownIcon}>
           <CaretDown size={21} weight={'bold'} />
         </div>
       </div>
     </div>
-    <div>info</div>
+    <div>
+      <Info size={21} weight={'bold'} />
+    </div>
   </motion.div>
 
 }

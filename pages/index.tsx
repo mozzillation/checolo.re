@@ -5,7 +5,6 @@ import { FeatureCollection } from 'geojson'
 import { GlobalContext } from '@component/GlobalContext'
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
 
-import Loading from '@component/Loading'
 import Flex from '@component/Flex'
 import { PrimaryBtn, SecondaryBtn } from '@component/Button'
 import { motion } from 'framer-motion'
@@ -98,9 +97,6 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 	return (
 		<Flex>
-			{globalContext.appState.error ? <>errore</> : null}
-			{globalContext.appState.loading ? <Loading /> : null}
-
 			<motion.div
 				initial='initial'
 				animate='animate'

@@ -1,10 +1,11 @@
 @import theme/colors
+@import theme/metrics
 
 .wrapper
   color: black
 
 .hero
-  min-height: 100vh
+  min-height: 90vh
   background-color: $yellow
   display: flex
   flex-direction: column
@@ -15,9 +16,8 @@
   display: flex
   justify-content: center
   align-items: center
-
-.messageWrapper span
-  text-transform: capitalize
+  text-align: center
+  padding: 1rem
 
 .furtherIndicator
   padding-bottom: 1rem
@@ -30,6 +30,26 @@
 
 .furtherIndicator svg
   animation: down 4s cubic-bezier(0.35,0,0,0.35) infinite
+
+.activityCard
+  margin: 0 0.5rem
+  padding: 1rem 0.5rem
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15)
+
+.activityCard > *
+  margin: 0.5rem 0
+  display: block
+  text-align: center
+
+.activityCard .emoji
+  font-size: $size-1
+
+.activityCard .title
+  font-size: $size-5
+
+.activityCard .subtitle
+  opacity: .5
+  font-size: $size-7
 
 @keyframes down
   0%
