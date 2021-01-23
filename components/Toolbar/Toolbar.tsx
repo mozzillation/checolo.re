@@ -15,12 +15,7 @@ const V = {
 
 export function Toolbar({ currentRegion }: { currentRegion: string | string[] }) {
 
-  return <motion.div className={styles.wrapper}
-    initial='initial'
-    animate='animate'
-    exit='exit'
-    variants={V}
-  >
+  return <motion.div className={styles.wrapper}>
     <div className={styles.selectorWrapper}>
       <div className={styles.currentRegion}>
         {currentRegion}

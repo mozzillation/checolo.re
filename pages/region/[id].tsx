@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
-import { motion } from 'framer-motion'
 import { CaretDoubleDown } from 'phosphor-react'
 
 import { GlobalContext } from '@component/GlobalContext'
@@ -10,18 +9,6 @@ import { Toolbar } from '@component/Toolbar/Toolbar'
 import { Footer } from '@component/Footer/Footer'
 
 import styles from '@/styles/[id].module.sass'
-
-const HERO_VARIANTS = {
-	initial: { opacity: 0 },
-	animate: { opacity: 1, transition: { when: 'beforeChildren' } },
-	exit: { opacity: 0 }
-}
-
-const MESSAGE_VARIANTS = {
-	initial: { opacity: 0, y: 50, transition: { delay: 0.5 } },
-	animate: { opacity: 1, y: 0, transition: { delay: 0.5 } },
-	exit: { opacity: 0, y: -50 }
-}
 
 const ZONES_PROPERTIES = {
 	1: {
@@ -45,6 +32,18 @@ const ZONES_PROPERTIES = {
 		},
 		zoneName: 'rossa'
 	}
+}
+
+const HERO_VARIANTS = {
+	initial: { opacity: 0 },
+	animate: { opacity: 1, transition: { when: 'beforeChildren' } },
+	exit: { opacity: 0 }
+}
+
+const MESSAGE_VARIANTS = {
+	initial: { opacity: 0, y: 50, transition: { delay: 0.5 } },
+	animate: { opacity: 1, y: 0, transition: { delay: 0.5 } },
+	exit: { opacity: 0, y: -50 }
 }
 
 const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element => {
@@ -71,12 +70,10 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 	}, [])
 
 	return (
-		<div className={styles.wrapper}>
-			<motion.div className={styles.hero}
-				initial='initial'
-				animate='animate'
-				exit='exit'
-				variants={HERO_VARIANTS}
+		<motion.div className={styles.wrapper}
+			variants={GLOBAL_PAGE_VARIANT}
+		>
+			<div className={styles.hero}
 				style={zoneProps.style}
 			>
 				<Toolbar currentRegion={region} />
@@ -87,7 +84,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 				<FurtherContentIndicator>
 					Cosa si può fare?
 				</FurtherContentIndicator>
-			</motion.div>
+			</div>
 
 			<div className={styles.activities} style={{ backgroundColor: 'white', height: '100vh' }}>
 				<ActivityCard content={null} />
@@ -96,7 +93,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 			</div>
 
 			<Footer />
-		</div>
+		</motion.div>
 	)
 }
 
@@ -117,15 +114,9 @@ const ActivityCard = ({ content }) => {
 
 const Message = ({ children }) => {
 
-	return <motion.div
-		className={styles.messageWrapper}
-		initial='initial'
-		animate='animate'
-		exit='exit'
-		variants={MESSAGE_VARIANTS}
-	>
+	return <div className={styles.messageWrapper}>
 		<h2>{children}</h2>
-	</motion.div>
+	</div>
 }
 
 const FurtherContentIndicator = ({ children }) => {
@@ -160,6 +151,8 @@ import fs from 'fs'
 import path from 'path'
 import process from 'process'
 import * as yaml from 'js-yaml'
+import { motion } from 'framer-motion'
+import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const id: string = params.id.toString()

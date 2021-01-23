@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "npm run build && next export",
     "start": "next start",
     "lint-fix": "tslint --fix -p .",
     "typecheck": "tsc --noEmit",
