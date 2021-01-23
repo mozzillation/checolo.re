@@ -1,4 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { motion } from 'framer-motion'
 import { CaretDoubleDown } from 'phosphor-react'
 
@@ -8,7 +10,6 @@ import { Toolbar } from '@component/Toolbar/Toolbar'
 import { Footer } from '@component/Footer/Footer'
 
 import styles from '@/styles/[id].module.sass'
-import Loading from '@/components/Loading'
 
 const HERO_VARIANTS = {
 	initial: { opacity: 0 },
@@ -22,11 +23,14 @@ const MESSAGE_VARIANTS = {
 	exit: { opacity: 0, y: -50 }
 }
 
-const SingleRegion: React.FC = () => {
-
+const SingleRegion = ({ region, data }: AppProps): JSX.Element => {
 	const [{ selectedRegion }, dispatch] = useContext(GlobalContext)
 
-	return selectedRegion ? (
+	useEffect(() => {
+		// console.log(region, data)
+	}, [])
+
+	return (
 		<div className={styles.wrapper}>
 			<motion.div className={styles.hero}
 				initial='initial'
@@ -34,10 +38,10 @@ const SingleRegion: React.FC = () => {
 				exit='exit'
 				variants={HERO_VARIANTS}
 			>
-				<Toolbar currentRegion={selectedRegion.name} />
+				<Toolbar currentRegion={region} />
 				<DatePicker />
 				<Message>
-					<span>{selectedRegion.name}</span> è in zona gialla
+					<span>{region}</span> è in zona gialla
 				</Message>
 				<FurtherContentIndicator>
 					Cosa puoi fare?
@@ -48,7 +52,7 @@ const SingleRegion: React.FC = () => {
 			</div>
 			<Footer />
 		</div>
-	) : <Loading />
+	)
 }
 
 const Message = ({ children }) => {
@@ -73,3 +77,33 @@ const FurtherContentIndicator = ({ children }) => {
 }
 
 export default SingleRegion
+
+// ————————————————————————————————————————————————————————————————————————————
+
+import dataset from '@data/dataset.json'
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	const paths = Object.entries(dataset).map(([name]) => {
+		const id = name
+		return {
+			params: { id }
+		}
+	})
+
+	return {
+		paths,
+		fallback: false
+	}
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	const id: string = params.id.toString()
+	const data = dataset[id]
+
+	return {
+		props: {
+			region: id,
+			data
+		}
+	}
+}

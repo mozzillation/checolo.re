@@ -21,7 +21,7 @@ const getCurrentRegion = ({ point, features }: GetCurrentRegionProps) => {
 	features.map(region => {
 		if (geoContains(region, point)) {
 			currentRegion.push({
-				'name': region.properties.reg_name,
+				'name': region.properties.reg_name.toLowerCase(),
 				'code': region.properties.reg_istat_code_num
 			})
 		}

@@ -36,6 +36,15 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 			// If there's already location data in storage,
 			// we use that data...
 			detectedRegion = JSON.parse(locationFromSession)
+
+			dispatch(prev => ({
+				...prev,
+				detectedRegion,
+				selectedRegion: detectedRegion
+			}))
+			// if everything went well, we redirect user to proper region page
+			Router.push(`/region/${detectedRegion.name}`)
+
 			// ...otherwise we query location data
 		} else {
 			// if device supports geolocation
@@ -57,6 +66,14 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 					// save detected region in storage
 					window.sessionStorage.setItem('detected_region', JSON.stringify(detectedRegion))
 
+					dispatch(prev => ({
+						...prev,
+						detectedRegion,
+						selectedRegion: detectedRegion
+					}))
+					// if everything went well, we redirect user to proper region page
+					Router.push(`/region/${detectedRegion.name}`)
+
 				}, onError)
 				// if device DOES NOT support geolocation...
 			} else {
@@ -64,19 +81,6 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 				onError({ code: 0, message: 'not authorized' })
 			}
 		}
-
-		// if everything went well, we redirect user to proper region page
-		Router.push(`/region/${detectedRegion.name.toLowerCase()}`)
-
-		dispatch(prev => ({
-			...prev,
-			appState: {
-				...prev.appState,
-				loading: false
-			},
-			detectedRegion,
-			selectedRegion: detectedRegion
-		}))
 
 	}
 
