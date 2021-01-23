@@ -95,15 +95,15 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 	// temporary, just to have some funnn
 	const v = {
-		initial: { opacity: 0, transition: { staggerChildren: 0.15, staggerDirection: -1, when: 'beforeChildren' } },
+		initial: { opacity: 1, transition: { staggerChildren: 0.15, when: 'beforeChildren' } },
 		animate: { opacity: 1, transition: { staggerChildren: 0.15 } },
-		exit: { opacity: 0, transition: { staggerChildren: 0.15, staggerDirection: -1, when: 'afterChildren' } }
+		exit: { opacity: 1, transition: { staggerChildren: 0.15, staggerDirection: -1, when: 'afterChildren' } }
 	}
 
 	const chv = {
-		initial: { opacity: 0, scale: 1, y: 200 },
-		animate: { opacity: 1, scale: 1, y: 0 },
-		exit: { opacity: 0, scale: 1, y: 200 }
+		initial: { opacity: 1 },
+		animate: { opacity: 1 },
+		exit: { opacity: 1 }
 	}
 
 	return (
