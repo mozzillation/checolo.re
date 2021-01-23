@@ -52,22 +52,25 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 
 	return (
 		<>
-			{(globalState.appState.error ||
-				globalState.appState.loading) && <Flex>
-					{/* {globalState.appState.error ? <>errore</> : null} */}
-					{globalState.appState.loading ? <Loading /> : null}
-				</Flex>}
-
 			<Head>
 				<title>Zone Covid</title>
 				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 			</Head>
+
+			{(globalState.appState.error ||
+				globalState.appState.loading) && (
+					<Flex>
+						{/* {globalState.appState.error ? <>errore</> : null} */}
+						{globalState.appState.loading ? <Loading /> : null}
+					</Flex>
+				)}
+
 			<GlobalContextProvider value={globalContext}>
-				<AnimatePresence exitBeforeEnter={true}>
-					<Page key={route}>
-						<Component {...pageProps} />
-					</Page>
-				</AnimatePresence>
+				<Page>
+					<AnimatePresence exitBeforeEnter={true}>
+						<Component {...pageProps} key={route} />
+					</AnimatePresence>
+				</Page>
 			</GlobalContextProvider>
 		</>
 	)

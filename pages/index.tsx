@@ -5,12 +5,11 @@ import { FeatureCollection } from 'geojson'
 import { GlobalContext } from '@component/GlobalContext'
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
 
-import Flex from '@component/Flex'
 import { PrimaryBtn, SecondaryBtn } from '@component/Button'
-import { motion } from 'framer-motion'
 import { NavigationArrow } from 'phosphor-react'
 
 import styles from '../styles/index.module.sass'
+import { motion } from 'framer-motion'
 
 const Index = ({ regions }: { regions: FeatureCollection }) => {
 
@@ -31,7 +30,9 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 		const detectedRegion = { name: 'lombardia', code: 3 }
 
-		Router.push(`/region/${detectedRegion.name}`)
+		Router.push('/region/[id].js', `/region/${detectedRegion.name}`, {
+			shallow: true
+		})
 
 	}
 
@@ -52,7 +53,9 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 				selectedRegion: detectedRegion
 			}))
 			// if everything went well, we redirect user to proper region page
-			Router.push(`/region/${detectedRegion.name}`)
+			Router.push('/region/[id].js', `/region/${detectedRegion.name}`, {
+				shallow: true
+			})
 
 			// ...otherwise we query location data
 		} else {
@@ -81,7 +84,9 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 						selectedRegion: detectedRegion
 					}))
 					// if everything went well, we redirect user to proper region page
-					Router.push(`/region/${detectedRegion.name}`)
+					Router.push('/region/[id].js', `/region/${detectedRegion.name}`, {
+						shallow: true
+					})
 
 				}, onError)
 				// if device DOES NOT support geolocation...
@@ -107,25 +112,22 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 	}
 
 	return (
-		<motion.div className={styles.wrapper}>
-			<motion.div
-				initial='initial'
-				animate='animate'
-				exit='exit'
-				variants={v}
+		<motion.div className={styles.wrapper}
+			initial='initial'
+			animate='animate'
+			exit='exit'
+			variants={v}
+		>
+			<div
 				className={styles.mainContent}
 			>
 				<img src='/logo.svg' />
 				<span>Cosa puoi fare nella tua regione?</span>
-			</motion.div>
-			<motion.div
-				initial='initial'
-				animate='animate'
-				exit='exit'
-				variants={v}
+			</div>
+			<div
 				className={styles.actionContainer}
 			>
-				<motion.div style={{ paddingBottom: 16 }} variants={chv} key={1}>
+				<div style={{ paddingBottom: 16 }} key={1}>
 					<PrimaryBtn onClick={onGetLocation}>
 						<div style={{ display: 'flex', justifyContent: 'center' }}>
 							<span style={{ paddingRight: '.75rem' }}>Usa la mia posizione</span>
@@ -136,11 +138,11 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 								style={{ alignSelf: 'center' }} />
 						</div>
 					</PrimaryBtn>
-				</motion.div>
-				<motion.div variants={chv} key={2}>
+				</div>
+				<div key={2}>
 					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
-				</motion.div>
-			</motion.div>
+				</div>
+			</div>
 		</motion.div>
 	)
 
