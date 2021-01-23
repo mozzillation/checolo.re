@@ -76,7 +76,7 @@ def extract_data(dataset):
     return buffer
 
 
-with open('fetcher/dpc-covid-19-ita-aree-nuove-g.json', 'r') as input_file:
+with open('fetcher/dpc-covid-19-aree-nuove-g.json', 'r') as input_file:
     file_data = input_file.read()
     output = extract_data(file_data)
 
