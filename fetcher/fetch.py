@@ -2,16 +2,16 @@ import os
 import zipfile
 import urllib.request
 
-main_dir = './fetcher/'
 url = 'https://github.com/pcm-dpc/COVID-19/blob/master/aree/geojson/dpc-covid-19-aree-nuove-g-json.zip?raw=true'
-file_name = 'file.zip'
+archive_name = 'file.zip'
+file_name = 'dpc-covid-19-aree-nuove-g.json'
 
-local_path = main_dir + file_name
 
+def run(dir_name):
+    zip_path = dir_name + archive_name
 
-def execute():
-    urllib.request.urlretrieve(url, local_path)
+    urllib.request.urlretrieve(url, zip_path)
 
-    with zipfile.ZipFile(local_path, 'r') as zip_ref:
-        zip_ref.extractall(main_dir)
-        os.remove(local_path)
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(dir_name)
+        os.remove(zip_path)

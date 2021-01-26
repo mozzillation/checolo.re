@@ -1,3 +1,0 @@
-data/*.json filter=lfs diff=lfs merge=lfs -text
-data/*.geojson filter=lfs diff=lfs merge=lfs -text
-fetcher/dpc-covid-19-aree-nuove-g.json filter=lfs diff=lfs merge=lfs -text
