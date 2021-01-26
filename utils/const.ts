@@ -3,7 +3,7 @@ import { Power4 } from 'gsap'
 export const GLOBAL_PAGE_VARIANT = {
 	initial: {
 		opacity: 0,
-		y: 50,
+		y: 50
 	},
 	animate: {
 		opacity: 1,
@@ -15,7 +15,7 @@ export const GLOBAL_PAGE_VARIANT = {
 			staggerChildren: 0.1,
 			staggerDirection: 1,
 			when: 'beforeChildren',
-			delayChildren: 10,
+			delayChildren: 10
 		}
 	},
 	exit: {

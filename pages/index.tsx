@@ -111,9 +111,9 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 			<motion.div
 				className={styles.mainContent}
 				variants={chv}
-				initial="initial"
-				animate="animate"
-				exit="exit"
+				initial='initial'
+				animate='animate'
+				exit='exit'
 				transition={{ duration: 0.5 }}
 			>
 				<img src='/logo.svg' />
@@ -122,9 +122,9 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 			<motion.div
 				className={styles.actionContainer}
 				variants={chv}
-				initial="initial"
-				animate="animate"
-				exit="exit"
+				initial='initial'
+				animate='animate'
+				exit='exit'
 			>
 				<div style={{ paddingBottom: 16 }} key={1}>
 					<PrimaryBtn onClick={onGetLocation}>
