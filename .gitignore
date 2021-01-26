@@ -36,4 +36,3 @@ yarn.lock
 
 # python
 __pycache__
-data/dataset.json
