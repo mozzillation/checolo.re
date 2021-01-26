@@ -18,7 +18,7 @@ export const GLOBAL_PAGE_VARIANT = {
 		y: 0,
 		transition: {
 			staggerChildren: 0.15,
-			duration: 0.5,
+			duration: 1,
 			ease: Power4.easeInOut
 		}
 	},

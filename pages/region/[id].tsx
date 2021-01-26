@@ -71,7 +71,12 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 	}, [])
 
 	return (
-		<Page>
+		<motion.div className={styles.wrapper}
+			variants={GLOBAL_PAGE_VARIANT}
+			initial='initial'
+			animate='animate'
+			exit='exit'
+		>
 			<div className={styles.hero}
 				style={zoneProps.style}
 			>
@@ -92,7 +97,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 			</div>
 
 			<Footer />
-		</Page>
+		</motion.div>
 	)
 }
 

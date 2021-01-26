@@ -4,12 +4,13 @@ import { GetStaticProps } from 'next'
 import { FeatureCollection } from 'geojson'
 import { GlobalContext } from '@component/GlobalContext'
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
-import Page from '@layout/Page'
+
 import { PrimaryBtn, SecondaryBtn } from '@component/Button'
 import { NavigationArrow } from 'phosphor-react'
 
 import styles from '../styles/index.module.sass'
 import { motion } from 'framer-motion'
+import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
 
 const Index = ({ regions }: { regions: FeatureCollection }) => {
 
@@ -105,7 +106,13 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 	}
 
 	return (
-		<Page>
+		<motion.div
+			className={styles.wrapper}
+			variants={GLOBAL_PAGE_VARIANT}
+			initial='initial'
+			animate='animate'
+			exit='exit'
+		>
 			<div
 				className={styles.mainContent}
 			>
@@ -131,7 +138,7 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
 				</div>
 			</div>
-		</Page>
+		</motion.div>
 	)
 
 
