@@ -3,14 +3,13 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
-
-import { GlobalContextProvider, INITIAL_STATE } from '@component/GlobalContext'
+import { sessionStorageProperty } from '@/utils'
 import Page from '@layout/Page'
+import { GlobalContextProvider, INITIAL_STATE } from '@component/GlobalContext'
+import Loading from '@component/Loading'
+import Flex from '@component/Flex'
 
 import '@globals'
-import { sessionStorageProperty } from '@/utils'
-import Loading from '@/components/Loading'
-import Flex from '@/components/Flex'
 
 export default function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
 
@@ -31,13 +30,10 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 		}
 	}, [])
 
-	const { route } = router
-
 	useEffect(() => {
 
 		sessionStorageProperty('detected_region')
 			.then(detectedRegion => {
-
 				if (detectedRegion) {
 
 					dispatch(prev => ({
@@ -54,23 +50,24 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 		<>
 			<Head>
 				<title>Zone Covid</title>
-				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 			</Head>
 
-			{(globalState.appState.error ||
-				globalState.appState.loading) && (
-					<Flex>
-						{/* {globalState.appState.error ? <>errore</> : null} */}
-						{globalState.appState.loading ? <Loading /> : null}
-					</Flex>
-				)}
-
 			<GlobalContextProvider value={globalContext}>
-				<Page>
-					<AnimatePresence exitBeforeEnter={true}>
-						<Component {...pageProps} key={route} />
-					</AnimatePresence>
-				</Page>
+
+				{(globalState.appState.error ||
+					globalState.appState.loading) && (
+						<Flex>
+							{/* {globalState.appState.error ? <>errore</> : null} */}
+							{globalState.appState.loading ? <Loading /> : null}
+						</Flex>
+					)}
+
+				<AnimatePresence exitBeforeEnter={true}>
+					<Page key={router.route} >
+						<Component {...pageProps} />
+					</Page>
+				</AnimatePresence>
+
 			</GlobalContextProvider>
 		</>
 	)

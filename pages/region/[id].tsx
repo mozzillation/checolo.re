@@ -46,12 +46,6 @@ const MESSAGE_VARIANTS = {
 	exit: { opacity: 0, y: -50 }
 }
 
-const v = {
-	initial: { opacity: 0, transition: { staggerChildren: 0.15, staggerDirection: -1, when: 'beforeChildren' } },
-	animate: { opacity: 1, transition: { staggerChildren: 0.15 } },
-	exit: { opacity: 0, transition: { staggerChildren: 0.15, staggerDirection: -1, when: 'afterChildren' } }
-}
-
 const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element => {
 	const [{ appState, selectedRegion }, dispatch] = useContext(GlobalContext)
 
@@ -77,10 +71,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 
 	return (
 		<motion.div className={styles.wrapper}
-			initial='initial'
-			animate='animate'
-			exit='exit'
-			variants={v}
+			variants={GLOBAL_PAGE_VARIANT}
 		>
 			<div className={styles.hero}
 				style={zoneProps.style}
@@ -161,6 +152,7 @@ import path from 'path'
 import process from 'process'
 import * as yaml from 'js-yaml'
 import { motion } from 'framer-motion'
+import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const id: string = params.id.toString()

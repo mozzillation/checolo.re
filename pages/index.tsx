@@ -10,6 +10,7 @@ import { NavigationArrow } from 'phosphor-react'
 
 import styles from '../styles/index.module.sass'
 import { motion } from 'framer-motion'
+import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
 
 const Index = ({ regions }: { regions: FeatureCollection }) => {
 
@@ -98,13 +99,6 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 	}
 
-	// temporary, just to have some funnn
-	const v = {
-		initial: { opacity: 0, transition: { staggerChildren: 0.15, staggerDirection: -1, when: 'beforeChildren' } },
-		animate: { opacity: 1, transition: { staggerChildren: 0.15 } },
-		exit: { opacity: 0, transition: { staggerChildren: 0.15, staggerDirection: -1, when: 'afterChildren' } }
-	}
-
 	const chv = {
 		initial: { opacity: 0, scale: 1, y: 200 },
 		animate: { opacity: 1, scale: 1, y: 0 },
@@ -113,10 +107,7 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 	return (
 		<motion.div className={styles.wrapper}
-			initial='initial'
-			animate='animate'
-			exit='exit'
-			variants={v}
+			variants={GLOBAL_PAGE_VARIANT}
 		>
 			<div
 				className={styles.mainContent}
