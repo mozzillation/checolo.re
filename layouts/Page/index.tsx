@@ -1,29 +1,10 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import styles from './Page.module.sass'
+import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
 
-const V = {
-	initial: {
-		opacity: 0,
-		transition: {
-			staggerChildren: 0.15, staggerDirection: -1, when: 'beforeChildren'
-		}
-	},
-	animate: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.15
-		}
-	},
-	exit: {
-		opacity: 0,
-		transition: {
-			staggerChildren: 0.15, staggerDirection: -1, when: 'afterChildren'
-		}
-	}
-}
 
-const Page = ({ router, children }: { router: any, children?: React.ReactNode }) => {
+const Page = ({ children }: { children?: React.ReactNode }) => {
 
 	return (
 		<motion.div
@@ -31,8 +12,7 @@ const Page = ({ router, children }: { router: any, children?: React.ReactNode })
 			initial='initial'
 			animate='animate'
 			exit='exit'
-			variants={V}
-			key={router.asPath}
+			variants={GLOBAL_PAGE_VARIANT}
 		>
 			{children}
 		</motion.div>

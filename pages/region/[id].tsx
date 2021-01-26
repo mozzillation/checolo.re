@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { CaretDoubleDown } from 'phosphor-react'
+import Page from '@layout/Page'
 
 import { GlobalContext } from '@component/GlobalContext'
 import { DatePicker } from '@component/DatePicker'
@@ -70,9 +71,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 	}, [])
 
 	return (
-		<motion.div className={styles.wrapper}
-			variants={GLOBAL_PAGE_VARIANT}
-		>
+		<Page>
 			<div className={styles.hero}
 				style={zoneProps.style}
 			>
@@ -93,7 +92,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 			</div>
 
 			<Footer />
-		</motion.div>
+		</Page>
 	)
 }
 
