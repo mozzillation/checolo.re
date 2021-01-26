@@ -9,26 +9,27 @@ import { DatePicker } from '@component/DatePicker'
 import { Toolbar } from '@component/Toolbar/Toolbar'
 import { Footer } from '@component/Footer/Footer'
 
+
 import styles from '@/styles/[id].module.sass'
 
 const ZONES_PROPERTIES = {
 	1: {
 		style: {
-			backgroundColor: '#F0CE79',
+			backgroundColor: '#ffd602',
 			color: 'black'
 		},
 		zoneName: 'gialla'
 	},
 	2: {
 		style: {
-			backgroundColor: '#DF9D5E',
+			backgroundColor: '#ff8200',
 			color: 'black'
 		},
 		zoneName: 'arancione'
 	},
 	3: {
 		style: {
-			backgroundColor: '#C2594E',
+			backgroundColor: '#f03f22',
 			color: 'white'
 		},
 		zoneName: 'rossa'
@@ -71,35 +72,28 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 	}, [])
 
 	return (
-		<div className={styles.RegionPage}>
-			<motion.div className={styles.wrapper}
-				variants={GLOBAL_PAGE_VARIANT}
-				initial='initial'
-				animate='animate'
-				exit='exit'
+		<>
+			<div className={styles.hero}
+				style={zoneProps.style}
 			>
-				<div className={styles.hero}
-					style={zoneProps.style}
-				>
-					<Toolbar currentRegion={region} />
-					<DatePicker />
-					<Message>
-						<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
-					</Message>
-					<FurtherContentIndicator>
-						Cosa si può fare?
+				<Toolbar currentRegion={region} />
+				<DatePicker />
+				<Message>
+					<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
+				</Message>
+				<FurtherContentIndicator>
+					Cosa si può fare?
 				</FurtherContentIndicator>
-				</div>
+			</div>
 
-				<div className={styles.activities} style={{ backgroundColor: 'white', height: '100vh' }}>
-					<ActivityCard content={null} />
-					<ActivityCard content={null} />
-					<ActivityCard content={null} />
-				</div>
+			<div className={styles.activities} style={{ backgroundColor: 'white', height: '100vh' }}>
+				<ActivityCard content={null} />
+				<ActivityCard content={null} />
+				<ActivityCard content={null} />
+			</div>
 
-				<Footer />
-			</motion.div>
-		</div>
+			<Footer />
+		</>
 	)
 }
 
@@ -121,14 +115,22 @@ const ActivityCard = ({ content }) => {
 const Message = ({ children }) => {
 
 	return <div className={styles.messageWrapper}>
-		<h2>{children}</h2>
+		<h1>{children}</h1>
 	</div>
 }
 
 const FurtherContentIndicator = ({ children }) => {
 	return <div className={styles.furtherIndicator}>
 		<span className={styles.furtherMessage}>{children}</span>
-		<CaretDoubleDown size={21} weight='bold' />
+		<motion.div animate={{
+			y: [0, 10, 5, 10, 0],
+			transition: {
+				repeat: Infinity,
+				repeatDelay: 1
+			}
+		}}>
+			<CaretDoubleDown size={24} weight='bold' />
+		</motion.div>
 	</div>
 
 }

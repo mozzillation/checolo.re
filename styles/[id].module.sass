@@ -22,6 +22,9 @@
   text-align: center
   padding: 1rem
 
+  h1
+    font-size: $size-0
+
 .furtherIndicator
   padding-bottom: 1rem
   display: flex
@@ -31,13 +34,14 @@
 .furtherMessage
   padding-bottom: 0.5rem
 
-.furtherIndicator svg
-  animation: down 4s cubic-bezier(0.35, 0, 0, 0.35) infinite
+// .furtherIndicator svg
+//   animation: down 4s cubic-bezier(0.35, 0, 0, 0.35) infinite
 
 .activityCard
   margin: 0 0.5rem
   padding: 1rem 0.5rem
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15)
+  border-bottom: 1px solid $light-grey
+  color: $black
 
 .activityCard > *
   margin: 0.5rem 0
@@ -51,18 +55,5 @@
   font-size: $size-5
 
 .activityCard .subtitle
-  opacity: 0.5
+  color: transparentize($black, 0.6)
   font-size: $size-7
-
-@keyframes down
-  0%
-    transform: translate3d(0, 0%, 0)
-
-  5%
-    transform: translate3d(0, 80%, 0)
-
-  10%
-    transform: translate3d(0, 80%, 0)
-
-  20%
-    transform: translate3d(0, 0%, 0)

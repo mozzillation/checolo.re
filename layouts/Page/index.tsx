@@ -13,7 +13,7 @@ const Page = ({ router, children }: { router?: any, children?: React.ReactNode }
 			animate='animate'
 			exit='exit'
 			variants={GLOBAL_PAGE_VARIANT}
-			key={'page'}
+			key={router.route}
 		>
 			{children}
 		</motion.div>

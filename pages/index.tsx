@@ -100,47 +100,49 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 	}
 
 	const chv = {
-		initial: { opacity: 0, scale: 1, y: 200 },
-		animate: { opacity: 1, scale: 1, y: 0 },
-		exit: { opacity: 0, scale: 1, y: 200 }
+		initial: { opacity: 0 },
+		animate: { opacity: 1 },
+		exit: { opacity: 0 }
 	}
 
 	return (
-		<div className={styles.IndexPage}>
+		<>
+
 			<motion.div
-				className={styles.wrapper}
-				variants={GLOBAL_PAGE_VARIANT}
-				initial='initial'
-				animate='animate'
-				exit='exit'
+				className={styles.mainContent}
+				variants={chv}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+				transition={{ duration: 0.5 }}
 			>
-				<div
-					className={styles.mainContent}
-				>
-					<img src='/logo.svg' />
-					<span>Cosa puoi fare nella tua regione?</span>
+				<img src='/logo.svg' />
+				<span>Cosa puoi fare nella tua regione?</span>
+			</motion.div>
+			<motion.div
+				className={styles.actionContainer}
+				variants={chv}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
+				<div style={{ paddingBottom: 16 }} key={1}>
+					<PrimaryBtn onClick={onGetLocation}>
+						<div style={{ display: 'flex', justifyContent: 'center' }}>
+							<span style={{ paddingRight: '.75rem' }}>Usa la mia posizione</span>
+							<NavigationArrow
+								size={24}
+								weight='fill'
+								mirrored={true}
+								style={{ alignSelf: 'center' }} />
+						</div>
+					</PrimaryBtn>
 				</div>
-				<div
-					className={styles.actionContainer}
-				>
-					<div style={{ paddingBottom: 16 }} key={1}>
-						<PrimaryBtn onClick={onGetLocation}>
-							<div style={{ display: 'flex', justifyContent: 'center' }}>
-								<span style={{ paddingRight: '.75rem' }}>Usa la mia posizione</span>
-								<NavigationArrow
-									size={24}
-									weight='fill'
-									mirrored={true}
-									style={{ alignSelf: 'center' }} />
-							</div>
-						</PrimaryBtn>
-					</div>
-					<div key={2}>
-						<SecondaryBtn>Tutte le regioni</SecondaryBtn>
-					</div>
+				<div key={2}>
+					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
 				</div>
 			</motion.div>
-		</div>
+		</>
 	)
 
 

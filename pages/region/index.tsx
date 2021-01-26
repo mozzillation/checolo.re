@@ -1,12 +1,11 @@
 import React from 'react'
 
-const SingleRegion: React.FC = () => {
+const AllRegions: React.FC = () => {
 
 	return (
 		<>
-			qui lista
-    </>
+		</>
 	)
 }
 
-export default SingleRegion
+export default AllRegions

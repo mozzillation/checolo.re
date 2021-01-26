@@ -1,23 +1,29 @@
+@import @theme
+
 .wrapper
-  padding: 1rem
+  padding: $margin-smaller
   display: flex
   justify-content: space-between
+  align-items: center
+  align-content: center
 
 .selectorWrapper
-  height: 1.5rem
-  min-width: 8rem
-  display: inline-block
+  height: auto
+  display: flex
+  background-color: $black
+  padding: $margin-smaller $margin-small
+  border-radius: 999px
 
 .currentRegion
   position: relative
   height: 100%
   text-transform: capitalize
-  padding-right: 1.35rem
+  flex-direction: row
+  align-items: center
+  align-content: center
+  justify-content: center
+  margin-right: $margin-smallest
 
 .dropdownIcon
-  position: absolute
-  right: 0
-  top: 50%
-  transform: translateY(-50%)
   display: flex
   align-items: center
