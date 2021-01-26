@@ -2,51 +2,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { CaretDoubleDown } from 'phosphor-react'
-import Page from '@layout/Page'
 
 import { GlobalContext } from '@component/GlobalContext'
 import { DatePicker } from '@component/DatePicker'
 import { Toolbar } from '@component/Toolbar/Toolbar'
 import { Footer } from '@component/Footer/Footer'
-
+import { ZONES_PROPERTIES } from '@/utils/const'
 
 import styles from '@/styles/[id].module.sass'
-
-const ZONES_PROPERTIES = {
-	1: {
-		style: {
-			backgroundColor: '#ffd602',
-			color: 'black'
-		},
-		zoneName: 'gialla'
-	},
-	2: {
-		style: {
-			backgroundColor: '#ff8200',
-			color: 'black'
-		},
-		zoneName: 'arancione'
-	},
-	3: {
-		style: {
-			backgroundColor: '#f03f22',
-			color: 'white'
-		},
-		zoneName: 'rossa'
-	}
-}
-
-const HERO_VARIANTS = {
-	initial: { opacity: 0 },
-	animate: { opacity: 1, transition: { when: 'beforeChildren' } },
-	exit: { opacity: 0 }
-}
-
-const MESSAGE_VARIANTS = {
-	initial: { opacity: 0, y: 50, transition: { delay: 0.5 } },
-	animate: { opacity: 1, y: 0, transition: { delay: 0.5 } },
-	exit: { opacity: 0, y: -50 }
-}
 
 const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element => {
 	const [{ appState, selectedRegion }, dispatch] = useContext(GlobalContext)
@@ -74,7 +37,8 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 
 	return (
 		<>
-			<div className={styles.hero}
+			<div
+				className={styles.hero}
 				style={zoneProps.style}
 			>
 				<Toolbar currentRegion={region} />
@@ -87,7 +51,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 				</FurtherContentIndicator>
 			</div>
 
-			<div className={styles.activities} style={{ backgroundColor: 'white' }}>
+			<div className={styles.activities} >
 				<ActivityList zoneProps={zoneProps} rules={rules} />
 			</div>
 
@@ -103,7 +67,7 @@ const ActivityList = ({ zoneProps, rules }: { zoneProps: any, rules: any }) => {
 
 	return (
 		<>
-			{currentRules ?.map((rule, index) => (
+			{currentRules?.map((rule, index) => (
 				<ActivityCard rule={rule} key={index} />
 			))}
 
@@ -117,8 +81,8 @@ const ActivityCard = ({ rule }) => {
 
 	return (
 		<div className={styles.activityCard}>
-			<span className={styles.title}>{rule ?.title}</span>
-			<span className={styles.subtitle}>{rule ?.subtitle}</span>
+			<span className={styles.title}>{rule?.title}</span>
+			<span className={styles.subtitle}>{rule?.subtitle}</span>
 		</div>
 	)
 }
@@ -170,8 +134,8 @@ import fs from 'fs'
 import path from 'path'
 import process from 'process'
 import * as yaml from 'js-yaml'
-import { motion } from 'framer-motion'
 import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
+import { motion } from 'framer-motion'
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const id: string = params.id.toString()

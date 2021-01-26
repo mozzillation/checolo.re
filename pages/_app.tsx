@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
-import Router from 'next/router'
 
-import { sessionStorageProperty } from '@/utils'
+import { sessionStorageProperty, updateViewportHeight } from '@/utils'
 import Page from '@layout/Page'
 import { GlobalContextProvider, INITIAL_STATE } from '@component/GlobalContext'
 import Loading from '@component/Loading'
@@ -45,6 +44,9 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 
 			})
 
+		window.addEventListener('resize', updateViewportHeight)
+		updateViewportHeight()
+
 	}, [])
 
 	return (
@@ -63,8 +65,8 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 						</Flex>
 					)}
 
-				<AnimatePresence exitBeforeEnter={true}>
-					<Page router={router} key={router.route}>
+				<AnimatePresence exitBeforeEnter={true} initial={false}>
+					<Page key={router.route}>
 						<Component {...pageProps} />
 					</Page>
 				</AnimatePresence>
@@ -73,3 +75,4 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 		</>
 	)
 }
+

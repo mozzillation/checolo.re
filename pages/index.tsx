@@ -11,6 +11,7 @@ import { NavigationArrow } from 'phosphor-react'
 import styles from '../styles/index.module.sass'
 import { motion } from 'framer-motion'
 import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
+import Link from 'next/link'
 
 const Index = ({ regions }: { regions: FeatureCollection }) => {
 
@@ -106,16 +107,8 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 	}
 
 	return (
-		<>
-
-			<motion.div
-				className={styles.mainContent}
-				variants={chv}
-				initial='initial'
-				animate='animate'
-				exit='exit'
-				transition={{ duration: 0.5 }}
-			>
+		<motion.div className={styles.wrapper}>
+			<motion.div className={styles.mainContent} >
 				<img src='/logo.svg' />
 				<span>Cosa puoi fare nella tua regione?</span>
 			</motion.div>
@@ -138,11 +131,13 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 						</div>
 					</PrimaryBtn>
 				</div>
-				<div key={2}>
-					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
-				</div>
+				<Link href='region/' key={2}>
+					<a>
+						<SecondaryBtn>Tutte le regioni</SecondaryBtn>
+					</a>
+				</Link>
 			</motion.div>
-		</>
+		</motion.div>
 	)
 
 

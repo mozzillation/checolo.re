@@ -4,7 +4,7 @@ import styles from './Page.module.sass'
 import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
 
 
-const Page = ({ router, children }: { router?: any, children?: React.ReactNode }) => {
+const Page = ({ children }: { children?: React.ReactNode }) => {
 
 	return (
 		<motion.div
@@ -13,7 +13,6 @@ const Page = ({ router, children }: { router?: any, children?: React.ReactNode }
 			animate='animate'
 			exit='exit'
 			variants={GLOBAL_PAGE_VARIANT}
-			key={router.route}
 		>
 			{children}
 		</motion.div>

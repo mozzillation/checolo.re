@@ -9,6 +9,7 @@ export const GLOBAL_PAGE_VARIANT = {
 		opacity: 1,
 		y: 0,
 		transition: {
+			delay: 0.5,
 			duration: 0.5,
 			ease: Power4.easeInOut
 		}
@@ -22,3 +23,28 @@ export const GLOBAL_PAGE_VARIANT = {
 		}
 	}
 }
+
+export const ZONES_PROPERTIES = {
+	1: {
+		style: {
+			backgroundColor: '#ffd602',
+			color: 'black'
+		},
+		zoneName: 'gialla'
+	},
+	2: {
+		style: {
+			backgroundColor: '#ff8200',
+			color: 'black'
+		},
+		zoneName: 'arancione'
+	},
+	3: {
+		style: {
+			backgroundColor: '#f03f22',
+			color: 'black'
+		},
+		zoneName: 'rossa'
+	}
+}
+
