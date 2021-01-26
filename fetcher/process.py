@@ -14,7 +14,7 @@ all_regions = {
     'veneto': {'url_name': 'veneto'},
     'friuli venezia giulia': {'url_name': 'friuli'},
     'liguria': {'url_name': 'liguria'},
-    'emilia-romagna': {'url_name': 'piemonte'},
+    'emilia-romagna': {'url_name': 'emilia-romagna'},
     'toscana': {'url_name': 'toscana'},
     'umbria': {'url_name': 'umbria'},
     'marche': {'url_name': 'marche'},
