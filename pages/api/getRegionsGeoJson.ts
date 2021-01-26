@@ -1,6 +1,6 @@
 
 const getCurrentRegionGeoJson = async () => {
-	const res = await fetch('https://github.com/mozzillation/zone-covid/blob/main/data/dataset.json?raw=true')
+	const res = await fetch('https://raw.githubusercontent.com/mozzillation/zone-covid/main/data/dataset.json')
 	const regions = await res.json()
 
 	return regions
