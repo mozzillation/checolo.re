@@ -1,3 +1,5 @@
+@import @theme
+
 .Page
   position: fixed
   top: 0
@@ -6,3 +8,6 @@
   left: 0
   min-height: 100vh
   overflow: scroll
+
+  +mq(tablet)
+    min-height: auto
