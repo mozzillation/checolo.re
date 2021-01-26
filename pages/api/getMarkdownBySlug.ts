@@ -1,7 +1,7 @@
 import matter from 'gray-matter'
 
 const getMarkdownBySlug = async slug => {
-	const content = await import(`../../_md/${slug}.md`)
+	const content = await import(`../../data/md/${slug}.md`)
 
 	const data = matter(content.default)
 	return { ...data }

@@ -71,6 +71,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 
 	}, [])
 
+
 	return (
 		<>
 			<div className={styles.hero}
@@ -86,10 +87,8 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 				</FurtherContentIndicator>
 			</div>
 
-			<div className={styles.activities} style={{ backgroundColor: 'white', height: '100vh' }}>
-				<ActivityCard content={null} />
-				<ActivityCard content={null} />
-				<ActivityCard content={null} />
+			<div className={styles.activities} style={{ backgroundColor: 'white' }}>
+				<ActivityList zoneProps={zoneProps} rules={rules} />
 			</div>
 
 			<Footer />
@@ -97,19 +96,31 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 	)
 }
 
-const ActivityCard = ({ content }) => {
 
-	const c = {
-		symbol: '🏎',
-		title: "Puoi accompagnare un'altra persona che non puo\' usare un mezzo proprio",
-		subtitle: "Porta l'autocertificazione"
-	}
+const ActivityList = ({ zoneProps, rules }: { zoneProps: any, rules: any }) => {
 
-	return <div className={styles.activityCard}>
-		<span role='img' className={styles.emoji}>{c.symbol}</span>
-		<span className={styles.title}>{c.title}</span>
-		<span className={styles.subtitle}>{c.subtitle}</span>
-	</div>
+	const currentRules = Object.values(rules).filter((el: any) => el.zona.includes(zoneProps.zoneName))
+
+	return (
+		<>
+			{currentRules ?.map((rule, index) => (
+				<ActivityCard rule={rule} key={index} />
+			))}
+
+		</>
+	)
+
+}
+
+
+const ActivityCard = ({ rule }) => {
+
+	return (
+		<div className={styles.activityCard}>
+			<span className={styles.title}>{rule ?.title}</span>
+			<span className={styles.subtitle}>{rule ?.subtitle}</span>
+		</div>
+	)
 }
 
 const Message = ({ children }) => {
