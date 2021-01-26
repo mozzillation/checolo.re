@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
+import Router from "next/router";
 
 import { sessionStorageProperty } from '@/utils'
 import Page from '@layout/Page'
@@ -70,3 +71,23 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 		</>
 	)
 }
+
+
+
+const routeChange = () => {
+	// Temporary fix to avoid flash of unstyled content
+	// during route transitions. Keep an eye on this
+	// issue and remove this code when resolved:
+	// https://github.com/vercel/next.js/issues/17464
+
+	const tempFix = () => {
+		const allStyleElems = document.querySelectorAll('style[media="x"]');
+		allStyleElems.forEach((elem) => {
+			elem.removeAttribute("media");
+		});
+	};
+	tempFix();
+};
+
+Router.events.on("routeChangeComplete", routeChange);
+Router.events.on("routeChangeStart", routeChange);
