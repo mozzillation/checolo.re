@@ -1,5 +1,7 @@
 import fetch
 import process
 
-fetch.execute()
-process.execute()
+dir_name = 'fetcher/'
+
+fetch.run(dir_name)
+process.execute(dir_name)
