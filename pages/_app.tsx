@@ -63,7 +63,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 						</Flex>
 					)}
 
-				<AnimatePresence exitBeforeEnter>
+				<AnimatePresence exitBeforeEnter={true}>
 					<Page router={router} key={router.route}>
 						<Component {...pageProps} />
 					</Page>

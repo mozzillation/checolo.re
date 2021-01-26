@@ -10,7 +10,7 @@ export const GLOBAL_PAGE_VARIANT = {
 		y: 0,
 		transition: {
 			duration: 0.5,
-			ease: Power4.easeInOut,
+			ease: Power4.easeInOut
 		}
 	},
 	exit: {
