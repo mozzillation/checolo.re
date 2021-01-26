@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import Router from 'next/router'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { FeatureCollection } from 'geojson'
 import { GlobalContext } from '@component/GlobalContext'
 import { getCurrentRegion, getRegionsGeoJson } from '@api'
@@ -106,39 +106,41 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 	}
 
 	return (
-		<motion.div
-			className={styles.wrapper}
-			variants={GLOBAL_PAGE_VARIANT}
-			initial='initial'
-			animate='animate'
-			exit='exit'
-		>
-			<div
-				className={styles.mainContent}
+		<div className={styles.IndexPage}>
+			<motion.div
+				className={styles.wrapper}
+				variants={GLOBAL_PAGE_VARIANT}
+				initial='initial'
+				animate='animate'
+				exit='exit'
 			>
-				<img src='/logo.svg' />
-				<span>Cosa puoi fare nella tua regione?</span>
-			</div>
-			<div
-				className={styles.actionContainer}
-			>
-				<div style={{ paddingBottom: 16 }} key={1}>
-					<PrimaryBtn onClick={onGetLocation}>
-						<div style={{ display: 'flex', justifyContent: 'center' }}>
-							<span style={{ paddingRight: '.75rem' }}>Usa la mia posizione</span>
-							<NavigationArrow
-								size={24}
-								weight='fill'
-								mirrored={true}
-								style={{ alignSelf: 'center' }} />
-						</div>
-					</PrimaryBtn>
+				<div
+					className={styles.mainContent}
+				>
+					<img src='/logo.svg' />
+					<span>Cosa puoi fare nella tua regione?</span>
 				</div>
-				<div key={2}>
-					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
+				<div
+					className={styles.actionContainer}
+				>
+					<div style={{ paddingBottom: 16 }} key={1}>
+						<PrimaryBtn onClick={onGetLocation}>
+							<div style={{ display: 'flex', justifyContent: 'center' }}>
+								<span style={{ paddingRight: '.75rem' }}>Usa la mia posizione</span>
+								<NavigationArrow
+									size={24}
+									weight='fill'
+									mirrored={true}
+									style={{ alignSelf: 'center' }} />
+							</div>
+						</PrimaryBtn>
+					</div>
+					<div key={2}>
+						<SecondaryBtn>Tutte le regioni</SecondaryBtn>
+					</div>
 				</div>
-			</div>
-		</motion.div>
+			</motion.div>
+		</div>
 	)
 
 
@@ -147,10 +149,9 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 export default Index
 
-
 // ————————————————————————————————————————————————————————————————————————————
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 	const regions = await getRegionsGeoJson()
 	return {
 		props: {

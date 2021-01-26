@@ -1,6 +1,9 @@
 @import theme/colors
 @import theme/metrics
 
+.RegionPage
+  overflow: hidden
+
 .wrapper
   color: black
 
@@ -29,7 +32,7 @@
   padding-bottom: 0.5rem
 
 .furtherIndicator svg
-  animation: down 4s cubic-bezier(0.35,0,0,0.35) infinite
+  animation: down 4s cubic-bezier(0.35, 0, 0, 0.35) infinite
 
 .activityCard
   margin: 0 0.5rem
@@ -48,15 +51,18 @@
   font-size: $size-5
 
 .activityCard .subtitle
-  opacity: .5
+  opacity: 0.5
   font-size: $size-7
 
 @keyframes down
   0%
     transform: translate3d(0, 0%, 0)
+
   5%
     transform: translate3d(0, 80%, 0)
+
   10%
     transform: translate3d(0, 80%, 0)
+
   20%
     transform: translate3d(0, 0%, 0)

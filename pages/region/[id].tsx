@@ -71,33 +71,35 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 	}, [])
 
 	return (
-		<motion.div className={styles.wrapper}
-			variants={GLOBAL_PAGE_VARIANT}
-			initial='initial'
-			animate='animate'
-			exit='exit'
-		>
-			<div className={styles.hero}
-				style={zoneProps.style}
+		<div className={styles.RegionPage}>
+			<motion.div className={styles.wrapper}
+				variants={GLOBAL_PAGE_VARIANT}
+				initial='initial'
+				animate='animate'
+				exit='exit'
 			>
-				<Toolbar currentRegion={region} />
-				<DatePicker />
-				<Message>
-					<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
-				</Message>
-				<FurtherContentIndicator>
-					Cosa si può fare?
+				<div className={styles.hero}
+					style={zoneProps.style}
+				>
+					<Toolbar currentRegion={region} />
+					<DatePicker />
+					<Message>
+						<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
+					</Message>
+					<FurtherContentIndicator>
+						Cosa si può fare?
 				</FurtherContentIndicator>
-			</div>
+				</div>
 
-			<div className={styles.activities} style={{ backgroundColor: 'white', height: '100vh' }}>
-				<ActivityCard content={null} />
-				<ActivityCard content={null} />
-				<ActivityCard content={null} />
-			</div>
+				<div className={styles.activities} style={{ backgroundColor: 'white', height: '100vh' }}>
+					<ActivityCard content={null} />
+					<ActivityCard content={null} />
+					<ActivityCard content={null} />
+				</div>
 
-			<Footer />
-		</motion.div>
+				<Footer />
+			</motion.div>
+		</div>
 	)
 }
 
