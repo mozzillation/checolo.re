@@ -1,0 +1,11 @@
+{
+  "name": "Che colore?",
+  "short_name": "Che colore?",
+  "description": "Di che colore è la tua regione?",
+  "lang": "it-IT",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#000000",
+  "background_color": "#000000"
+}
