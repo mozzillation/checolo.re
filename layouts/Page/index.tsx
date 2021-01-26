@@ -23,7 +23,7 @@ const V = {
 	}
 }
 
-const Page = ({ children }: { pageKey?: any, children?: React.ReactNode }) => {
+const Page = ({ router, children }: { router: any, children?: React.ReactNode }) => {
 
 	return (
 		<motion.div
@@ -32,6 +32,7 @@ const Page = ({ children }: { pageKey?: any, children?: React.ReactNode }) => {
 			animate='animate'
 			exit='exit'
 			variants={V}
+			key={router.asPath}
 		>
 			{children}
 		</motion.div>
