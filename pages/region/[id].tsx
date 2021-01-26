@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
+import { motion } from 'framer-motion'
 import { CaretDoubleDown } from 'phosphor-react'
 
 import { GlobalContext } from '@component/GlobalContext'
@@ -36,7 +37,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 
 
 	return (
-		<>
+		<motion.div>
 			<div
 				className={styles.hero}
 				style={zoneProps.style}
@@ -56,7 +57,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 			</div>
 
 			<Footer />
-		</>
+		</motion.div>
 	)
 }
 
@@ -134,8 +135,6 @@ import fs from 'fs'
 import path from 'path'
 import process from 'process'
 import * as yaml from 'js-yaml'
-import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
-import { motion } from 'framer-motion'
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const id: string = params.id.toString()

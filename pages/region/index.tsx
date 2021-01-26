@@ -1,6 +1,10 @@
 import React from 'react'
+import Link from 'next/link'
+import { AppProps } from 'next/dist/next-server/lib/router/router'
+import { motion } from 'framer-motion'
+
+import { GLOBAL_PAGE_VARIANT, ZONES_PROPERTIES } from '@/utils/const'
 import dataset from '@data/dataset.json'
-import { ZONES_PROPERTIES } from '@/utils/const'
 
 import styles from '@/styles/region.module.sass'
 
@@ -9,7 +13,7 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 	const regions = Object.entries(content)
 
 	return (
-		<>
+		<motion.div>
 			<div className={styles.header}>
 				<div className={styles.label}>Regioni</div>
 			</div>
@@ -31,7 +35,7 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 				})}
 			</div>
 
-		</>
+		</motion.div>
 	)
 }
 
@@ -45,8 +49,6 @@ import path from 'path'
 import process from 'process'
 import * as yaml from 'js-yaml'
 import { GetStaticProps } from 'next'
-import { AppProps } from 'next/dist/next-server/lib/router/router'
-import Link from 'next/link'
 
 export const getStaticProps: GetStaticProps = async () => {
 

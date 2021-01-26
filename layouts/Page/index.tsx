@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import styles from './Page.module.sass'
+
 import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
 
+import styles from './Page.module.sass'
 
-const Page = ({ children }: { children?: React.ReactNode }) => {
+
+const Page = ({ router, children }: { router?: any, children?: React.ReactNode }) => {
 
 	return (
 		<motion.div
@@ -13,6 +15,7 @@ const Page = ({ children }: { children?: React.ReactNode }) => {
 			animate='animate'
 			exit='exit'
 			variants={GLOBAL_PAGE_VARIANT}
+			key={router.route}
 		>
 			{children}
 		</motion.div>
