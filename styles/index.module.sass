@@ -10,7 +10,7 @@
 
 .mainContent
   width: 100%
-  top: 0
+  padding-top: $margin-largest
   display: flex
   flex-direction: column
   flex-grow: 1
@@ -23,9 +23,12 @@
 .actionContainer
   width: 100%
   bottom: 0
-  padding: 1rem 0
+  padding: 2rem 1rem
   text-align: center
   flex-grow: 0
 
   button
     max-width: 400px
+
+  > button:first-child
+    margin-bottom: $margin-smaller

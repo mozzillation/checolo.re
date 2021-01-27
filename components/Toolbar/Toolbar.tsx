@@ -1,6 +1,7 @@
-import { CaretDown, Info } from 'phosphor-react'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { Back, Power4 } from 'gsap'
+import { CaretLeft, Info } from 'phosphor-react'
 
 import styles from './Toolbar.module.sass'
 
@@ -14,22 +15,27 @@ const V = {
 	exit: { opacity: 0, y: -200, transition }
 }
 
-export function Toolbar({ currentRegion }: { currentRegion: string | string[] }) {
-
+export function Toolbar() {
 	return <motion.div className={styles.wrapper}>
-		<div className={styles.selectorWrapper}>
-			<div className={styles.currentRegion}>
-				{currentRegion}
+		<Link href='/region'>
+			<motion.div
+				className={styles.selectorWrapper}
+				whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }}
+				whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }}
+				transition={{ duration: 0.25 }}
+			>
+				<div className={styles.dropdownIcon}>
+					<CaretLeft size={24} weight={'bold'} />
+				</div>
+				<div className={styles.currentRegion}>
+					Regioni
 			</div>
-			<div className={styles.dropdownIcon}>
-				<CaretDown size={24} weight={'bold'} />
-			</div>
-		</div>
+			</motion.div>
+		</Link>
 		<div>
 			<Link href='/about'>
 				<Info size={24} weight={'bold'} />
 			</Link>
 		</div>
 	</motion.div>
-
 }

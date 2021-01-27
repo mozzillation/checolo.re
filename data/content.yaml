@@ -101,28 +101,32 @@ it:
       name: Valle d'Aosta
       declarative: La Valle d'Aosta è
       website: https://www.regione.vda.it/pressevda/Eventi/decreti_ordinanze_i.aspx
-    veneto:
+    veneto: 
       url_name: veneto
       name: veneto
       declarative: Il Veneto è
       website: https://www.regione.veneto.it/web/guest/emergenza-coronavirus?articleId=7435047
   rules:
     0:
+      emoji: "🏠"
       title: "È meglio se resti a casa"
       subtitle: "Ma se proprio devi uscire, porta con te l'autocertificazione"
       zona:
         - rossa
     1:
+      emoji: "🛵"
       title: "Puoi spostarti nel tuo comune, fino alle 22"
       subtitle: "O nel raggio di 30km se vivi in un comune con meno di 5000 abitanti"
       zona:
         - arancione
     2:
+      emoji: "🚗"
       title: "Puoi muoverti nella tua regione, fino alle 22"
       subtitle: "Se esci più tardi, porta con te l'autocertificazione"
       zona:
         - gialla
     3:
+      emoji: "🛒"
       title: "Puoi andare al supermercato"
       subtitle: "Anche in un altro comune se non c'è nel tuo"
       zona:
@@ -130,67 +134,121 @@ it:
         - arancione
         - rossa
     4:
+      emoji: "🚶‍♀️"
       title: "Puoi andare a fare una passeggiata"
       subtitle: "Ma non allontanarti troppo da casa :)"
       zona:
         - rossa
     5:
+      emoji: "🚶‍♀️"
       title: "Puoi andare a fare una passeggiata"
       subtitle: "Ma rimani nel tuo comune :)"
       zona:
         - arancione
     6:
+      emoji: "🚶‍♀️"
       title: "Puoi andare a fare una passeggiata"
       subtitle: "Goditela :)"
       zona:
         - gialla
     7:
+      emoji: "🙏"
       title: "Puoi raggiungere il tuo luogo di culto preferito"
       subtitle: "Solo dove ti è consentito spostarti"
       zona:
         - gialla
         - arancione
         - rossa
-    9:
+    8:
+      emoji: "🐶"
       title: "Puoi uscire con il tuo animale da compagnia"
       subtitle: "Dove ti è consentito spostarti"
       zona:
         - gialla
         - arancione
         - rossa
-    11:
+    9:
+      emoji: "🏃‍♀️🚴‍♂️"
       title: "Puoi fare sport e andare in bici"
       subtitle: "Da solo e unicamente dove ti puoi spostare"
       zona:
         - gialla
         - arancione
         - rossa
-    14:
+    10:
+      emoji: "👵🏻"
       title: "Puoi accompagnare un'altra persona che non puo usare un mezzo proprio"
       subtitle: "Porta l'autocertificazione"
       zona:
         - gialla
         - arancione
         - rossa
-    16:
+    11:
+      emoji: "🍕"
       title: "Puoi andare a prendere del cibo da asporto"
       subtitle: "Solo dove ti puoi spostare e fino alle 20"
       zona:
         - gialla
         - arancione
         - rossa
-    19:
+    12:
+      emoji: "💈"
       title: "Puoi andare a tagliarti i capelli"
       subtitle: "Il solito, grazie"
       zona:
         - gialla
         - arancione
         - rossa
-    18:
+    13:
+      emoji: "🍽"
       title: "Puoi mangiare al ristorante o al bar"
       subtitle: "Fino alle 18"
       zona:
         - gialla
+    14:
+      emoji: "👨‍👧‍👧"
+      title: "Puoi andare a trovare amici o parenti se sono nel tuo comune"
+      subtitle: "Una sola volta con al massimo un'altra persona - Minori di 14 anni, disabili e non autosufficienti possono comunque venire con te"
+      zona:
+        - arancione
+        - rossa
+    15:
+      emoji: "👨‍👧‍👧"
+      title: "Puoi andare a trovare amici o parenti all'interno della tua regione"
+      subtitle: "Una sola volta con al massimo un'altra persona - Minori di 14 anni, disabili e non autosufficienti possono comunque venire con te"
+      zona:
+        - gialla
+    16:
+      emoji: "💕"
+      title: "Puoi andare a trovare il tuo partner"
+      subtitle: "Da te o dall'altr*. Niente fughe d'amore in hotel"
+      zona:
+        - gialla
+    17:
+      emoji: "💅"
+      title: "Puoi fare un salto dall'estetista"
+      subtitle: "Mani e Pedi"
+      zona:
+        - gialla
+    18:
+      emoji: "🛍"
+      title: "Puoi andare a fare shopping"
+      subtitle: ""
+      zona:
+        - arancione
+        - rossa
+    19:
+      emoji: "🌙"
+      title: "Puoi uscire al chiar di luna"
+      subtitle: "Nessun coprifuoco"
+      zona:
+        - bianca
+    20: 
+      emoji: "🧭"
+      title: "Puoi andare dove vuoi"
+      subtitle: "Ricordati l'autocertificazione se ti sposti verso zone di altro colore"
+      zona:
+        - bianca
   misc:
     autocertificazione:
       title: "Scarica l'autocertificazione"
@@ -205,3 +263,4 @@ it:
       faqgoverno:
         title: controlla le FAQ del Governo
         subtitle: http://www.governo.it/it/articolo/domande-frequenti-sulle-misure-adottate-dal-governo/15638
+        

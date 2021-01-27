@@ -10,7 +10,6 @@ import { NavigationArrow } from 'phosphor-react'
 
 import styles from '../styles/index.module.sass'
 import { motion } from 'framer-motion'
-import { GLOBAL_PAGE_VARIANT } from '@/utils/const'
 import Link from 'next/link'
 
 const Index = ({ regions }: { regions: FeatureCollection }) => {
@@ -119,19 +118,17 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 				animate='animate'
 				exit='exit'
 			>
-				<div style={{ paddingBottom: 16 }} key={1}>
-					<PrimaryBtn onClick={onGetLocation}>
-						<div style={{ display: 'flex', justifyContent: 'center' }}>
-							<span style={{ paddingRight: '.75rem' }}>Usa la mia posizione</span>
-							<NavigationArrow
-								size={24}
-								weight='fill'
-								mirrored={true}
-								style={{ alignSelf: 'center' }} />
-						</div>
-					</PrimaryBtn>
-				</div>
-				<Link href='region/' key={2}>
+				<PrimaryBtn onClick={onGetLocation}>
+					<div style={{ display: 'flex', justifyContent: 'center' }}>
+						<span style={{ paddingRight: '.75rem' }}>Usa la mia posizione</span>
+						<NavigationArrow
+							size={24}
+							weight='fill'
+							mirrored={true}
+							style={{ alignSelf: 'center' }} />
+					</div>
+				</PrimaryBtn>
+				<Link href='/region' key={2}>
 					<a>
 						<SecondaryBtn>Tutte le regioni</SecondaryBtn>
 					</a>
