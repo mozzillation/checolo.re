@@ -1,9 +1,11 @@
-import React from 'react'
-import Link from 'next/link'
+import React, { useContext } from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
+import Link from 'next/link'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { motion } from 'framer-motion'
 
+import { GlobalContext } from '@component/GlobalContext'
 import { ZONES_PROPERTIES } from '@/utils/const'
 import dataset from '@data/dataset.json'
 
@@ -11,8 +13,13 @@ import styles from './italia.module.sass'
 
 const AllRegions = ({ content }: AppProps): JSX.Element => {
 
+	const [globalContext, dispatch] = useContext(GlobalContext)
+
 	const regions = Object.entries(content)
 
+	function handleLocationClick() {
+		getLocation(null, dispatch, Router, { force: true })
+	}
 
 	return (
 		<>
@@ -20,9 +27,25 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 				<title>CheColore è l'Italia?</title>
 			</Head>
 			<motion.div>
-				<div className={styles.header}>
-					<div className={styles.label}>Regioni</div>
-				</div>
+				<Header>
+					<div className={styles.label}>
+						Regioni
+					</div>
+					<motion.div
+						className={styles.button}
+						onClick={handleLocationClick}
+						whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }}
+						whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }}
+						transition={{ duration: 0.25 }}
+					>
+						<NavigationArrow
+							size={24}
+							weight='fill'
+							mirrored={true}
+							style={{ alignSelf: 'center' }}
+						/>
+					</motion.div>
+				</Header>
 				<div>
 					{regions.map(([name, props]: any) => {
 						const { data } = dataset[name]
@@ -31,7 +54,11 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 
 						return (
 							<Link href={`/${props.url_name}`} key={name}>
-								<motion.div className={styles.entry} style={{ backgroundColor }} whileHover={{ height: '10vh' }}>
+								<motion.div
+									className={styles.entry}
+									style={{ backgroundColor }}
+									whileHover={{ height: '10vh' }}
+								>
 									<span>{props.name}</span>
 								</motion.div>
 							</Link>
@@ -46,6 +73,14 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 
 export default AllRegions
 
+const Header = ({ children }) => {
+	return (
+		<div className={styles.header}>
+			{children}
+		</div>
+	)
+}
+
 // ————————————————————————————————————————————————————————————————————————————
 
 
@@ -54,6 +89,9 @@ import path from 'path'
 import process from 'process'
 import * as yaml from 'js-yaml'
 import { GetStaticProps } from 'next'
+import { NavigationArrow } from 'phosphor-react'
+import { getLocation } from '../api'
+import { Back, Power4 } from 'gsap'
 
 export const getStaticProps: GetStaticProps = async () => {
 

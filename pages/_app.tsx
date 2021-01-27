@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
 import { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
@@ -10,40 +11,28 @@ import Loading from '@component/Loading'
 import Flex from '@component/Flex'
 
 import '@globals'
+import { getLocation } from './api'
 
 export default function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
 
 	const globalContext = useState(INITIAL_STATE)
 	const [globalState, dispatch] = globalContext
 
-	useEffect(() => {
-		const sessionData = window.sessionStorage.getItem('detected_region')
-
-		if (sessionData) {
-			const data = JSON.parse(sessionData)
-
-			dispatch(prev => ({
-				...prev,
-				detectedRegion: data,
-				selectedRegion: data
-			}))
-		}
-	}, [])
 
 	useEffect(() => {
-
 		sessionStorageProperty('detected_region')
 			.then(detectedRegion => {
-				if (detectedRegion) {
 
-					dispatch(prev => ({
-						...prev,
-						detectedRegion
-					}))
+				if (detectedRegion) {
+					Router.push('/[id]', `/${detectedRegion.name}`, {
+						shallow: true
+					})
 				}
 
 			})
+	}, [])
 
+	useEffect(() => {
 		window.addEventListener('resize', updateViewportHeight)
 		updateViewportHeight()
 

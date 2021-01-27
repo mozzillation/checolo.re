@@ -4,16 +4,27 @@
   height: auto
   display: flex
   width: 100%
-  padding: $margin-small 0
+  padding: $margin
   text-align: center
   align-items: center
-  align-content: center
-  justify-content: center
+  justify-content: space-between
 
-.header .label
-  padding: 1rem
-  font-size: $size-3
-  font-weight: bolder
+  .label
+    font-size: $size-3
+    font-weight: bolder
+
+  .button
+    color: $white
+    padding: $margin-smallest
+    display: flex
+    align-self: center
+    border-radius: 999px
+    border: 2px solid $white
+    box-sizing: border-box
+    cursor: pointer
+
+  .button > *
+    transform: translate(-1.5px, 1px) scale(-1, 1)
 
 .entry
   text-align: center
