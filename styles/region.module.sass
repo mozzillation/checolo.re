@@ -1,9 +1,14 @@
-@import theme/colors
-@import theme/metrics
+@import @theme
 
 .header
-  height: 16vh
+  height: auto
   display: flex
+  width: 100%
+  padding-bottom: $margin-largest
+  text-align: center
+  align-items: center
+  align-content: center
+  justify-content: center
 
 .header .label
   padding: 1rem
@@ -12,11 +17,18 @@
 
 .entry
   text-align: center
-  padding: .85rem
+  padding: 0.85rem
   font-size: $size-3
   color: black
   border-top: 1px solid black
   border-bottom: 1px solid black
+  text-transform: capitalize
+  cursor: pointer
+
+  +animate(opacity)
+
+  +on-event
+    opacity: 0.9
 
 .entry a
   display: block

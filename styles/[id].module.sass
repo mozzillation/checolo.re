@@ -1,5 +1,4 @@
-@import theme/colors
-@import theme/metrics
+@import @theme
 
 .RegionPage
   overflow: hidden
@@ -8,12 +7,15 @@
   color: black
 
 .hero
-  min-height: 90vh
+  min-height: 100vh
   background-color: $yellow
   display: flex
   flex-direction: column
   height: 100%
   border-bottom: 2px solid $black
+
+  +mq(tablet)
+    min-height: 80vh
 
 .messageWrapper
   flex-grow: 1
@@ -21,10 +23,14 @@
   justify-content: center
   align-items: center
   text-align: center
-  padding: 1rem
+  padding: $margin-smallest
+  font-family: $serif
 
   h1
     font-size: $size-0
+
+    +mq(mobile)
+      font-size: $size-1
 
 .furtherIndicator
   padding-bottom: 1rem

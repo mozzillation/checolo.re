@@ -12,25 +12,24 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 
 	const regions = Object.entries(content)
 
+
 	return (
 		<motion.div>
 			<div className={styles.header}>
 				<div className={styles.label}>Regioni</div>
 			</div>
 			<div>
-				{regions.map(([name, props]) => {
+				{regions.map(([name, props]: any) => {
 					const { data } = dataset[name]
 					const actualCode = data[data.length - 1].code
 					const { backgroundColor } = ZONES_PROPERTIES[actualCode].style
 
 					return (
-						<div key={name} className={styles.entry} style={{ backgroundColor }}>
-							<Link href={`/region/${name}`}>
-								<a>
-									<span>{name}</span>
-								</a>
-							</Link>
-						</div>
+						<Link href={`/region/${props.url_name}`} key={name}>
+							<div className={styles.entry} style={{ backgroundColor }}>
+								<span>{props.name}</span>
+							</div>
+						</Link>
 					)
 				})}
 			</div>
@@ -64,4 +63,3 @@ export const getStaticProps: GetStaticProps = async () => {
 		}
 	}
 }
-
