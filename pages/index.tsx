@@ -31,7 +31,7 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 
 		const detectedRegion = { name: 'lombardia', code: 3 }
 
-		Router.push('/region/[id].js', `/region/${detectedRegion.name}`, {
+		Router.push('/[id]', `/${detectedRegion.name}`, {
 			shallow: true
 		})
 
@@ -54,7 +54,7 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 				selectedRegion: detectedRegion
 			}))
 			// if everything went well, we redirect user to proper region page
-			Router.push('/region/[id].js', `/region/${detectedRegion.name}`, {
+			Router.push('/[id]', `/${detectedRegion.name}`, {
 				shallow: true
 			})
 
@@ -85,7 +85,7 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 						selectedRegion: detectedRegion
 					}))
 					// if everything went well, we redirect user to proper region page
-					Router.push('/region/[id].js', `/region/${detectedRegion.name}`, {
+					Router.push('/[id]', `/${detectedRegion.name}`, {
 						shallow: true
 					})
 
@@ -128,10 +128,8 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 							style={{ alignSelf: 'center' }} />
 					</div>
 				</PrimaryBtn>
-				<Link href='/region' key={2}>
-					<a>
-						<SecondaryBtn>Tutte le regioni</SecondaryBtn>
-					</a>
+				<Link href='/italia' key={2}>
+					<SecondaryBtn>Tutte le regioni</SecondaryBtn>
 				</Link>
 			</motion.div>
 		</motion.div>

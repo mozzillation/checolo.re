@@ -91,7 +91,7 @@ const ActivityList = ({ zoneProps, rules }: { zoneProps: any, rules: any }) => {
 
 	return (
 		<>
-			{currentRules?.map((rule, index) => (
+			{currentRules ?.map((rule, index) => (
 				<ActivityCard rule={rule} key={index} />
 			))}
 
@@ -105,9 +105,9 @@ const ActivityCard = ({ rule }) => {
 
 	return (
 		<div className={styles.activityCard}>
-			<span className={styles.emoji}>{rule?.emoji}</span>
-			<span className={styles.title}>{rule?.title}</span>
-			<span className={styles.subtitle}>{rule?.subtitle}</span>
+			<span className={styles.emoji}>{rule ?.emoji}</span>
+			<span className={styles.title}>{rule ?.title}</span>
+			<span className={styles.subtitle}>{rule ?.subtitle}</span>
 		</div>
 	)
 }

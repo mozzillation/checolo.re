@@ -1,5 +1,4 @@
-@import theme/colors
-@import theme/metrics
+@import @theme
 
 .wrapper
   position: relative
@@ -23,15 +22,18 @@
 .actionContainer
   width: 100%
   bottom: 0
-  padding: 2rem 1rem
+  padding: $margin-largest $margin-smaller
   text-align: center
   flex-grow: 0
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  align-content: center
 
   button
     max-width: 400px
-
-  > button:first-child
-    margin-bottom: $margin-smaller
+    margin-top: $margin-smaller
 
   .label
     padding-right: $margin-smaller

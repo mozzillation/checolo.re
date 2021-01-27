@@ -20,7 +20,7 @@ const yaml = require('js-yaml');
 		'pages/**/*{.js,.mdx,.tsx}',
 		'!pages/_*.tsx',
 		'!pages/api',
-		'!pages/region',
+		'!pages/[id]',
 	])
 
 	const pages = [...regionPaths, ...staticPages]

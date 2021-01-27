@@ -17,7 +17,7 @@ const V = {
 
 export function Toolbar() {
 	return <motion.div className={styles.wrapper}>
-		<Link href='/region'>
+		<Link href='/italia'>
 			<motion.div
 				className={styles.selectorWrapper}
 				whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }}

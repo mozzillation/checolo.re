@@ -25,7 +25,7 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 					const { backgroundColor } = ZONES_PROPERTIES[actualCode].style
 
 					return (
-						<Link href={`/region/${props.url_name}`} key={name}>
+						<Link href={`/${props.url_name}`} key={name}>
 							<div className={styles.entry} style={{ backgroundColor }}>
 								<span>{props.name}</span>
 							</div>
