@@ -85,18 +85,18 @@
   </url>
 
   <url>
-    <loc>https://checolo.re/about</loc>
-  </url>
-
-  <url>
     <loc>https://checolo.re/</loc>
   </url>
 
   <url>
-    <loc>https://checolo.re/italia/</loc>
+    <loc>https://checolo.re/about/</loc>
   </url>
 
   <url>
     <loc>https://checolo.re/legal/</loc>
+  </url>
+
+  <url>
+    <loc>https://checolo.re/italia/</loc>
   </url>
 </urlset>

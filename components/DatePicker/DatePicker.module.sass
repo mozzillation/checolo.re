@@ -1,0 +1,39 @@
+@import @theme
+
+.DatePicker
+  padding: $margin-smallest
+  border-bottom: 2px solid $black
+  background-color: $white
+  display: flex
+  align-items: flex-start
+  align-content: flex-start
+  flex-wrap: nowrap
+  overflow: scroll
+
+.Day
+  display: flex
+  align-items: center
+  align-content: center
+  justify-content: center
+  flex-direction: column
+  width: auto
+  height: auto
+  padding: $margin-smallest
+  cursor: pointer
+
+  .Digit
+    width: 40px
+    height: 40px
+    display: flex
+    align-items: center
+    align-content: center
+    justify-content: center
+    border: 2px solid $black
+    border-radius: 9999px
+    font-size: $size-4
+
+  .Dot
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { motion } from 'framer-motion'
+import { Back } from 'gsap'
 import { ArrowLineUpRight, CaretDoubleDown, ChatDots, IconProps } from 'phosphor-react'
 import Head from 'next/head'
 
@@ -12,6 +13,10 @@ import { Footer } from '@component/Footer/Footer'
 import { ZONES_PROPERTIES } from '@/utils/const'
 
 import styles from './region.module.sass'
+
+import dayjs from 'dayjs'
+
+
 
 const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element => {
 	const [{ appState, selectedRegion }, dispatch] = useContext(GlobalContext)
@@ -48,7 +53,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 					style={zoneProps.style}
 				>
 					<Toolbar />
-					{/* <DatePicker /> */}
+					<DatePicker properties={ZONES_PROPERTIES} current={dayjs().format('DD/MM/YYYY')} />
 					<Message>
 						<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
 					</Message>
@@ -133,7 +138,9 @@ const FurtherContentIndicator = ({ children }) => {
 			y: [0, 10, 5, 10, 0],
 			transition: {
 				repeat: Infinity,
-				repeatDelay: 1
+				repeatDelay: 1,
+				duration: 1.5,
+				ease: Back.easeInOut
 			}
 		}}>
 			<CaretDoubleDown size={24} weight='bold' />
