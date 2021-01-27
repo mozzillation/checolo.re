@@ -149,7 +149,7 @@ it:
     3:
       emoji: "🛒"
       title: "Puoi andare al supermercato"
-      subtitle: "Anche in un altro comune se non c'è nel tuo"
+      subtitle: "Anche in un altro comune se non c'è nel tuo. Presa la lista?"
       zona:
         - gialla
         - arancione
@@ -248,24 +248,24 @@ it:
     17:
       emoji: "💅"
       title: "Puoi fare un salto dall'estetista"
-      subtitle: "Mani e Pedi"
+      subtitle: "Mani e Pedi per piacere."
       zona:
         - gialla
     18:
       emoji: "🛍"
       title: "Puoi andare a fare shopping"
-      subtitle: ""
+      subtitle: "Oggi trattati bene"
       zona:
         - arancione
         - rossa
     19:
       emoji: "🌙"
       title: "Puoi uscire al chiar di luna"
-      subtitle: "Nessun coprifuoco"
+      subtitle: "Nessun coprifuoco finalmente"
       zona:
         - bianca
     20:
-      emoji: "🧭"
+      emoji: "⛵️"
       title: "Puoi andare dove vuoi"
       subtitle: "Ricordati l'autocertificazione se ti sposti verso zone di altro colore"
       zona:
