@@ -120,7 +120,7 @@ const Index = ({ regions }: { regions: FeatureCollection }) => {
 			>
 				<PrimaryBtn onClick={onGetLocation}>
 					<div style={{ display: 'flex', justifyContent: 'center' }}>
-						<span style={{ paddingRight: '.75rem' }}>Usa la mia posizione</span>
+						<span className={styles.label} >Usa la mia posizione</span>
 						<NavigationArrow
 							size={24}
 							weight='fill'
