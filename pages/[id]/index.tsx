@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { motion } from 'framer-motion'
 import { ArrowLineUpRight, CaretDoubleDown, ChatDots, IconProps } from 'phosphor-react'
+import Head from 'next/head'
 
 import { GlobalContext } from '@component/GlobalContext'
 import { DatePicker } from '@component/DatePicker'
@@ -35,29 +36,35 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 
 	}, [])
 
+
 	return (
-		<motion.div>
-			<div
-				className={styles.hero}
-				style={zoneProps.style}
-			>
-				<Toolbar />
-				{/* <DatePicker /> */}
-				<Message>
-					<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
-				</Message>
-				<FurtherContentIndicator>
-					Cosa si può fare?
+		<>
+			<Head>
+				<title>CheColore è {content.seo}?</title>
+			</Head>
+			<motion.div>
+				<div
+					className={styles.hero}
+					style={zoneProps.style}
+				>
+					<Toolbar />
+					{/* <DatePicker /> */}
+					<Message>
+						<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
+					</Message>
+					<FurtherContentIndicator>
+						Cosa si può fare?
 				</FurtherContentIndicator>
-			</div>
+				</div>
 
-			<div className={styles.activities} >
-				<ActivityList zoneProps={zoneProps} rules={rules} />
-			</div>
+				<div className={styles.activities} >
+					<ActivityList zoneProps={zoneProps} rules={rules} />
+				</div>
 
-			<Disclaimer weight={'bold'} href={content.website} />
-			<Footer />
-		</motion.div>
+				<Disclaimer weight={'bold'} href={content.website} />
+				<Footer />
+			</motion.div>
+		</>
 	)
 }
 

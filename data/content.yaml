@@ -3,107 +3,128 @@ it:
   regions:
     abruzzo:
       url_name: abruzzo
+      seo: la regione Abruzzo
       name: abruzzo
       declarative: L'Abruzzo è
       website: http://www.regione.abruzzo.it/content/ordinanze-circolari-comunicazioni
     basilicata:
       url_name: basilicata
+      seo: la regione Basilicata
       name: basilicata
       declarative: La Basilicata è
       website: https://www.regione.basilicata.it/giunta/site/giunta/department.jsp?dep=100061&area=3064484&level=0
     calabria:
       url_name: calabria
+      seo: la regione Calabria
       name: calabria
       declarative: La Calabria è
       website: https://www.rcovid19.it/category/notizie/ordinanze/
     campania:
       url_name: campania
+      seo: la regione Campania
       name: campania
       declarative: La Campania è
       website: http://www.regione.campania.it/regione/it/la-tua-campania/coronavirus-kyxz/ordinanze-del-presidente-della-regione-campania?page=1
     emilia-romagna:
       url_name: emilia-romagna
+      seo: la regione Emilia-Romagna
       name: emilia-romagna
       declarative: L'Emilia-Romagna è
       website: https://www.regione.emilia-romagna.it/coronavirus/norme
     friuli:
       url_name: friuli
+      seo: la regione Friuli Venezia Giulia
       name: friuli venezia giulia
       declarative: Il Friuli-Venezia Giulia è
       website: http://www.regione.fvg.it/rafvg/cms/RAFVG/salute-sociale/COVID19/
     lazio:
       url_name: lazio
+      seo: la regione Lazio
       name: lazio
       declarative: IL Lazio è
       website: https://www.salutelazio.it/notizie-dalla-regione-lazio
     liguria:
       url_name: liguria
+      seo: la regione Liguria
       name: liguria
       declarative: La Liguria è
       website: https://www.regione.liguria.it//homepage/salute-e-sociale/homepage-coronavirus.html
     lombardia:
       url_name: lombardia
+      seo: la regione Lombardia
       name: lombardia
       declarative: La Lombardia è
       website: https://www.regione.lombardia.it/wps/portal/istituzionale/HP/coronavirus/misure
     marche:
       url_name: marche
+      seo: la regione Marche
       name: marche
       declarative: Le Marche sono
       website: https://www.regione.marche.it/Regione-Utile/Salute/Coronavirus#Ordinanze-e-disposizioni
     molise:
       url_name: molise
+      seo: la regione Molise
       name: molise
       declarative: Il Molise è
       website: http://www3.regione.molise.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/17083
     bolzano:
       url_name: bolzano
+      seo: la Provincia Autonoma di Bolzano
       name: provincia autonoma bolzano
-      declarative: La Provincia autonoma di Bolzano è
+      declarative: La Provincia Autonoma di Bolzano è
       website: http://www.provincia.bz.it/sicurezza-protezione-civile/protezione-civile/coronavirus.asp
     trento:
       url_name: trento
+      seo: la Provincia Autonoma di Trento
       name: provincia autonoma trento
-      declarative: La Provincia autonoma di Trento è
+      declarative: La Provincia Autonoma di Trento è
       website: https://www.ufficiostampa.provincia.tn.it/CORONAVIRUS-Aggiornamenti-e-comunicazioni
     piemonte:
       url_name: piemonte
+      seo: la regione Piemonte
       name: piemonte
       declarative: Il Piemonte è
       website: https://www.regione.piemonte.it/web/temi/sanita/coronavirus-piemonte-ordinanze-circolari-disposizioni-attuative
     puglia:
       url_name: puglia
+      seo: la regione Puglia
       name: puglia
       declarative: La Puglia è
       website: https://regione.puglia.it/web/speciale-coronavirus
     sardegna:
       url_name: sardegna
+      seo: la regione Sardegna
       name: sardegna
       declarative: La Sardegna è
       website: https://www.regione.sardegna.it/j/v/2573?&s=1&v=9&c=94254&n=10&nd=1
     sicilia:
       url_name: sicilia
+      seo: la regione Sicilia
       name: sicilia
       declarative: La Sicilia è
       website: http://pti.regione.sicilia.it/portal/page/portal/PIR_PORTALE/PIR_Covid19OrdinanzePresidenzadellaRegione
     toscana:
       url_name: toscana
+      seo: la regione Toscana
       name: toscana
       declarative: La Toscana è
       website: https://www.regione.toscana.it/-/coronavirus
     umbria:
       url_name: umbria
+      seo: la regione Umbria
       name: umbria
       declarative: L'Umbria è
       website: https://www.regione.umbria.it/ordinanze-documenti-e-decreti-coronavirus
     valle-aosta:
       url_name: valle-aosta
+      seo: la regione Valle d'Aosta
       name: Valle d'Aosta
       declarative: La Valle d'Aosta è
       website: https://www.regione.vda.it/pressevda/Eventi/decreti_ordinanze_i.aspx
-    veneto: 
+    veneto:
       url_name: veneto
       name: veneto
+      seo: la regione Veneto
       declarative: Il Veneto è
       website: https://www.regione.veneto.it/web/guest/emergenza-coronavirus?articleId=7435047
   rules:
@@ -243,7 +264,7 @@ it:
       subtitle: "Nessun coprifuoco"
       zona:
         - bianca
-    20: 
+    20:
       emoji: "🧭"
       title: "Puoi andare dove vuoi"
       subtitle: "Ricordati l'autocertificazione se ti sposti verso zone di altro colore"
@@ -263,4 +284,3 @@ it:
       faqgoverno:
         title: controlla le FAQ del Governo
         subtitle: http://www.governo.it/it/articolo/domande-frequenti-sulle-misure-adottate-dal-governo/15638
-        

@@ -55,9 +55,9 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 				<meta charSet='utf-8' />
 				<meta httpEquiv='X-UA-Compatible' content='IE=edge' />
 				<meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
-				<meta name='description' content='Un semplice strumento per tenere traccia dei DPCM' />
+				<meta name='description' content="CheColore ti aiuta a capire il colore delle regioni d'Italia e cosa fare per fronteggiare l'emergenza da COVID-19." />
 				<meta name='keywords' content='Zone, Covid, Colore, Regione' />
-				<title>Che colore?</title>
+				<title>Scopri il colore della tua regione • CheColore</title>
 				<link rel='manifest' href='manifest.json' />
 				<meta name='mobile-web-app-capable' content='yes' />
 				<meta name='apple-mobile-web-app-capable' content='yes' />
@@ -92,4 +92,3 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 		</>
 	)
 }
-
