@@ -81,8 +81,11 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 					style={zoneProps.style}
 				>
 					<Toolbar />
-					<DatePicker days={range} properties={ZONES_PROPERTIES} current={today} />
+					<DatePicker days={range} current={today} />
 					<Message>
+						<div className={styles.dateFormatted}>
+							Mercoledì X Gennaio 2020
+						</div>
 						<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
 					</Message>
 					<FurtherContentIndicator>

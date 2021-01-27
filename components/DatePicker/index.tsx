@@ -9,7 +9,7 @@ import { Power4, Back } from 'gsap'
 dayjs.extend(customParseFormat)
 
 
-const DatePicker = ({ days, current, properties }: { days?: any, current: Dayjs, properties: any }) => {
+const DatePicker = ({ days, current }: { days?: any, current: Dayjs }) => {
 
 	const [currentDate, setCurrentDate] = useState(current)
 
@@ -23,7 +23,7 @@ const DatePicker = ({ days, current, properties }: { days?: any, current: Dayjs,
 			{days.map(day => {
 
 				return (
-					<Day date={day} color={1} properties={properties} current={currentDate} handleDate={handleDate} key={day} />
+					<Day date={day} current={currentDate} handleDate={handleDate} key={day} />
 				)
 			})}
 
@@ -32,10 +32,8 @@ const DatePicker = ({ days, current, properties }: { days?: any, current: Dayjs,
 }
 
 
-const Day = ({ date, color, properties, current, handleDate }: { date: Dayjs, color: number, properties: any, current: Dayjs, handleDate: (props) => void }) => {
+const Day = ({ date, current, handleDate }: { date: Dayjs, current: Dayjs, handleDate: (props) => void }) => {
 
-
-	const { style } = properties[color]
 	const currentStyle = {
 		backgroundColor: '#000',
 		color: '#FFF'
@@ -54,7 +52,7 @@ const Day = ({ date, color, properties, current, handleDate }: { date: Dayjs, co
 
 	return (
 		<motion.div className={styles.Day} onClick={changeDate} whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }} whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }} transition={{ duration: 0.25 }}>
-			<div className={styles.Digit} style={isCurrent() ? currentStyle : style}>
+			<div className={styles.Digit} style={isCurrent() ? currentStyle : null}>
 				{dateFormat}
 			</div>
 		</motion.div >

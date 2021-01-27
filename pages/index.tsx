@@ -49,11 +49,12 @@ const Index = () => {
 							style={{ alignSelf: 'center' }} />
 					</div>
 				</PrimaryBtn>
-				<SecondaryBtn>
-					<Link href='/italia' key={2}>
+				<Link href='/italia' key={2}>
+					<SecondaryBtn>
 						Tutte le regioni
-					</Link>
-				</SecondaryBtn>
+					</SecondaryBtn>
+				</Link>
+
 			</motion.div>
 		</motion.div>
 	)
@@ -64,7 +65,7 @@ const Index = () => {
 
 export default Index
 
-// ————————————————————————————————————————————————————————————————————————————
+		// ————————————————————————————————————————————————————————————————————————————
 
 // export const getServerSideProps: GetServerSideProps = async () => {
 // 	const regions = await getRegionsGeoJson()
