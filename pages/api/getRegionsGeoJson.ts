@@ -1,13 +1,14 @@
 const getCurrentRegionGeoJson = async () => {
-	let regions
 	let address
 
 	if (process.env.NODE_ENV === 'production') {
-		address = 'https://github.com/mozzillation/zone-covid/raw/main/data/regions.geojson'
-		regions = await fetch(address).then(res => res.json())
+		address = 'https://github.com/mozzillation/checolo.re/raw/main/data/regions.geojson'
 	} else {
-		regions = await require('../../data/regions.json')
+		address = 'https://github.com/mozzillation/checolo.re/blob/main/data/regions.geojson?raw=true'
 	}
+
+	const res = await fetch(address)
+	const regions = await res.json()
 
 	return regions
 }

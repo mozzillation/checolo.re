@@ -12,12 +12,12 @@ import styles from '../styles/index.module.sass'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-const Index = ({ regions }: { regions: FeatureCollection }) => {
+const Index = () => {
 
 	const [globalContext, dispatch] = useContext(GlobalContext)
 
 	const onGetLocation = () => {
-		getLocation(regions, dispatch, Router)
+		getLocation(null, dispatch, Router)
 	}
 
 	const chv = {
@@ -66,11 +66,11 @@ export default Index
 
 // ————————————————————————————————————————————————————————————————————————————
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const regions = await getRegionsGeoJson()
-	return {
-		props: {
-			regions
-		}
-	}
-}
+// export const getServerSideProps: GetServerSideProps = async () => {
+// 	const regions = await getRegionsGeoJson()
+// 	return {
+// 		props: {
+// 			regions
+// 		}
+// 	}
+// }
