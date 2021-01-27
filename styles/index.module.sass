@@ -7,6 +7,7 @@
   height: var(--viewport-height, 100vh)
   display: flex
   flex-direction: column
+  align-items: center
 
 .mainContent
   width: 100%
@@ -23,12 +24,20 @@
 .actionContainer
   width: 100%
   bottom: 0
-  padding: 2rem 1rem
+  padding: $margin $margin-smaller
   text-align: center
   flex-grow: 0
+  display: flex
+  align-items: stretch
+  flex-direction: column
+  width: 100%
+  max-width: 450px
+
+  a
+    display: block
+
+    button
+      margin-bottom: 0
 
   button
-    max-width: 400px
-
-  > button:first-child
     margin-bottom: $margin-smaller

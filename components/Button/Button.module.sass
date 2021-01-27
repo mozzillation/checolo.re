@@ -5,7 +5,7 @@
   outline: 0
   border: 0
   padding: $margin-smaller $margin
-  font-size: 18px
+  font-size: 16px
   border-radius: 999px
   text-transform: uppercase
   letter-spacing: 2px
@@ -13,6 +13,9 @@
   cursor: pointer
   background: transparent
   align-self: auto
+
+  +mq(mobile)
+    padding: $margin-smaller
 
 .Primary
   background: $white
