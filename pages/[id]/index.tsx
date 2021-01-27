@@ -64,7 +64,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 const Disclaimer = ({ weight = 'regular', href }: { weight?: IconProps['weight'], href?: string }) => {
 
 	return (
-		<a href={href} target="_blank">
+		<a href={href} target='_blank'>
 			<div className={styles.disclaimer}>
 				<div className={styles.disclaimerIcon}>
 					{/* <ChatDots size={32} weight={weight} mirrored={true} /> */}

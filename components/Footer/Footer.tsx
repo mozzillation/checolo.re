@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import smoothscroll from 'smoothscroll-polyfill'
-import { ArrowCircleUp, } from 'phosphor-react'
+import { ArrowCircleUp } from 'phosphor-react'
 
 import Link from 'next/link'
 
