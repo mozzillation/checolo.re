@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { ZONES_PROPERTIES } from '@/utils/const'
 import dataset from '@data/dataset.json'
 
-import styles from '@/styles/region.module.sass'
+import styles from './italia.module.sass'
 
 const AllRegions = ({ content }: AppProps): JSX.Element => {
 
@@ -31,9 +31,9 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 
 						return (
 							<Link href={`/${props.url_name}`} key={name}>
-								<div className={styles.entry} style={{ backgroundColor }}>
+								<motion.div className={styles.entry} style={{ backgroundColor }} whileHover={{ height: '10vh' }}>
 									<span>{props.name}</span>
-								</div>
+								</motion.div>
 							</Link>
 						)
 					})}

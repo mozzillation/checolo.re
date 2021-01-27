@@ -11,7 +11,7 @@ import { Toolbar } from '@component/Toolbar/Toolbar'
 import { Footer } from '@component/Footer/Footer'
 import { ZONES_PROPERTIES } from '@/utils/const'
 
-import styles from '@/styles/[id].module.sass'
+import styles from './region.module.sass'
 
 const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element => {
 	const [{ appState, selectedRegion }, dispatch] = useContext(GlobalContext)
