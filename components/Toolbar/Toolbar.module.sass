@@ -10,10 +10,15 @@
 .selectorWrapper
   height: auto
   display: flex
-  background-color: $black
-  padding: $margin-smaller $margin-small
+  padding: $margin-smallest $margin-smaller $margin-smallest $margin-smallest
   border-radius: 999px
-  color: $white !important
+  border: 2px solid $black
+  color: $black !important
+
+.dropdownIcon
+  display: flex
+  align-items: center
+  margin-right: $margin-smallest
 
 .currentRegion
   position: relative
@@ -23,8 +28,3 @@
   align-items: center
   align-content: center
   justify-content: center
-  margin-right: $margin-smallest
-
-.dropdownIcon
-  display: flex
-  align-items: center

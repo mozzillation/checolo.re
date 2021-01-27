@@ -42,8 +42,8 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 				className={styles.hero}
 				style={zoneProps.style}
 			>
-				<Toolbar currentRegion={region} />
-				<DatePicker />
+				<Toolbar />
+				{/* <DatePicker /> */}
 				<Message>
 					<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
 				</Message>
