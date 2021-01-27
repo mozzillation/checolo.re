@@ -32,10 +32,8 @@ export function Toolbar() {
 			</div>
 			</motion.div>
 		</Link>
-		<div>
-			<Link href='/about'>
-				<Info size={24} weight={'bold'} />
-			</Link>
-		</div>
+		<Link href='/about'>
+			<Info size={24} weight={'bold'} />
+		</Link>
 	</motion.div>
 }
