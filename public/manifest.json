@@ -1,11 +1,16 @@
 {
-  "name": "Che colore?",
-  "short_name": "Che colore?",
-  "description": "Di che colore è la tua regione?",
+  "name": "Che Colore?",
+  "short_name": "CheColore",
+  "description": "CheColore ti aiuta a conoscere e rispettare le misure adottate dal Governo per fronteggiare l'emergenza epidemiologica da COVID-19.",
   "lang": "it-IT",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait",
   "theme_color": "#000000",
-  "background_color": "#000000"
+  "icons": [
+    {
+      "src": "homescreen.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
 }

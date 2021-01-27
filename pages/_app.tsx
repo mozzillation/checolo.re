@@ -61,13 +61,15 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 				<link rel='manifest' href='manifest.json' />
 				<meta name='mobile-web-app-capable' content='yes' />
 				<meta name='apple-mobile-web-app-capable' content='yes' />
-				<meta name='application-name' content='Che colore?' />
-				<meta name='apple-mobile-web-app-title' content='Che colore?' />
+				<meta name='application-name' content='CheColore' />
+				<meta name='apple-mobile-web-app-title' content='CheColore' />
 				<meta name='theme-color' content='#000000' />
 				<meta name='msapplication-navbutton-color' content='#000000' />
 				<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
 				<meta name='msapplication-starturl' content='/' />
 				<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
+				<link rel='icon' type='image/png' sizes='256x256' href='homescreen.png' />
+				<link rel='apple-touch-icon' type='image/png' sizes='256x256' href='homescreen.png' />
 			</Head>
 
 			<GlobalContextProvider value={globalContext}>
