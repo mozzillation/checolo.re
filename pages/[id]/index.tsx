@@ -15,6 +15,28 @@ import { ZONES_PROPERTIES } from '@/utils/const'
 import styles from './region.module.sass'
 
 import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import isBetween from 'dayjs/plugin/isBetween'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+
+dayjs.extend(customParseFormat)
+dayjs.extend(isBetween)
+dayjs.extend(isSameOrBefore)
+
+function getDates(today, startDate, stopDate) {
+	const dateArray = new Array()
+	let currentDate = startDate
+
+	while (currentDate.isSameOrBefore(stopDate)) {
+		if (currentDate.isBetween(today, stopDate, 'day', '[]')) {
+			dateArray.push(currentDate)
+		}
+		currentDate = dayjs(currentDate).add(1, 'day')
+	}
+
+	return dateArray
+}
+
 
 
 
@@ -41,6 +63,12 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 
 	}, [])
 
+	const today = dayjs()
+
+	const currentRangeStart = dayjs(data[0].date_start, 'DD/MM/YYYY')
+	const currentRangeEnd = dayjs(data[lastIndex].date_end, 'DD/MM/YYYY')
+
+	const range = getDates(today, currentRangeStart, currentRangeEnd)
 
 	return (
 		<>
@@ -53,7 +81,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 					style={zoneProps.style}
 				>
 					<Toolbar />
-					<DatePicker properties={ZONES_PROPERTIES} current={dayjs().format('DD/MM/YYYY')} />
+					<DatePicker days={range} properties={ZONES_PROPERTIES} current={today} />
 					<Message>
 						<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
 					</Message>
