@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { motion } from 'framer-motion'
 
-import { GLOBAL_PAGE_VARIANT, ZONES_PROPERTIES } from '@/utils/const'
+import { ZONES_PROPERTIES } from '@/utils/const'
 import dataset from '@data/dataset.json'
 
 import styles from '@/styles/region.module.sass'
