@@ -159,7 +159,7 @@ it:
         - gialla
         - arancione
         - rossa
-    9:
+    8:
       emoji: "🐶"
       title: "Puoi uscire con il tuo animale da compagnia"
       subtitle: "Dove ti è consentito spostarti"
@@ -167,7 +167,7 @@ it:
         - gialla
         - arancione
         - rossa
-    11:
+    9:
       emoji: "🏃‍♀️🚴‍♂️"
       title: "Puoi fare sport e andare in bici"
       subtitle: "Da solo e unicamente dove ti puoi spostare"
@@ -175,7 +175,7 @@ it:
         - gialla
         - arancione
         - rossa
-    14:
+    10:
       emoji: "👵🏻"
       title: "Puoi accompagnare un'altra persona che non puo usare un mezzo proprio"
       subtitle: "Porta l'autocertificazione"
@@ -183,7 +183,7 @@ it:
         - gialla
         - arancione
         - rossa
-    16:
+    11:
       emoji: "🍕"
       title: "Puoi andare a prendere del cibo da asporto"
       subtitle: "Solo dove ti puoi spostare e fino alle 20"
@@ -191,7 +191,7 @@ it:
         - gialla
         - arancione
         - rossa
-    19:
+    12:
       emoji: "💈"
       title: "Puoi andare a tagliarti i capelli"
       subtitle: "Il solito, grazie"
@@ -199,51 +199,51 @@ it:
         - gialla
         - arancione
         - rossa
-    18:
+    13:
       emoji: "🍽"
       title: "Puoi mangiare al ristorante o al bar"
       subtitle: "Fino alle 18"
       zona:
         - gialla
-    19:
+    14:
       emoji: "👨‍👧‍👧"
       title: "Puoi andare a trovare amici o parenti se sono nel tuo comune"
       subtitle: "Una sola volta con al massimo un'altra persona - Minori di 14 anni, disabili e non autosufficienti possono comunque venire con te"
       zona:
         - arancione
         - rossa
-    20:
+    15:
       emoji: "👨‍👧‍👧"
       title: "Puoi andare a trovare amici o parenti all'interno della tua regione"
       subtitle: "Una sola volta con al massimo un'altra persona - Minori di 14 anni, disabili e non autosufficienti possono comunque venire con te"
       zona:
         - gialla
-    21:
+    16:
       emoji: "💕"
       title: "Puoi andare a trovare il tuo partner"
       subtitle: "Da te o dall'altr*. Niente fughe d'amore in hotel"
       zona:
         - gialla
-    22:
+    17:
       emoji: "💅"
       title: "Puoi fare un salto dall'estetista"
       subtitle: "Mani e Pedi"
       zona:
         - gialla
-    23:
+    18:
       emoji: "🛍"
       title: "Puoi andare a fare shopping"
       subtitle: ""
       zona:
         - arancione
         - rossa
-    24:
+    19:
       emoji: "🌙"
       title: "Puoi uscire al chiar di luna"
       subtitle: "Nessun coprifuoco"
       zona:
         - bianca
-    25: 
+    20: 
       emoji: "🧭"
       title: "Puoi andare dove vuoi"
       subtitle: "Ricordati l'autocertificazione se ti sposti verso zone di altro colore"
