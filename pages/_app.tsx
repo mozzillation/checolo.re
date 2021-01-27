@@ -18,19 +18,18 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 	const globalContext = useState(INITIAL_STATE)
 	const [globalState, dispatch] = globalContext
 
+	// useEffect(() => {
+	// 	sessionStorageProperty('detected_region')
+	// 		.then(detectedRegion => {
 
-	useEffect(() => {
-		sessionStorageProperty('detected_region')
-			.then(detectedRegion => {
+	// 			if (detectedRegion) {
+	// 				Router.push('/[id]', `/${detectedRegion.name}`, {
+	// 					shallow: true
+	// 				})
+	// 			}
 
-				if (detectedRegion) {
-					Router.push('/[id]', `/${detectedRegion.name}`, {
-						shallow: true
-					})
-				}
-
-			})
-	}, [])
+	// 		})
+	// }, [])
 
 	useEffect(() => {
 		window.addEventListener('resize', updateViewportHeight)

@@ -1,5 +1,7 @@
 import { Power4 } from 'gsap'
 
+export const DATE_FORMAT = 'DD/MM/YYYY'
+
 export const GLOBAL_PAGE_VARIANT = {
 	initial: {
 		opacity: 0,
@@ -42,7 +44,7 @@ export const ZONES_PROPERTIES = {
 	3: {
 		style: {
 			backgroundColor: '#f03f22',
-			color: 'black'
+			color: 'white'
 		},
 		zoneName: 'rossa'
 	}

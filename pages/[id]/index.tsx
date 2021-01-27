@@ -10,7 +10,7 @@ import { GlobalContext } from '@component/GlobalContext'
 import { DatePicker } from '@component/DatePicker'
 import { Toolbar } from '@component/Toolbar/Toolbar'
 import { Footer } from '@component/Footer/Footer'
-import { ZONES_PROPERTIES } from '@/utils/const'
+import { DATE_FORMAT, ZONES_PROPERTIES } from '@/utils/const'
 
 import styles from './region.module.sass'
 
@@ -18,6 +18,9 @@ import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import isBetween from 'dayjs/plugin/isBetween'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+
+require('dayjs/locale/it')
+dayjs.locale('it')
 
 dayjs.extend(customParseFormat)
 dayjs.extend(isBetween)
@@ -38,18 +41,39 @@ function getDates(today, startDate, stopDate) {
 }
 
 
+const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
+	const [{ appState }, dispatch] = useContext(GlobalContext)
 
-
-const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element => {
-	const [{ appState, selectedRegion }, dispatch] = useContext(GlobalContext)
+	const today = dayjs()
 
 	const lastIndex = data.length - 1
-	const totalTimeRange = [data[0].date_start, data[lastIndex].date_end]
 
-	const timeframeIndex = data[lastIndex]
-	const zoneIndex = timeframeIndex.code
+	const [timerangeIndex, setTimerangeIndex] = useState(lastIndex)
+	const [currentDate, setCurrentDate] = useState(today)
 
-	const [zoneProps, setZoneProps] = useState(ZONES_PROPERTIES[zoneIndex])
+	const timeRangeZoneCode = data[timerangeIndex].code
+
+	const zoneProps = ZONES_PROPERTIES[timeRangeZoneCode]
+
+	const rangeStart = dayjs(data[0].date_start, DATE_FORMAT)
+	const rangeEnd = dayjs(data[lastIndex].date_end, DATE_FORMAT)
+
+	const range = getDates(today, rangeStart, rangeEnd)
+
+	const completeDate = currentDate.format('dddd, D MMMM YYYY')
+
+	useEffect(() => {
+		// done this way because for loop is
+		// fucking faster than array methods
+		for (let i = 0; i < data.length; i++) {
+			const currentRange = data[i]
+			const currentRangeStart = dayjs(currentRange.date_start, DATE_FORMAT)
+			const currentRangeEnd = dayjs(currentRange.date_end, DATE_FORMAT)
+			const d = currentDate.isBetween(currentRangeStart, currentRangeEnd, 'day', '[]')
+
+			if (d === true) setTimerangeIndex(i)
+		}
+	}, [currentDate])
 
 	useEffect(() => {
 		if (appState.loading) {
@@ -60,15 +84,7 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 				}
 			}))
 		}
-
 	}, [])
-
-	const today = dayjs()
-
-	const currentRangeStart = dayjs(data[0].date_start, 'DD/MM/YYYY')
-	const currentRangeEnd = dayjs(data[lastIndex].date_end, 'DD/MM/YYYY')
-
-	const range = getDates(today, currentRangeStart, currentRangeEnd)
 
 	return (
 		<>
@@ -76,22 +92,22 @@ const SingleRegion = ({ region, content, rules, data }: AppProps): JSX.Element =
 				<title>CheColore è {content.seo}?</title>
 			</Head>
 			<motion.div>
-				<div
+				<motion.div
 					className={styles.hero}
 					style={zoneProps.style}
 				>
 					<Toolbar />
-					<DatePicker days={range} current={today} />
+					<DatePicker days={range} current={currentDate} onSetDate={setCurrentDate} />
 					<Message>
 						<div className={styles.dateFormatted}>
-							Mercoledì X Gennaio 2020
+							{completeDate}
 						</div>
 						<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
 					</Message>
 					<FurtherContentIndicator>
 						Cosa si può fare?
 				</FurtherContentIndicator>
-				</div>
+				</motion.div>
 
 				<div className={styles.activities} >
 					<ActivityList zoneProps={zoneProps} rules={rules} />
@@ -134,7 +150,7 @@ const ActivityList = ({ zoneProps, rules }: { zoneProps: any, rules: any }) => {
 
 	return (
 		<>
-			{currentRules ?.map((rule, index) => (
+			{currentRules?.map((rule, index) => (
 				<ActivityCard rule={rule} key={index} />
 			))}
 
@@ -148,9 +164,9 @@ const ActivityCard = ({ rule }) => {
 
 	return (
 		<div className={styles.activityCard}>
-			<span className={styles.emoji}>{rule ?.emoji}</span>
-			<span className={styles.title}>{rule ?.title}</span>
-			<span className={styles.subtitle}>{rule ?.subtitle}</span>
+			<span className={styles.emoji}>{rule?.emoji}</span>
+			<span className={styles.title}>{rule?.title}</span>
+			<span className={styles.subtitle}>{rule?.subtitle}</span>
 		</div>
 	)
 }
@@ -204,8 +220,6 @@ import fs from 'fs'
 import path from 'path'
 import process from 'process'
 import * as yaml from 'js-yaml'
-import Link, { LinkProps } from 'next/link'
-import { Url } from 'url'
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const id: string = params.id.toString()
@@ -220,7 +234,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 	return {
 		props: {
-			region: id,
 			data,
 			content,
 			rules
