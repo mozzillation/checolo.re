@@ -16,24 +16,35 @@ const V = {
 }
 
 export function Toolbar() {
-	return <motion.div className={styles.wrapper}>
-		<Link href='/italia'>
-			<motion.div
-				className={styles.selectorWrapper}
-				whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }}
-				whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }}
-				transition={{ duration: 0.25 }}
-			>
-				<div className={styles.dropdownIcon}>
-					<CaretLeft size={24} weight={'bold'} />
-				</div>
-				<div className={styles.currentRegion}>
-					Regioni
+	return (
+		<motion.div className={styles.wrapper}>
+			<Link href='/italia'>
+				<motion.div
+					className={styles.selectorWrapper}
+					whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }}
+					whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }}
+					transition={{ duration: 0.25 }}
+				>
+					<div className={styles.dropdownIcon}>
+						<CaretLeft size={24} weight={'bold'} />
+					</div>
+					<div className={styles.currentRegion}>
+						Regioni
 			</div>
-			</motion.div>
-		</Link>
-		<Link href='/about'>
-			<Info size={24} weight={'bold'} />
-		</Link>
-	</motion.div>
+				</motion.div>
+			</Link>
+			<Link href='/about'>
+				<motion.div
+					className={styles.selectorWrapper}
+					whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }}
+					whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }}
+					transition={{ duration: 0.25 }}
+				>
+					<div className={styles.currentRegion}>
+						About
+					</div>
+				</motion.div>
+			</Link>
+		</motion.div>
+	)
 }
