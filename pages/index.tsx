@@ -11,6 +11,7 @@ import { NavigationArrow } from 'phosphor-react'
 import styles from '../styles/index.module.sass'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { Footer } from '@/components/Footer/Footer'
 
 const Index = () => {
 
@@ -27,36 +28,39 @@ const Index = () => {
 	}
 
 	return (
-		<motion.div className={styles.wrapper}>
-			<motion.div className={styles.mainContent} >
-				<img src='/logo.svg' />
-				<span>Cosa puoi fare nella tua regione?</span>
-			</motion.div>
-			<motion.div
-				className={styles.actionContainer}
-				variants={chv}
-				initial='initial'
-				animate='animate'
-				exit='exit'
-			>
-				<PrimaryBtn onClick={onGetLocation}>
-					<div style={{ display: 'flex', justifyContent: 'center' }}>
-						<span className={styles.label} >Usa la mia posizione</span>
-						<NavigationArrow
-							size={24}
-							weight='fill'
-							mirrored={true}
-							style={{ alignSelf: 'center' }} />
-					</div>
-				</PrimaryBtn>
-				<Link href='/italia' key={2}>
-					<SecondaryBtn>
-						Tutte le regioni
+		<>
+			<motion.div className={styles.wrapper}>
+				<motion.div className={styles.mainContent} >
+					<img src='/logo.svg' />
+					<span>Cosa puoi fare nella tua regione?</span>
+				</motion.div>
+				<motion.div
+					className={styles.actionContainer}
+					variants={chv}
+					initial='initial'
+					animate='animate'
+					exit='exit'
+				>
+					<PrimaryBtn onClick={onGetLocation}>
+						<div style={{ display: 'flex', justifyContent: 'center' }}>
+							<span className={styles.label} >Usa la mia posizione</span>
+							<NavigationArrow
+								size={24}
+								weight='fill'
+								mirrored={true}
+								style={{ alignSelf: 'center' }} />
+						</div>
+					</PrimaryBtn>
+					<Link href='/italia' key={2}>
+						<SecondaryBtn>
+							Tutte le regioni
 					</SecondaryBtn>
-				</Link>
+					</Link>
 
+				</motion.div>
 			</motion.div>
-		</motion.div>
+			<Footer />
+		</>
 	)
 
 
