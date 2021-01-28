@@ -67,6 +67,7 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 				</div>
 
 			</motion.div>
+			<Footer />
 		</>
 	)
 }
@@ -92,6 +93,7 @@ import { GetStaticProps } from 'next'
 import { NavigationArrow } from 'phosphor-react'
 import { getLocation } from '../api'
 import { Back, Power4 } from 'gsap'
+import { Footer } from '@/components/Footer/Footer'
 
 export const getStaticProps: GetStaticProps = async () => {
 
