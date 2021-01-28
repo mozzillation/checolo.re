@@ -1,9 +1,23 @@
 import { FeatureCollection } from 'geojson'
+import { NextRouter } from 'next/router'
 import { getRegionsGeoJson, getCurrentRegion } from './'
 
-async function getLocation(regionsObject: FeatureCollection, stateSetter, router, options?) {
+/**
+ * Redirects user to region page from GPS Coordinates
+ *
+ * @param {FeatureCollection} regionsOBject featureCollection object from geojson
+ * @param {Function} stateSetter state setter function
+ * @param {Router} router router instance
+ * @param {Object} options options
+ */
+
+async function getLocation(regionsObject: FeatureCollection, stateSetter: (args) => void, router: NextRouter, options?: { force?: boolean }) {
 
   let detectedRegion
+
+  if (!regionsObject) {
+    regionsObject = await getRegionsGeoJson()
+  }
 
   const locationFromSession = window.sessionStorage.getItem('detected_region')
 
@@ -40,11 +54,6 @@ async function getLocation(regionsObject: FeatureCollection, stateSetter, router
       }))
       // get position
       navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-
-        if (!regionsObject) {
-          regionsObject = await getRegionsGeoJson()
-        }
-
         const point = [coords.longitude, coords.latitude]
         const { features } = regionsObject
         const detectedRegionList = await getCurrentRegion({ point, features })
