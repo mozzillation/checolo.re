@@ -32,7 +32,7 @@ const Index = () => {
 			<motion.div className={styles.wrapper}>
 				<motion.div className={styles.mainContent} >
 					<img src='/logo.svg' />
-					<span>Cosa puoi fare nella tua regione?</span>
+					<span>Un semplice strumento per tenere traccia dei DPCM</span>
 				</motion.div>
 				<motion.div
 					className={styles.actionContainer}
