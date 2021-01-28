@@ -19,7 +19,7 @@ const DatePicker = ({ days, current, onSetDate }: { days?: any, current: Dayjs, 
 			{days.map(day => {
 
 				return (
-					<Day date={day} current={current} handleDate={handleDate} key={day} />
+					<Day date={day.currentDate} current={current} handleDate={handleDate} key={day.currentDate} empty={day.empty} />
 				)
 			})}
 
@@ -28,11 +28,12 @@ const DatePicker = ({ days, current, onSetDate }: { days?: any, current: Dayjs, 
 }
 
 
-const Day = ({ date, current, handleDate }: { date: Dayjs, current: Dayjs, handleDate: (props) => void }) => {
+const Day = ({ date, current, handleDate, empty }: { date: Dayjs, current: Dayjs, empty: boolean, handleDate: (props) => void }) => {
 
 	const currentStyle = {
 		backgroundColor: '#000',
-		color: '#FFF'
+		color: '#FFF',
+		opacity: 1
 	}
 
 	const changeDate = () => {
@@ -46,11 +47,11 @@ const Day = ({ date, current, handleDate }: { date: Dayjs, current: Dayjs, handl
 	const formattedDay = dayjs(date, DATE_FORMAT).format('D')
 
 	return (
-		<motion.div className={styles.Day} onClick={changeDate} whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }} whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }} transition={{ duration: 0.25 }}>
+		<motion.div className={empty ? styles.DayEmpty : styles.Day} onClick={changeDate} whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }} whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }} transition={{ duration: 0.25 }}>
 			<div className={styles.Digit} style={isCurrent() ? currentStyle : null}>
 				{formattedDay}
 			</div>
-		</motion.div >
+		</motion.div>
 	)
 }
 

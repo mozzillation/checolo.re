@@ -29,7 +29,7 @@ const AllRegions = ({ content }: AppProps): JSX.Element => {
 			<motion.div>
 				<Header>
 					<div className={styles.label}>
-						Regioni
+						Scegli una regione:
 					</div>
 					<motion.div
 						className={styles.button}
