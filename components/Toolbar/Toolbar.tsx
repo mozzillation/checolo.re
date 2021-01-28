@@ -35,7 +35,7 @@ export function Toolbar() {
 			</Link>
 			<Link href='/about'>
 				<motion.div
-					className={styles.selectorWrapper}
+					className={styles.secondarySelectorWrapper}
 					whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }}
 					whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }}
 					transition={{ duration: 0.25 }}

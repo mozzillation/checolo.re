@@ -31,7 +31,7 @@ const Index = () => {
 		<>
 			<motion.div className={styles.wrapper}>
 				<motion.div className={styles.mainContent} >
-					<img src='/logo.svg' />
+					<img src='/logo.svg' height='100%' className={styles.logo} />
 					<span>Un semplice strumento per tenere traccia dei DPCM</span>
 				</motion.div>
 				<motion.div
