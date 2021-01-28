@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import Router from 'next/router'
+// import Router from 'next/router'
 import { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
-import { sessionStorageProperty, updateViewportHeight } from '@/utils'
+import { updateViewportHeight } from '@/utils'
 import Page from '@layout/Page'
 import { GlobalContextProvider, INITIAL_STATE } from '@component/GlobalContext'
 import Loading from '@component/Loading'
 import Flex from '@component/Flex'
 
 import '@globals'
-import { getLocation } from './api'
 
 export default function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
 
@@ -34,7 +33,6 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 	useEffect(() => {
 		window.addEventListener('resize', updateViewportHeight)
 		updateViewportHeight()
-
 	}, [])
 
 	return (

@@ -1,5 +1,21 @@
 @import @theme
 
-.authors
-  font-size: $size-6
-  color: $mid-grey
+.wrapper
+  min-height: var(--viewport-height, 100vh)
+  padding: $margin $margin-small
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+
+.logo
+  height: $size-3
+
+.text
+  margin-bottom: $margin
+
+  .externalLink
+    text-decoration: underline
+
+  .authors
+    font-size: $size-6
+    color: $mid-grey
