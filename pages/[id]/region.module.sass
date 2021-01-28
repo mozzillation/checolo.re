@@ -25,10 +25,13 @@
   text-align: center
   padding: $margin-smallest
 
+  +animate(color)
+
   .dateFormatted
     font-family: $font
     font-size: $size-3
     line-height: 1.6em
+    text-transform: capitalize
 
   h1
     font-size: $size-0
@@ -58,6 +61,11 @@
   padding: 1rem 0.5rem
   border-bottom: 1px solid $light-grey
   color: $black
+  display: flex
+  align-items: center
+  align-content: center
+  justify-content: center
+  flex-direction: column
 
 .activityCard > *
   margin: 0.5rem 0
@@ -69,10 +77,12 @@
 
 .activityCard .title
   font-size: $size-5
+  max-width: 600px
 
 .activityCard .subtitle
   color: transparentize($black, 0.6)
   font-size: $size-7
+  max-width: 600px
 
 .disclaimer
   color: $black

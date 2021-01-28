@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
-import { motion } from 'framer-motion'
-import { Back } from 'gsap'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Back, Power4 } from 'gsap'
 import { ArrowLineUpRight, CaretDoubleDown, ChatDots, IconProps } from 'phosphor-react'
 import Head from 'next/head'
 
@@ -28,16 +28,22 @@ dayjs.extend(isSameOrBefore)
 
 function getDates(today, startDate, stopDate) {
 	const dateArray = new Array()
+	const emptyDates = new Array()
 	let currentDate = startDate
 
 	while (currentDate.isSameOrBefore(stopDate)) {
 		if (currentDate.isBetween(today, stopDate, 'day', '[]')) {
-			dateArray.push(currentDate)
+			dateArray.push({ currentDate, empty: false })
 		}
 		currentDate = dayjs(currentDate).add(1, 'day')
 	}
 
-	return dateArray
+	[...Array(14).keys()].map(el => {
+		emptyDates.push({ currentDate, empty: true })
+		currentDate = dayjs(currentDate).add(1, 'day')
+	})
+
+	return [...dateArray, ...emptyDates]
 }
 
 
@@ -48,10 +54,12 @@ const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
 
 	const lastIndex = data.length - 1
 
+
 	const [timerangeIndex, setTimerangeIndex] = useState(lastIndex)
 	const [currentDate, setCurrentDate] = useState(today)
 
 	const timeRangeZoneCode = data[timerangeIndex].code
+
 
 	const zoneProps = ZONES_PROPERTIES[timeRangeZoneCode]
 
@@ -60,7 +68,7 @@ const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
 
 	const range = getDates(today, rangeStart, rangeEnd)
 
-	const completeDate = currentDate.format('dddd, D MMMM YYYY')
+	const completeDate = currentDate.format('dddd D MMMM YYYY')
 
 	useEffect(() => {
 		// done this way because for loop is
@@ -94,16 +102,19 @@ const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
 			<motion.div>
 				<motion.div
 					className={styles.hero}
-					style={zoneProps.style}
+					animate={zoneProps.style}
 				>
 					<Toolbar />
 					<DatePicker days={range} current={currentDate} onSetDate={setCurrentDate} />
-					<Message>
-						<div className={styles.dateFormatted}>
-							{completeDate}
-						</div>
-						<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
-					</Message>
+
+					<AnimatePresence exitBeforeEnter={true}>
+						<Message key={completeDate}>
+							<div className={styles.dateFormatted}>
+								{completeDate}
+							</div>
+							<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
+						</Message>
+					</AnimatePresence>
 					<FurtherContentIndicator>
 						Cosa si può fare?
 				</FurtherContentIndicator>
@@ -150,7 +161,7 @@ const ActivityList = ({ zoneProps, rules }: { zoneProps: any, rules: any }) => {
 
 	return (
 		<>
-			{currentRules?.map((rule, index) => (
+			{currentRules ?.map((rule, index) => (
 				<ActivityCard rule={rule} key={index} />
 			))}
 
@@ -164,18 +175,21 @@ const ActivityCard = ({ rule }) => {
 
 	return (
 		<div className={styles.activityCard}>
-			<span className={styles.emoji}>{rule?.emoji}</span>
-			<span className={styles.title}>{rule?.title}</span>
-			<span className={styles.subtitle}>{rule?.subtitle}</span>
+			<span className={styles.emoji}>{rule ?.emoji}</span>
+			<span className={styles.title}>{rule ?.title}</span>
+			<span className={styles.subtitle}>{rule ?.subtitle}</span>
 		</div>
 	)
 }
 
 const Message = ({ children }) => {
 
-	return <div className={styles.messageWrapper}>
-		<h1>{children}</h1>
-	</div>
+	return (
+		<motion.div className={styles.messageWrapper} initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }} transition={{ ease: Power4.easeInOut }}>
+			<h1>{children}</h1>
+		</motion.div >
+	)
+
 }
 
 const FurtherContentIndicator = ({ children }) => {
