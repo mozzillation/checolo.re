@@ -8,7 +8,7 @@ Each zone color has specific rules, which might differ depending on regional dec
 
 ## How to contribute
 
-**CheColore** is an open project. Feel free to submit your suggestions by opening an issue on Github.
+**CheColore** is an open project. Feel free to submit your suggestions by opening an issue on Github. Have a look to our [Code of Conduct](https://github.com/mozzillation/checolo.re/blob/main/code_of_conduct.md) before submitting any content.
 
 ## Contributors
 
