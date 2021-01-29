@@ -1,9 +1,7 @@
 import React, { useContext } from 'react'
 import Router from 'next/router'
-import { GetServerSideProps } from 'next'
-import { FeatureCollection } from 'geojson'
 import { GlobalContext } from '@component/GlobalContext'
-import { getLocation, getRegionsGeoJson } from '@api'
+import { getLocation } from '@api'
 
 import { PrimaryBtn, SecondaryBtn } from '@component/Button'
 import { NavigationArrow } from 'phosphor-react'
@@ -32,14 +30,14 @@ const Index = () => {
 			<motion.div className={styles.wrapper}>
 				<motion.div className={styles.mainContent} >
 					<img src='/logo.svg' height='100%' className={styles.logo} />
-					<span>Un semplice strumento per tenere traccia dei DPCM</span>
+					<span>Un semplice strumento per tenere traccia dei DPCM</span>
 				</motion.div>
 				<motion.div
 					className={styles.actionContainer}
-					variants={chv}
 					initial='initial'
 					animate='animate'
 					exit='exit'
+					variants={chv}
 				>
 					<PrimaryBtn onClick={onGetLocation}>
 						<div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -69,13 +67,3 @@ const Index = () => {
 
 export default Index
 
-		// ————————————————————————————————————————————————————————————————————————————
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-// 	const regions = await getRegionsGeoJson()
-// 	return {
-// 		props: {
-// 			regions
-// 		}
-// 	}
-// }
