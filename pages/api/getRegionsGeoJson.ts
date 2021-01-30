@@ -1,5 +1,5 @@
 const fetchGeoJSON = async () => {
-	const address = 'https://raw.githubusercontent.com/mozzillation/checolo.re/main/data/regions.geojson'
+	const address = 'https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_IT_regions.geojson'
 	const res = await fetch(address)
 	const regions = await res.json()
 
