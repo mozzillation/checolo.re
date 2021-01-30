@@ -6,8 +6,12 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Setup Python
         uses: actions/setup-python@v2
-      - name: Run Script
-        run: |
-          python main.py 
+        with:
+          python-version: 3.8 #install the python needed
+      - name: Install dependencies
+        run: pip install requests
+      - name: Run script
+        run: python3 fetcher/main.py
