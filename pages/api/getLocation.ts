@@ -108,7 +108,7 @@ const onError = (error: { code: number, message: string }, stateSetterFn: (args)
     selectedRegion: undefined
   }))
 
-  // router.push('/italia')
+  router.push('/italia')
 
 }
 
