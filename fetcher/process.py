@@ -1,6 +1,12 @@
 import os
 import json
 import pprint
+import requests
+
+GITHUB_API="https://api.github.com"
+GIST_ID="8b06345c17c0625adc2e758ff9f28a19"
+API_TOKEN='1fcb7c97317bc90821396e8f02457616b96cbe76'
+
 
 output = {}
 
@@ -88,6 +94,19 @@ def execute(dir_name):
 
     with open('data/dataset.json', 'w') as output_file:
         output_data = json.dumps(output, indent=4)
+
+        #form a request URL
+        url=GITHUB_API+"/gists/"+GIST_ID
+        print("Request URL: %s"%url)
+
+        #print headers,parameters,payload
+        headers={'Authorization':'token %s'%API_TOKEN}
+        params={'scope':'gist'}
+        payload={"public":True,"files":{"CheColo.re Data":{"content":output_data}}}
+
+        #make a requests
+        res=requests.post(url,headers=headers,params=params,data=json.dumps(payload))
+
         output_file.write(output_data)
 
         os.remove(dataset_path)
