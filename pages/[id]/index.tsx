@@ -54,7 +54,6 @@ const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
 
 	const lastIndex = data.length - 1
 
-
 	const [timerangeIndex, setTimerangeIndex] = useState(lastIndex)
 	const [currentDate, setCurrentDate] = useState(today)
 
@@ -115,9 +114,10 @@ const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
 							<span>{content.declarative}</span> in zona <span>{zoneProps.zoneName}</span>
 						</Message>
 					</AnimatePresence>
+
 					<FurtherContentIndicator>
 						Cosa si può fare?
-				</FurtherContentIndicator>
+					</FurtherContentIndicator>
 				</motion.div>
 
 				<div className={styles.activities} >

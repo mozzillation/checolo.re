@@ -38,7 +38,7 @@ class Loading extends Component {
 
 	render() {
 		return (
-			<motion.div className={styles.Loading} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
+			<motion.div className={styles.Loading} initial={{ opacity: 0, scale: 1 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
 				<Circle size={16} weight='fill' ref={this.Circle1} color={'#ffd602'} />
 				<Circle size={16} weight='fill' ref={this.Circle2} color={'#ff8200'} />
 				<Circle size={16} weight='fill' ref={this.Circle3} color={'#f03f22'} />

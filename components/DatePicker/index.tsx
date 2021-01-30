@@ -17,12 +17,10 @@ const DatePicker = ({ days, current, onSetDate }: { days?: any, current: Dayjs, 
 	return (
 		<div className={styles.DatePicker}>
 			{days.map(day => {
-
 				return (
 					<Day date={day.currentDate} current={current} handleDate={handleDate} key={day.currentDate} empty={day.empty} />
 				)
 			})}
-
 		</div>
 	)
 }
@@ -40,15 +38,22 @@ const Day = ({ date, current, handleDate, empty }: { date: Dayjs, current: Dayjs
 		handleDate(date)
 	}
 
-	const isCurrent = () => {
-		return (dayjs(date).format(DATE_FORMAT) === dayjs(current).format(DATE_FORMAT))
-	}
+	const isCurrent = dayjs(date).format(DATE_FORMAT) === dayjs(current).format(DATE_FORMAT)
 
 	const formattedDay = dayjs(date, DATE_FORMAT).format('D')
 
 	return (
-		<motion.div className={empty ? styles.DayEmpty : styles.Day} onClick={changeDate} whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }} whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }} transition={{ duration: 0.25 }}>
-			<div className={styles.Digit} style={isCurrent() ? currentStyle : null}>
+		<motion.div
+			className={empty ? styles.DayEmpty : styles.Day}
+			onClick={changeDate}
+			whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }}
+			whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }}
+			transition={{ duration: 0.25 }}
+			style={{
+				pointerEvents: empty ? 'none' : 'all'
+			}}
+		>
+			<div className={styles.Digit} style={isCurrent ? currentStyle : null}>
 				{formattedDay}
 			</div>
 		</motion.div>
