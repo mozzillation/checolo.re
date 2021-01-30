@@ -9,4 +9,5 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
       - name: Run Script
-        run: python3 fetcher/main.py 
+        run: |
+          python3 ./fetcher/main.py 
