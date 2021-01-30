@@ -66,6 +66,19 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 				<link rel='manifest' href='/manifest.json' />
 				<meta name='msapplication-TileColor' content='#000000' />
 				<meta name='msapplication-TileImage' content='/ms-icon-144x144.png' />
+
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:description" content="CheColore ti aiuta a capire il colore delle regioni d'Italia e cosa fare per fronteggiare l'emergenza da COVID-19." />
+				<meta name="twitter:title" content="Che Colore" />
+				<meta name="twitter:site" content="https://checolo.re" />
+				<meta name="twitter:image" content="/social_thumb.png" />
+				<meta name="twitter:creator" content="@checolore" />
+
+				<meta property="og:url" content="https://checolo.re" />
+				<meta property="og:type" content="website" />
+				<meta property="og:title" content="Scopri il colore della tua regione • CheColore" />
+				<meta property="og:description" content="CheColore ti aiuta a capire il colore delle regioni d'Italia e cosa fare per fronteggiare l'emergenza da COVID-19." />
+				<meta property="og:image" content="/social_thumb.png" />
 			</Head>
 
 			<GlobalContextProvider value={globalContext}>
