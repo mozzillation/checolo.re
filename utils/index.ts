@@ -1,5 +1,5 @@
 import logger from './logger'
 import sessionStorageProperty from './sessionStorageProperty'
-import updateViewportHeight from './updateViewportHeight'
+import trueViewportHeight from './trueViewportHeight'
 
-export { logger, sessionStorageProperty, updateViewportHeight }
+export { logger, sessionStorageProperty, trueViewportHeight }

@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 import styles from './Footer.module.sass'
 
-export function Footer() {
+export function Footer({ noLogo = false }: { noLogo?: boolean }) {
 
 	useEffect(() => {
 		smoothscroll.polyfill()
@@ -19,11 +19,13 @@ export function Footer() {
 	return <>
 		<footer className={styles.footer} >
 			<div className={styles.content}>
-				<Link href='/'>
-					<a className={styles.logo}>
-						<img src='/logo.svg' height='100%' />
-					</a>
-				</Link>
+				{!noLogo && (
+					<Link href='/'>
+						<a className={styles.logo}>
+							<img src='/logo.svg' height='100%' />
+						</a>
+					</Link>
+				)}
 				<div className={styles.links}>
 					<div><Link href={'/about'}>Info</Link></div>
 					<div><Link href={'https://github.com/mozzillation/checolo.re/issues'}>Segnala un problema</Link></div>

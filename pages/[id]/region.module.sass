@@ -7,15 +7,11 @@
   color: black
 
 .hero
-  min-height: 100vh
+  min-height: var(--viewport-height, 90vh)
   background-color: $yellow
   display: flex
   flex-direction: column
-  height: 100%
   border-bottom: 2px solid $black
-
-  +mq(tablet)
-    min-height: 80vh
 
 .messageWrapper
   flex-grow: 1

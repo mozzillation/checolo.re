@@ -54,10 +54,9 @@ const Index = () => {
 							Tutte le regioni
 					</SecondaryBtn>
 					</Link>
-
 				</motion.div>
 			</motion.div>
-			<Footer />
+			<Footer noLogo={true} />
 		</>
 	)
 

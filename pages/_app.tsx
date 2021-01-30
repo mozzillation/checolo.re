@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
-import { updateViewportHeight } from '@/utils'
+import { trueViewportHeight } from '@/utils'
 import Page from '@layout/Page'
 import { GlobalContextProvider, INITIAL_STATE } from '@component/GlobalContext'
 import Loading from '@component/Loading'
@@ -17,26 +17,17 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 	const globalContext = useState(INITIAL_STATE)
 	const [globalState, dispatch] = globalContext
 
-	// useEffect(() => {
-	// 	sessionStorageProperty('detected_region')
-	// 		.then(detectedRegion => {
-
-	// 			if (detectedRegion) {
-	// 				Router.push('/[id]', `/${detectedRegion.name}`, {
-	// 					shallow: true
-	// 				})
-	// 			}
-
-	// 		})
-	// }, [])
-
 	useEffect(() => {
 		window.localStorage.setItem('last_update', new Date().toLocaleString('it'))
 	}, [])
 
 	useEffect(() => {
-		window.addEventListener('resize', updateViewportHeight)
-		updateViewportHeight()
+		const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+		if (!isMobile) {
+			// we listen to resize events
+			window.addEventListener('resize', trueViewportHeight)
+		}
+		trueViewportHeight()
 	}, [])
 
 	return (
