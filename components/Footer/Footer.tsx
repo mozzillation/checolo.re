@@ -19,9 +19,11 @@ export function Footer() {
 	return <>
 		<footer className={styles.footer} >
 			<div className={styles.content}>
-				<div className={styles.logo}>
-					<img src='/logo.svg' height='100%' />
-				</div>
+				<Link href='/'>
+					<a className={styles.logo}>
+						<img src='/logo.svg' height='100%' />
+					</a>
+				</Link>
 				<div className={styles.links}>
 					<div><Link href={'/about'}>Info</Link></div>
 					<div><Link href={'https://github.com/mozzillation/checolo.re/issues'}>Segnala un problema</Link></div>
