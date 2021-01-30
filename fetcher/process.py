@@ -3,10 +3,9 @@ import json
 import pprint
 import requests
 
-GITHUB_API="https://api.github.com"
-GIST_ID="8b06345c17c0625adc2e758ff9f28a19"
-API_TOKEN='1fcb7c97317bc90821396e8f02457616b96cbe76'
-
+GITHUB_API = "https://api.github.com"
+GIST_ID = "8b06345c17c0625adc2e758ff9f28a19"
+API_TOKEN = '1fcb7c97317bc90821396e8f02457616b96cbe76'
 
 output = {}
 
@@ -86,27 +85,29 @@ def extract_data(dataset):
 def execute(dir_name):
     file_name = 'dpc-covid-19-aree-nuove-g.json'
     file_path = dir_name + file_name
-    dataset_path = dir_name + file_name
+    # dataset_path = dir_name + file_name
 
     with open(file_path, 'r') as input_file:
         file_data = input_file.read()
         output = extract_data(file_data)
 
-    with open('data/dataset.json', 'w') as output_file:
+    with open('data/dataset.json', 'w'):
         output_data = json.dumps(output, indent=4)
 
-        #form a request URL
-        url=GITHUB_API+"/gists/"+GIST_ID
-        print("Request URL: %s"%url)
+        # form a request URL
+        url = GITHUB_API+"/gists/"+GIST_ID
+        print("Request URL: %s" % url)
 
-        #print headers,parameters,payload
-        headers={'Authorization':'token %s'%API_TOKEN}
-        params={'scope':'gist'}
-        payload={"public":True,"files":{"CheColo.re Data":{"content":output_data}}}
+        # print headers,parameters,payload
+        headers = {'Authorization': 'token %s' % API_TOKEN}
+        params = {'scope': 'gist'}
+        payload = {"public": True, "files": {
+            "CheColo.re Data": {"content": output_data}}}
 
-        #make a requests
-        res=requests.post(url,headers=headers,params=params,data=json.dumps(payload))
+        # make a requests
+        requests.post(url, headers=headers, params=params,
+                      data=json.dumps(payload))
 
-        output_file.write(output_data)
-
-        os.remove(dataset_path)
+        # # No need to write file anymore
+        # output_file.write(output_data)
+        # os.remove(dataset_path)

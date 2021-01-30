@@ -1,18 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Back, Power4 } from 'gsap'
-import { ArrowLineUpRight, CaretDoubleDown, ChatDots, IconProps } from 'phosphor-react'
-import Head from 'next/head'
+import { ArrowLineUpRight, CaretDoubleDown, IconProps } from 'phosphor-react'
 
 import { GlobalContext } from '@component/GlobalContext'
 import { DatePicker } from '@component/DatePicker'
 import { Toolbar } from '@component/Toolbar/Toolbar'
 import { Footer } from '@component/Footer/Footer'
-import { DATE_FORMAT, ZONES_PROPERTIES } from '@/utils/const'
+import { DATE_FORMAT, DATASET_ADDRESS, ZONES_PROPERTIES } from '@/utils/const'
 
 import styles from './region.module.sass'
+
+//
 
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
@@ -214,9 +216,10 @@ export default SingleRegion
 
 // ————————————————————————————————————————————————————————————————————————————
 
-import dataset from '@data/dataset.json'
-
 export const getStaticPaths: GetStaticPaths = async () => {
+	const dataset = await fetch('https://gist.githubusercontent.com/mozzillation/8b06345c17c0625adc2e758ff9f28a19/raw/1d5452d46de3463c03c4da554bebc0d2d29799b2/CheColo.re%2520Data')
+		.then(r => r.json())
+
 	const paths = Object.entries(dataset).map(([name]) => {
 		const id = name
 		return {
@@ -237,6 +240,10 @@ import * as yaml from 'js-yaml'
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const id: string = params.id.toString()
+
+	const dataset = await fetch(DATASET_ADDRESS)
+		.then(r => r.json())
+
 	const { data } = dataset[id]
 
 	const pathName = path.join(process.cwd(), 'data/content.yaml')
@@ -251,6 +258,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			data,
 			content,
 			rules
-		}
+		},
+		// revalidate every 12 hours
+		revalidate: 43200
 	}
 }

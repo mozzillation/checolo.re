@@ -6,12 +6,11 @@ import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { motion } from 'framer-motion'
 
 import { GlobalContext } from '@component/GlobalContext'
-import { ZONES_PROPERTIES } from '@/utils/const'
-import dataset from '@data/dataset.json'
+import { DATASET_ADDRESS, ZONES_PROPERTIES } from '@/utils/const'
 
 import styles from './italia.module.sass'
 
-const AllRegions = ({ content }: AppProps): JSX.Element => {
+const AllRegions = ({ dataset, content }: AppProps): JSX.Element => {
 
 	const [globalContext, dispatch] = useContext(GlobalContext)
 
@@ -103,9 +102,15 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	const content = yml.regions
 
+	const dataset = await fetch(DATASET_ADDRESS)
+		.then(r => r.json())
+
 	return {
 		props: {
+			dataset,
 			content
-		}
+		},
+		// revalidate every 12 hours
+		revalidate: 43200
 	}
 }
