@@ -36,15 +36,14 @@ async function getLocation(regionsObject: FeatureCollection, stateSetter: (args)
       selectedRegion: detectedRegion
     }))
     // if everything went well, we redirect user to proper region page
-    router.push('/[id]', `/${detectedRegion.name}`, {
-      shallow: true
-    })
+    redirect(detectedRegion.name, router)
 
     // ...otherwise we query location data
   } else {
 
     // if device supports geolocation
     if ('geolocation' in navigator) {
+
       stateSetter(prev => ({
         ...prev,
         appState: {
@@ -52,6 +51,7 @@ async function getLocation(regionsObject: FeatureCollection, stateSetter: (args)
           loading: true
         }
       }))
+
       // get position
       navigator.geolocation.getCurrentPosition(async ({ coords }) => {
         const point = [coords.longitude, coords.latitude]
@@ -67,10 +67,22 @@ async function getLocation(regionsObject: FeatureCollection, stateSetter: (args)
           detectedRegion,
           selectedRegion: detectedRegion
         }))
-        // if everything went well, we redirect user to proper region page
-        router.push('/[id]', `/${detectedRegion.name}`, {
-          shallow: true
-        })
+
+        if (detectedRegion) {
+          redirect(detectedRegion.name, router)
+        } else {
+          stateSetter(prev => ({
+            ...prev,
+            appState: {
+              ...prev.appState,
+              loading: false
+            }
+          }))
+
+          // Should handle showing a toaster notification here :)
+          // ** ---------------------
+
+        }
 
       }, err => onError(err, stateSetter, router))
       // if device DOES NOT support geolocation...
@@ -96,10 +108,12 @@ const onError = (error: { code: number, message: string }, stateSetterFn: (args)
     selectedRegion: undefined
   }))
 
-  router.push('/italia.js', '/italia', {
-    shallow: true
-  })
+  // router.push('/italia')
 
+}
+
+function redirect(regionName, router) {
+  router.push('/[id]', `/${regionName}`, { shallow: true })
 }
 
 export default getLocation

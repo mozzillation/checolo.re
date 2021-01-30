@@ -20,7 +20,7 @@ const getCurrentRegionGeoJson = async () => {
 
 		const localStorageCached = window.localStorage.getItem('geojson')
 		// 4 days have passed since last fetch
-		const cacheTooOld = days_passed(lastSet) >= 4
+		const cacheTooOld = daysPassed(lastSet) >= 4
 
 		// if nothing in cache or cached value is too old
 		if (!localStorageCached || cacheTooOld) {
@@ -29,12 +29,13 @@ const getCurrentRegionGeoJson = async () => {
 			const regions = await fetchGeoJSON()
 
 			// and try store it in localStorage
-			try {
-				window.localStorage.setItem('geojson', JSON.stringify(regions))
-				window.localStorage.setItem('geojson_lastSet', Date.now().toString())
-			} catch {
-				lastSet = null
-			}
+			// try {
+			// 	window.localStorage.setItem('geojson', JSON.stringify(regions))
+			// 	window.localStorage.setItem('geojson_lastSet', Date.now().toString())
+			// } catch (e) {
+			// 	window.localStorage.removeItem('geojson')
+			// 	window.localStorage.removeItem('geojson_lastSet')
+			// }
 
 			return regions
 		} else {
@@ -56,7 +57,7 @@ const getCurrentRegionGeoJson = async () => {
 	}
 }
 
-function days_passed(dt: string) {
+function daysPassed(dt: string) {
 	const parsed: number = +dt
 
 	const current: any = Date.now()
