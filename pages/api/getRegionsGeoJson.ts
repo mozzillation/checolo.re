@@ -29,23 +29,22 @@ const getCurrentRegionGeoJson = async () => {
 			const regions = await fetchGeoJSON()
 
 			// and try store it in localStorage
-			// try {
-			// 	window.localStorage.setItem('geojson', JSON.stringify(regions))
-			// 	window.localStorage.setItem('geojson_lastSet', Date.now().toString())
-			// } catch (e) {
-			// 	window.localStorage.removeItem('geojson')
-			// 	window.localStorage.removeItem('geojson_lastSet')
-			// }
+			try {
+				window.localStorage.setItem('geojson', JSON.stringify(regions))
+			} catch {
+				window.localStorage.setItem('geojson', JSON.stringify({}))
+			} finally {
+				window.localStorage.setItem('geojson_lastSet', Date.now().toString())
+			}
 
 			return regions
 		} else {
 
-			// otherwise we parse localStorage's value into an object
+			// otherwise we parse the value
 			let regions = JSON.parse(localStorageCached)
 
-			// if cached value is object but it's empty for some reason
+			// if cached value is object but it's empty...
 			if (!Object.keys(regions).length) {
-
 				// we fetch it again
 				regions = await fetchGeoJSON()
 			}
