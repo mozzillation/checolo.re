@@ -1,0 +1,13 @@
+name: "Update region data"
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v2
+      - name: Run Script
+        run: |
+          python3 ./fetcher/main.py 
