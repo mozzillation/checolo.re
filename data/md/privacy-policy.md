@@ -1,3 +1,6 @@
+---
+title: Privacy Policy
+---
 La presente informativa descrive le modalità del trattamento dei dati personali degli utenti (di seguito, anche gli “Utenti”) che consultano il sito [Che Colore](https://checolo.re) (di seguito, anche il “Sito”). 
 
 L’informativa è resa ai sensi dell’art. 13 del regolamento (UE) 2016/679 (di seguito il “Regolamento”).
