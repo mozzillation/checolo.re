@@ -1,7 +1,6 @@
 name: "Update region data"
 on:
-  schedule:
-  - cron: "* * * * *"
+  workflow_dispatch:
 
 jobs:
   fetch:
