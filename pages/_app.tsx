@@ -67,11 +67,11 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 				<meta name='msapplication-TileColor' content='#000000' />
 				<meta name='msapplication-TileImage' content='/ms-icon-144x144.png' />
 
-				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:card" content="summary" />
 				<meta name="twitter:description" content="CheColore ti aiuta a capire il colore delle regioni d'Italia e cosa fare per fronteggiare l'emergenza da COVID-19." />
 				<meta name="twitter:title" content="Che Colore" />
 				<meta name="twitter:site" content="https://checolo.re" />
-				<meta name="twitter:image" content="/social_thumb.png" />
+				<meta name="twitter:image" content="https://checolo.re/social_thumb.png" />
 				<meta name="twitter:creator" content="@checolore" />
 
 				<meta property="og:url" content="https://checolo.re" />
