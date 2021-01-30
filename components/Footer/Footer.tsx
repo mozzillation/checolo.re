@@ -27,7 +27,7 @@ export function Footer() {
 				<div className={styles.links}>
 					<div><Link href={'/about'}>Info</Link></div>
 					<div><Link href={'https://github.com/mozzillation/checolo.re/issues'}>Segnala un problema</Link></div>
-					<div><Link href={'/privacy'}>Privacy Policy</Link></div>
+					<div><Link href={'/privacy-policy'}>Privacy Policy</Link></div>
 					<div><Link href={'/legal'}>Note Legali</Link></div>
 				</div>
 				<div className={styles.backToTop}>

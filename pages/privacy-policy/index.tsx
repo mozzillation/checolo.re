@@ -22,7 +22,7 @@ export default Legal
 
 
 export const getStaticProps: GetStaticProps = async () => {
-	const md = await getMarkdownBySlug('legal')
+	const md = await getMarkdownBySlug('privacy-policy')
 
 	return {
 		props: {

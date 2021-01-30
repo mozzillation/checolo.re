@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Back, Power4 } from 'gsap'
-import { CaretLeft, Info } from 'phosphor-react'
+import { CaretLeft } from 'phosphor-react'
+import { ButtonWithIcon } from '../Button'
 
 import styles from './Toolbar.module.sass'
 
@@ -19,19 +20,15 @@ export function Toolbar() {
 	return (
 		<motion.div className={styles.wrapper}>
 			<Link href='/italia'>
-				<motion.div
-					className={styles.selectorWrapper}
-					whileHover={{ scale: 1.1, transition: { ease: Back.easeOut } }}
-					whileTap={{ scale: 0.9, transition: { ease: Power4.easeOut } }}
-					transition={{ duration: 0.25 }}
-				>
-					<div className={styles.dropdownIcon}>
-						<CaretLeft size={24} weight={'bold'} />
-					</div>
-					<div className={styles.currentRegion}>
+				<a>
+					<ButtonWithIcon
+						iconLeft={
+							<CaretLeft size={24} weight={'bold'} />
+						}
+					>
 						Regioni
-			</div>
-				</motion.div>
+					</ButtonWithIcon>
+				</a>
 			</Link>
 			<Link href='/about'>
 				<motion.div
@@ -48,3 +45,4 @@ export function Toolbar() {
 		</motion.div>
 	)
 }
+
