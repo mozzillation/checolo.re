@@ -33,9 +33,9 @@ const getCurrentRegionGeoJson = async () => {
 				window.localStorage.setItem('geojson', JSON.stringify(regions))
 			} catch {
 				window.localStorage.setItem('geojson', JSON.stringify({}))
-			} finally {
-				window.localStorage.setItem('geojson_lastSet', Date.now().toString())
 			}
+
+			window.localStorage.setItem('geojson_lastSet', Date.now().toString())
 
 			return regions
 		} else {

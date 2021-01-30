@@ -31,6 +31,10 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 	// }, [])
 
 	useEffect(() => {
+		window.localStorage.setItem('last_update', new Date().toLocaleString('it'))
+	}, [])
+
+	useEffect(() => {
 		window.addEventListener('resize', updateViewportHeight)
 		updateViewportHeight()
 	}, [])
