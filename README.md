@@ -1,5 +1,7 @@
 # Che•••Colore
 
+![Update region data](https://github.com/mozzillation/checolo.re/workflows/Update%20region%20data/badge.svg)
+
 ## About
 
 **CheColore** helps users knowing and following measures adopted by the Italian Government to cope COVID-19 emergency. 
