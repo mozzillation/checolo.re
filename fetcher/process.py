@@ -7,8 +7,6 @@ GITHUB_API = "https://api.github.com"
 GIST_ID = "8b06345c17c0625adc2e758ff9f28a19"
 API_TOKEN = os.environ['API_TOKEN']
 
-print(API_TOKEN)
-
 output = {}
 
 all_regions = {
