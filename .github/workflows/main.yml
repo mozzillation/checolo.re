@@ -1,8 +1,8 @@
 name: "Update region data"
+
 on:
   schedule:
-    - cron: '*/* */12 * * *'
-
+    - cron: '* */12 * * *'
 
 jobs:
   fetch:
