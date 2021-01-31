@@ -7,6 +7,8 @@ GITHUB_API = "https://api.github.com"
 GIST_ID = "8b06345c17c0625adc2e758ff9f28a19"
 API_TOKEN = os.environ['API_TOKEN']
 
+print(API_TOKEN)
+
 output = {}
 
 all_regions = {
@@ -105,8 +107,10 @@ def execute(dir_name):
             "CheColo.re Data": {"content": output_data}}}
 
         # make a requests
-        requests.post(url, headers=headers, params=params,
+        req = requests.post(url, headers=headers, params=params,
                       data=json.dumps(payload))
+
+        print(req.content)
 
         # # No need to write file anymore
         # output_file.write(output_data)
