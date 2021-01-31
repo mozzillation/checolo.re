@@ -1,6 +1,7 @@
 name: "Update region data"
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '*/* */12 * * *'
 
 
 jobs:
