@@ -5,7 +5,7 @@ import requests
 
 GITHUB_API = "https://api.github.com"
 GIST_ID = "8b06345c17c0625adc2e758ff9f28a19"
-API_TOKEN = '1fcb7c97317bc90821396e8f02457616b96cbe76'
+API_TOKEN = os.environ['API_TOKEN']
 
 output = {}
 
