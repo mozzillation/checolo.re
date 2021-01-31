@@ -1,7 +1,6 @@
 name: "Update region data"
 on:
-  schedule:
-    - cron:  '* */12 * * *'
+  workflow_dispatch:
 
 
 jobs:
@@ -16,4 +15,6 @@ jobs:
       - name: Install dependencies
         run: pip install requests
       - name: Run script
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}
         run: python3 fetcher/main.py
