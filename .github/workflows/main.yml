@@ -1,6 +1,7 @@
 name: "Update region data"
 
 on:
+  push:
   schedule:
     - cron: '* 9/12 * * *'
 
