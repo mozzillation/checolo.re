@@ -1,6 +1,6 @@
 import os
+import re
 import json
-import pprint
 import requests
 
 GITHUB_API = "https://api.github.com"
@@ -62,13 +62,15 @@ def extract_data(dataset):
         date_start = f['datasetIni']
         date_end = f['datasetFin']
         link = f['legLink']
+        date_creation = re.sub('^\d*\s', '', f['legGU_ID'])
 
         region_data = {
             'code': code,
             'date_start': date_start,
             'date_end': date_end,
+            'date_creation': date_creation,
             'link': link,
-            'priority': 0,
+            'priority': 0
         }
 
         if region_source_name.lower() == 'intero territorio nazionale':
@@ -79,13 +81,31 @@ def extract_data(dataset):
             region_name = all_regions[region_source_name]['url_name']
             buffer[region_name]['data'].append(region_data)
 
+    for index, tpl in enumerate(buffer.items()):
+        name = tpl[0]
+        value = tpl[1]['data']
+
+        for i, obj in enumerate(value):
+            if i != len(value)-1:
+                ds = 'date_start'
+                de = 'date_end'
+                ds_curr = obj[ds]
+                ds_next = value[i+1][ds]
+                de_curr = obj[de]
+                de_next = value[i+1][de]
+
+                if ds_curr == ds_next and de_curr == de_next:
+                    print('Removing duplicate:', name, ds_curr,
+                          de_curr, obj['date_creation'])
+                    buffer[name]['data'].pop(i)
+
     return buffer
 
 
 def execute(dir_name):
     file_name = 'dpc-covid-19-aree-nuove-g.json'
     file_path = dir_name + file_name
-    # dataset_path = dir_name + file_name
+    dataset_path = dir_name + file_name
 
     with open(file_path, 'r') as input_file:
         file_data = input_file.read()
@@ -101,8 +121,14 @@ def execute(dir_name):
         # print headers,parameters,payload
         headers = {'Authorization': 'token %s' % API_TOKEN}
         params = {'scope': 'gist'}
-        payload = {"public": True, "files": {
-            "CheColo.re Data": {"content": output_data}}}
+        payload = {
+            "public": True,
+            "files": {
+                "CheColo.re Data": {
+                    "content": output_data
+                }
+            }
+        }
 
         # make a requests
         requests.post(url, headers=headers, params=params,
@@ -110,4 +136,4 @@ def execute(dir_name):
 
         # # No need to write file anymore
         # output_file.write(output_data)
-        # os.remove(dataset_path)
+        os.remove(dataset_path)
