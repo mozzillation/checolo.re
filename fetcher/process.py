@@ -105,10 +105,8 @@ def execute(dir_name):
             "CheColo.re Data": {"content": output_data}}}
 
         # make a requests
-        req = requests.post(url, headers=headers, params=params,
+        requests.post(url, headers=headers, params=params,
                       data=json.dumps(payload))
-
-        print(req.content)
 
         # # No need to write file anymore
         # output_file.write(output_data)

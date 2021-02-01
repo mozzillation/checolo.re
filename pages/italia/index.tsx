@@ -110,7 +110,7 @@ export const getStaticProps: GetStaticProps = async () => {
 			dataset,
 			content
 		},
-		// revalidate every 12 hours
-		revalidate: 43200
+		// revalidate every minute
+		revalidate: 60
 	}
 }
