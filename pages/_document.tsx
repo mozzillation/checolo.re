@@ -8,7 +8,15 @@ class MyDocument extends Document {
 		return { ...initialProps }
 	}
 
+
 	render() {
+		const iubendaImplementation = `
+			<script>
+				var _iub = _iub || [];
+				_iub.csConfiguration = {"whitelabel": false, "lang": "it", "siteId": 2126383, "cookiePolicyId": 74368238, "footer": { }, "cookiePolicyUrl": "https://checolo.re/privacy-policy", "banner": {"position": "float-top-center" } }
+			</script>
+			<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charSet="UTF-8" async></script>
+		`
 		return (
 			<Html lang='it'>
 				<Head>
@@ -32,6 +40,7 @@ class MyDocument extends Document {
 				<body>
 					<Main />
 					<NextScript />
+					<div dangerouslySetInnerHTML={{ __html: iubendaImplementation }} />
 				</body>
 			</Html>
 		)

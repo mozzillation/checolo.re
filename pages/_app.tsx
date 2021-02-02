@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-// import Router from 'next/router'
 import { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
@@ -14,7 +13,6 @@ import '@globals'
 
 import { useRouter } from 'next/router'
 import * as gtag from '@/utils/gtag'
-
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 
