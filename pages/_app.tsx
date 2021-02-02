@@ -69,7 +69,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps): JSX.E
 
 				<meta name='twitter:card' content='summary_large_image' />
 				<meta name='twitter:description' content="CheColore ti aiuta a capire il colore delle regioni d'Italia e cosa fare per fronteggiare l'emergenza da COVID-19." />
-				<meta name='twitter:title' content='Che Colore' />
+				<meta name='twitter:title' content='CheColore' />
 				<meta name='twitter:site' content='https://checolo.re' />
 				<meta name='twitter:image' content='/social_thumb.png' />
 				<meta name='twitter:creator' content='@checolore' />

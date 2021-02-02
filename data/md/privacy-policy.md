@@ -1,12 +1,12 @@
 ---
 title: Privacy Policy
 ---
-La presente informativa descrive le modalità del trattamento dei dati personali degli utenti (di seguito, anche gli “Utenti”) che consultano il sito [Che Colore](https://checolo.re) (di seguito, anche il “Sito”). 
+La presente informativa descrive le modalità del trattamento dei dati personali degli utenti (di seguito, anche gli “Utenti”) che consultano il sito [CheColore](https://checolo.re) (di seguito, anche il “Sito”). 
 
 L’informativa è resa ai sensi dell’art. 13 del regolamento (UE) 2016/679 (di seguito il “Regolamento”).
 La validità dell’informativa contenuta nella presente pagina è limitata al solo Sito e non si estende ad altri siti web eventualmente consultabili mediante collegamento ipertestuale.
 
-### Titolare del trattamento 
+### Titolare del trattamento
 
 Il Titolare del trattamento è il team che amministra il sito, i cui contatti sono presenti nella pagina [About](https://checolo.re/about).
 
@@ -27,15 +27,15 @@ Tali dati, necessari per la fruizione dei servizi web, vengono anche trattati al
 
 Il Titolare acquisirà eventualmente la posizione fornita dall’Utente in caso dell’utilizzo dell’apposita funzionalità offerta dal Sito, non obbligatoria per la fruizione dello stesso. La posizione viene utilizzata soltanto durante la sessione e non viene salvata per usi successivi, né conservata per fini statistici.
 
-#### c) Cookies 
+#### c) Cookies
 
 I cookies sono piccoli file di testo che i siti visitati inviano al terminale dell’Utente, dove vengono memorizzati, per poi essere ritrasmessi agli stessi siti alla visita successiva.
 
 Il Sito utilizza:
 
-* Cookies analytics utilizzati per raccogliere informazioni, in forma aggregata, sul numero degli Utenti e su come gli stessi visitano il Sito. Il Sito si avvale del servizio Google Analytics, la cui cookie policy può essere visionata a [questo link](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage). Al fine di rispettare la privacy dei nostri Utenti, il servizio è utilizzato con la modalità “_anonymizeIp” che consente di mascherare gli indirizzi IP degli Utenti che navigano sul Sito internet: [maggiori informazioni sulla funzionalità](https://support.google.com/analytics/answer/2763052?hl=it). I dati sono raccolti all’unico fine di elaborare informazioni statistiche sull’uso del Sito e per verificare il corretto funzionamento dello stesso. 
+* Cookies analytics utilizzati per raccogliere informazioni, in forma aggregata, sul numero degli Utenti e su come gli stessi visitano il Sito. Il Sito si avvale del servizio Google Analytics, la cui cookie policy può essere visionata a [questo link](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage). Al fine di rispettare la privacy dei nostri Utenti, il servizio è utilizzato con la modalità “_anonymizeIp” che consente di mascherare gli indirizzi IP degli Utenti che navigano sul Sito internet: [maggiori informazioni sulla funzionalità](https://support.google.com/analytics/answer/2763052?hl=it). I dati sono raccolti all’unico fine di elaborare informazioni statistiche sull’uso del Sito e per verificare il corretto funzionamento dello stesso.
 
-* Cookies tecnici per garantire soltanto le funzionalità offerte dal Sito. 
+* Cookies tecnici per garantire soltanto le funzionalità offerte dal Sito.
 
 L’Utente può scegliere di disabilitare i cookies intervenendo sulle impostazioni del proprio browser di navigazione secondo le istruzioni rese disponibili dai relativi fornitori ai link di seguito indicati.
 
@@ -45,13 +45,13 @@ L’Utente può scegliere di disabilitare i cookies intervenendo sulle impostazi
     * [Internet Explorer](https://support.microsoft.com/it-it/help/17442/windows-internet-explorer-delete-manage-cookies)
     * [Edge](https://support.microsoft.com/it-it/help/4027947/windows-delete-cookies)
     * [Opera](https://help.opera.com/en/latest/web-preferences/#cookies)
-    
-* Un cookie per registrare il consenso dell’Utente all’utilizzo dei cookies di cui sopra. 
+
+* Un cookie per registrare il consenso dell’Utente all’utilizzo dei cookies di cui sopra.
 
 ### Diritti degli interessati
- 
+
 Gli interessati hanno il diritto di ottenere, nei casi previsti, l’accesso ai propri dati personali e la rettifica o la cancellazione degli stessi o la limitazione del trattamento che li riguarda o di opporsi al trattamento (artt. 15 e ss. del Regolamento).
- 
-### Diritti di reclamo 
- 
+
+### Diritti di reclamo
+
 Gli interessati che ritengono che il trattamento dei dati personali a loro riferiti effettuato attraverso questo sito avvenga in violazione di quanto previsto dal Regolamento hanno il diritto di proporre reclamo al Garante, come previsto dall’art. 77 del Regolamento stesso, o di adire le opportune sedi giudiziarie (art. 79 del Regolamento).
