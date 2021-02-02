@@ -57,7 +57,7 @@ const Index = () => {
 					</Link>
 				</motion.div>
 			</motion.div>
-			<Footer noLogo={true} />
+			<Footer />
 		</>
 	)
 

@@ -93,14 +93,14 @@
   </url>
 
   <url>
-    <loc>https://checolo.re/privacy-policy/</loc>
-  </url>
-
-  <url>
     <loc>https://checolo.re/legal/</loc>
   </url>
 
   <url>
     <loc>https://checolo.re/italia/</loc>
+  </url>
+
+  <url>
+    <loc>https://checolo.re/privacy-policy/</loc>
   </url>
 </urlset>
