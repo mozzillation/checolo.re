@@ -300,6 +300,12 @@ it:
       subtitle: "Ricordati l'autocertificazione se ti sposti verso zone di un altro colore"
       zona:
         - bianca
+    27:
+      emoji: "🏛"
+      title: "Puoi andare al museo o ad una mostra"
+      subtitle: "Un occasione in più per riscoprire i musei della tua città"
+      zona:
+        - gialla
   misc:
     autocertificazione:
       title: "Scarica l'autocertificazione"
