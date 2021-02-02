@@ -10,8 +10,6 @@ import styles from '../styles/index.module.sass'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Footer } from '@/components/Footer/Footer'
-import Image from 'next/image'
-
 const Index = () => {
 
 	const [globalContext, dispatch] = useContext(GlobalContext)
@@ -31,7 +29,7 @@ const Index = () => {
 			<motion.div className={styles.wrapper}>
 				<motion.div className={styles.mainContent} >
 					<div className={styles.logo}>
-						<Image src='/logo.svg' layout='fill' />
+						<img src='/logo.svg' alt='CheColore Logo' />
 					</div>
 					<span>Scopri cosa puoi fare nella tua regione in base al colore e alle restrizioni dell'ultimo DPCM del Governo Italiano.</span>
 				</motion.div>
