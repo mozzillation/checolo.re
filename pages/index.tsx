@@ -31,7 +31,7 @@ const Index = () => {
 			<motion.div className={styles.wrapper}>
 				<motion.div className={styles.mainContent} >
 					<div className={styles.logo}>
-						<Image src='/logo.svg' layout="fill" />
+						<Image src='/logo.svg' layout='fill' />
 					</div>
 					<span>Scopri cosa puoi fare nella tua regione in base al colore e alle restrizioni dell'ultimo DPCM del Governo Italiano.</span>
 				</motion.div>
