@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import { GA_TRACKING_ID } from "@/utils/gtag";
+import { GA_TRACKING_ID } from '@/utils/gtag'
 
 class MyDocument extends Document {
 	static async getInitialProps(ctx) {
@@ -13,7 +13,7 @@ class MyDocument extends Document {
 			<Html lang='it'>
 				<Head>
 					<script
-						async
+						async={true}
 						src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
 					/>
 					<script
