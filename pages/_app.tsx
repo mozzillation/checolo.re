@@ -12,7 +12,23 @@ import Flex from '@component/Flex'
 
 import '@globals'
 
-export default function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
+import { useRouter } from "next/router";
+import * as gtag from "@/utils/gtag";
+
+
+export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+
+	const router = useRouter();
+
+	useEffect(() => {
+		const handleRouteChange = (url: URL) => {
+			gtag.pageview(url);
+		};
+		router.events.on("routeChangeComplete", handleRouteChange);
+		return () => {
+			router.events.off("routeChangeComplete", handleRouteChange);
+		};
+	}, [router.events]);
 
 	const globalContext = useState(INITIAL_STATE)
 	const [globalState, dispatch] = globalContext
