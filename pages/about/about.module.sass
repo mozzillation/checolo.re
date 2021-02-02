@@ -2,10 +2,15 @@
 
 .wrapper
   min-height: var(--viewport-height, 100vh)
+  max-width: 400px
+  margin: 0 auto
   padding: $margin $margin-small
   display: flex
   flex-direction: column
-  justify-content: flex-end
+  justify-content: center
+
+  +mq(mobile)
+    justify-content: flex-end
 
 .logo
   height: $size-3

@@ -13,15 +13,17 @@ const Document = ({ title, children }: { title?: string, children?: React.ReactN
 		Router.back()
 	}
 
-	return (
-		<div
-			className={styles.Document}
-		>
+	return (<>
+		<div className={styles.Toolbar}>
 			<ButtonWithIcon onClick={goBack} iconLeft={
 				<CaretLeft size={24} weight={'bold'} />
 			}>
 				Indietro
 				</ButtonWithIcon>
+		</div>
+		<div
+			className={styles.Document}
+		>
 			<h1>
 				{title}
 			</h1>
@@ -29,6 +31,7 @@ const Document = ({ title, children }: { title?: string, children?: React.ReactN
 				{children}
 			</div>
 		</div>
+	</>
 	)
 }
 
