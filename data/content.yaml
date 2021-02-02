@@ -278,7 +278,7 @@ it:
     23:
       emoji: "💅"
       title: "Puoi fare un salto dall'estetista"
-      subtitle: "Mani e Pedi per piacere."
+      subtitle: "Mani e piedi, per piacere"
       zona:
         - gialla
     24:
@@ -297,7 +297,7 @@ it:
     26:
       emoji: "⛵️"
       title: "Puoi andare dove vuoi"
-      subtitle: "Ricordati l'autocertificazione se ti sposti verso zone di altro colore"
+      subtitle: "Ricordati l'autocertificazione se ti sposti verso zone di un altro colore"
       zona:
         - bianca
   misc:
