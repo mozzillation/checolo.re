@@ -8,29 +8,38 @@ $max-content-width: 400px
   height: var(--viewport-height, 100vh)
   display: flex
   flex-direction: column
+  padding: $margin-smaller
+  justify-content: center
+  align-items: center
+  align-content: center
 
 .mainContent
   width: 100%
   max-width: $max-content-width
-  margin: auto
-  padding: $margin-largest $margin 0
+  padding: 0
   display: flex
-  flex-grow: 1
   flex-direction: column
   justify-content: center
-  align-items: flex-start
+  align-items: center
+  text-align: center
+
+  +mq(tablet)
+    flex-grow: 1
+    margin: auto
+
 
   .logo
-    height: $size-2
-    margin-bottom: $margin-small
+    height: 50px
+    width: 100%
+    position: relative
 
   span
-    margin: 1rem 0
+    margin: $margin-small 0
 
 .actionContainer
   width: 100%
   bottom: 0
-  padding: $margin-smaller $margin-small
+  padding: $margin-smaller 0
   text-align: center
   flex-grow: 0
   display: flex

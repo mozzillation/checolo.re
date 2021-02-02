@@ -39,4 +39,3 @@ export function Footer({ noLogo = false }: { noLogo?: boolean }) {
 		</footer>
 	</>
 }
-

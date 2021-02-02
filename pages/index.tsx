@@ -10,6 +10,7 @@ import styles from '../styles/index.module.sass'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Footer } from '@/components/Footer/Footer'
+import Image from 'next/image'
 
 const Index = () => {
 
@@ -29,7 +30,9 @@ const Index = () => {
 		<>
 			<motion.div className={styles.wrapper}>
 				<motion.div className={styles.mainContent} >
-					<img src='/logo.svg' height='100%' className={styles.logo} />
+					<div className={styles.logo}>
+						<Image src='/logo.svg' layout="fill" />
+					</div>
 					<span>Scopri cosa puoi fare nella tua regione in base al colore e alle restrizioni dell'ultimo DPCM del Governo Italiano.</span>
 				</motion.div>
 				<motion.div
@@ -65,4 +68,3 @@ const Index = () => {
 }
 
 export default Index
-

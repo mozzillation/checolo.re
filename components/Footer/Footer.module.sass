@@ -4,23 +4,44 @@
   position: relative
   color: white
   background-color: $black
-  padding: $margin $margin-smaller $margin-smaller
+  padding: $margin-largest $margin-smaller
 
 .content
   position: relative
 
 .logo
   display: block
-  height: $size-3
-  margin-bottom: $margin-small
+  height: auto
+  padding: 0 $margin-largest $margin-small
+  margin: auto
+
+  img
+    margin: auto
+    display: block
+    width: 100%
+    height: auto
+    max-width: 400px
 
 .links
-  display: inline-block
+  display: flex
+  align-items: center
+  align-content: center
+  justify-content: center
+  flex-direction: column
 
 .links > *
   line-height: 1.75
 
+  +animate(opacity)
+  +on-event
+    opacity: 0.6
+
 .backToTop
   position: absolute
+  cursor: pointer
   top: 0
   right: 0
+
+  +animate(opacity)
+  +on-event
+    opacity: 0.6
