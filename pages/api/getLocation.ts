@@ -36,7 +36,7 @@ async function getLocation(regionsObject: FeatureCollection, stateSetter: (args)
       selectedRegion: detectedRegion
     }))
     // if everything went well, we redirect user to proper region page
-    redirect(detectedRegion.name, router)
+    regionRedirect(detectedRegion.name, router)
 
     // ...otherwise we query location data
   } else {
@@ -69,7 +69,7 @@ async function getLocation(regionsObject: FeatureCollection, stateSetter: (args)
         }))
 
         if (detectedRegion) {
-          redirect(detectedRegion.name, router)
+          regionRedirect(detectedRegion.name, router)
         } else {
           stateSetter(prev => ({
             ...prev,
@@ -110,9 +110,18 @@ const onError = (error: { code: number, message: string }, stateSetterFn: (args)
 
   router.push('/italia')
 
+  stateSetterFn(prev => ({
+    ...prev,
+    appState: {
+      ...prev.appState,
+      error: false
+    },
+    error: undefined
+  }))
+
 }
 
-function redirect(regionName, router) {
+function regionRedirect(regionName, router) {
   router.push('/[id]', `/${regionName}`, { shallow: true })
 }
 
