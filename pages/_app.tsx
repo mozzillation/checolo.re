@@ -1,18 +1,27 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
+import dynamic from 'next/dynamic'
 
-import { trueViewportHeight } from '@/utils'
 import Page from '@layout/Page'
-import { GlobalContextProvider, INITIAL_STATE } from '@component/GlobalContext'
 import Loading from '@component/Loading'
 import Flex from '@component/Flex'
+import { GlobalContextProvider, INITIAL_STATE } from '@component/GlobalContext'
+import PWAPrompt from 'react-ios-pwa-prompt'
+
+import { trueViewportHeight } from '@/utils'
+import { PWA_PROMPT_PROPS } from '@/utils/const'
+import * as gtag from '@/utils/gtag'
+
+const PwaPrompt: PWAPrompt = dynamic(
+	import('react-ios-pwa-prompt')
+		.then(module => module.default),
+	{ ssr: false }
+)
 
 import '@globals'
-
-import { useRouter } from 'next/router'
-import * as gtag from '@/utils/gtag'
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 
@@ -113,6 +122,8 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 						<Component {...pageProps} />
 					</Page>
 				</AnimatePresence>
+
+				<PwaPrompt {...PWA_PROMPT_PROPS} />
 
 			</GlobalContextProvider>
 		</>

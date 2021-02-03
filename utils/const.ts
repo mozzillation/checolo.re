@@ -51,3 +51,14 @@ export const ZONES_PROPERTIES = {
 	}
 }
 
+export const PWA_PROMPT_PROPS = {
+	copyTitle: 'Vuoi aggiungermi alla home?',
+	copyBody: 'Questo sito può diventare una comoda app, così la puoi usare più facilmente. Non occupa tanto spazio e non ti darà fastidio, promesso!',
+	copyShareButtonLabel: '1) Premi il pulsante \'Condividi\'',
+	copyAddHomeButtonLabel: '2) Scegli \'Aggiungi alla schermata Home\'',
+	copyClosePrompt: 'Chiudi',
+	debug: process.env.NODE_ENV !== 'production',
+	promptOnVisit: 2,
+	timesToShow: 3,
+	permanentlyHideOnDismiss: false
+}
