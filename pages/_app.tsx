@@ -18,29 +18,32 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 
 	const router = useRouter()
 
+	const globalContext = useState(INITIAL_STATE)
+	const [globalState, dispatch] = globalContext
+
 	useEffect(() => {
 		const handleRouteChange = (url: URL) => {
 			gtag.pageview(url)
 		}
+
 		router.events.on('routeChangeComplete', handleRouteChange)
+
 		return () => {
 			router.events.off('routeChangeComplete', handleRouteChange)
 		}
 	}, [router.events])
 
-	const globalContext = useState(INITIAL_STATE)
-	const [globalState, dispatch] = globalContext
-
 	useEffect(() => {
+		gtag.pageview(router.route)
+
 		window.localStorage.setItem('last_update', new Date().toLocaleString('it'))
-	}, [])
 
-	useEffect(() => {
 		const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 		if (!isMobile) {
 			// we listen to resize events
 			window.addEventListener('resize', trueViewportHeight)
 		}
+
 		trueViewportHeight()
 	}, [])
 
