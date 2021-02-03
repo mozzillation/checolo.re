@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { AppProps } from 'next/app'
@@ -46,7 +46,9 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 		gtag.pageview(router.route)
 
 		window.localStorage.setItem('last_update', new Date().toLocaleString('it'))
+	}, [])
 
+	useLayoutEffect(() => {
 		const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 		if (!isMobile) {
 			// we listen to resize events
@@ -54,6 +56,10 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 		}
 
 		trueViewportHeight()
+
+		setTimeout(() => {
+			trueViewportHeight()
+		}, 200)
 	}, [])
 
 	return (
