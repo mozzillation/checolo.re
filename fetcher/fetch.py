@@ -2,9 +2,10 @@ import os
 import zipfile
 import urllib.request
 
-url = 'https://github.com/pcm-dpc/COVID-19/blob/master/aree/geojson/dpc-covid-19-aree-nuove-g-json.zip?raw=true'
+
+url = 'https://github.com/pcm-dpc/COVID-19/blob/master/aree/geojson/dpc-covid-19-ita-aree-nuove-g-json.zip?raw=true'
 archive_name = 'file.zip'
-file_name = 'dpc-covid-19-aree-nuove-g.json'
+file_name = 'dpc-covid-19-ita-aree-nuove-g.json'
 
 
 def run(dir_name):
