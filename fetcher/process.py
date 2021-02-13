@@ -103,7 +103,7 @@ def extract_data(dataset):
 
 
 def execute(dir_name):
-    file_name = 'dpc-covid-19-ita-aree-nuove-g.json'
+    file_name = 'dpc-covid-19-aree-nuove-g.json'
     file_path = dir_name + file_name
     dataset_path = dir_name + file_name
 
