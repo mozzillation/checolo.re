@@ -287,11 +287,11 @@ it:
       subtitle: "Oggi trattati bene, fatti un regalo 🎁"
       zona:
         - arancione
-        - gialla  
+        - gialla
     25:
       emoji: "🌙"
-      title: "Puoi uscire al chiar di luna"
-      subtitle: "Nessun coprifuoco finalmente"
+      title: "Notte (quasi) bianca"
+      subtitle: "Coprifuoco ridotto dalle 23.30 alle 5"
       zona:
         - bianca
     26:
@@ -306,6 +306,18 @@ it:
       subtitle: "Dal lunedì al venerdì, così hai una scusa per staccare presto dal lavoro"
       zona:
         - gialla
+    28:
+      emoji: "🍽"
+      title: "Puoi cenare fuori"
+      subtitle: "Ristoranti aperti fino alle 23"
+      zona:
+        - bianca
+    29:
+      emoji: "🍺"
+      title: "Puoi bere al bar"
+      subtitle: "Bar e pub aperti fino alle 21"
+      zona:
+        - bianca
   misc:
     autocertificazione:
       title: "Scarica l'autocertificazione"

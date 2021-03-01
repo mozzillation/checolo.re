@@ -48,7 +48,7 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 		window.localStorage.setItem('last_update', new Date().toLocaleString('it'))
 	}, [])
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 		if (!isMobile) {
 			// we listen to resize events

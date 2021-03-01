@@ -28,6 +28,13 @@ export const GLOBAL_PAGE_VARIANT = {
 }
 
 export const ZONES_PROPERTIES = {
+	0: {
+		style: {
+			backgroundColor: '#FFF',
+			color: 'black'
+		},
+		zoneName: 'bianca'
+	},
 	1: {
 		style: {
 			backgroundColor: '#ffd602',

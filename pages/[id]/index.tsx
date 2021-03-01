@@ -61,11 +61,17 @@ const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
 
 	const timeRangeZoneCode = data[timerangeIndex].code
 
-
 	const zoneProps = ZONES_PROPERTIES[timeRangeZoneCode]
 
 	const rangeStart = dayjs(data[0].date_start, DATE_FORMAT)
-	const rangeEnd = dayjs(data[lastIndex].date_end, DATE_FORMAT)
+
+	let rangeEnd
+
+	if (!data[lastIndex].date_end.trim() || dayjs(data[lastIndex].date_end, DATE_FORMAT).isBefore(today)) {
+		rangeEnd = today
+	} else {
+		rangeEnd = dayjs(data[lastIndex].date_end, DATE_FORMAT)
+	}
 
 	const range = getDates(today, rangeStart, rangeEnd)
 
@@ -94,6 +100,7 @@ const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
 			}))
 		}
 	}, [])
+
 
 	return (
 		<>
@@ -163,7 +170,7 @@ const ActivityList = ({ zoneProps, rules }: { zoneProps: any, rules: any }) => {
 
 	return (
 		<>
-			{currentRules?.map((rule, index) => (
+			{currentRules ?.map((rule, index) => (
 				<ActivityCard rule={rule} key={index} />
 			))}
 
@@ -177,9 +184,9 @@ const ActivityCard = ({ rule }) => {
 
 	return (
 		<div className={styles.activityCard}>
-			<span className={styles.emoji}>{rule?.emoji}</span>
-			<span className={styles.title}>{rule?.title}</span>
-			<span className={styles.subtitle}>{rule?.subtitle}</span>
+			<span className={styles.emoji}>{rule ?.emoji}</span>
+			<span className={styles.title}>{rule ?.title}</span>
+			<span className={styles.subtitle}>{rule ?.subtitle}</span>
 		</div>
 	)
 }
