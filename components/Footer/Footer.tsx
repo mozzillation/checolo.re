@@ -23,6 +23,7 @@ export function Footer() {
 					<div><Link href={'/'}>Home</Link></div>
 					<div><Link href={'/about'}>Info</Link></div>
 					<div><Link href={'https://github.com/mozzillation/checolo.re/issues'}>Segnala un problema</Link></div>
+					<div><Link href={'http://www.governo.it/it/articolo/domande-frequenti-sulle-misure-adottate-dal-governo/15638'}>FAQ Governo</Link></div>
 					<div><Link href={'/privacy-policy'}>Privacy Policy</Link></div>
 					<div><Link href={'/legal'}>Note Legali</Link></div>
 				</div>
