@@ -217,7 +217,7 @@ export default SingleRegion
 // ————————————————————————————————————————————————————————————————————————————
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const dataset = await fetch('https://gist.githubusercontent.com/mozzillation/8b06345c17c0625adc2e758ff9f28a19/raw/1d5452d46de3463c03c4da554bebc0d2d29799b2/CheColo.re%2520Data')
+	const dataset = await fetch(DATASET_ADDRESS)
 		.then(r => r.json())
 
 	const paths = Object.entries(dataset).map(([name]) => {
