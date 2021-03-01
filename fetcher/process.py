@@ -58,7 +58,8 @@ def extract_data(dataset):
     for feature in features:
         f = feature['properties']
         region_source_name = f['nomeTesto'].lower()
-        code = int(f['legSpecRif'].replace('art.', ''))
+        code = int(
+            re.sub('(?:^art.)(\d*)(?:\s)(?:comma\s)(\d*)$', '\1', f['legSpecRif']))
         date_start = f['datasetIni']
         date_end = f['datasetFin']
         link = f['legLink']
