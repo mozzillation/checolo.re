@@ -143,7 +143,7 @@ it:
     2:
       emoji: "🚗"
       title: "Puoi muoverti nella tua regione, fino alle 22:00"
-      subtitle: "Se esci più tardi, porta con te l'autocertificazione"
+      subtitle: "Se proprio devi uscire più tardi, porta con te l'autocertificazione"
       zona:
         - gialla
     3:
@@ -232,14 +232,14 @@ it:
     16:
       emoji: "🍕"
       title: "Puoi andare a prendere del cibo da asporto"
-      subtitle: "All'intrno del tuo comune e fino alle 20"
+      subtitle: "All'interno del tuo comune e fino alle 22"
       zona:
         - arancione
         - rossa
     17:
       emoji: "🍕"
       title: "Puoi andare a prendere del cibo da asporto"
-      subtitle: "All'interno della tua regione e fino alle 20"
+      subtitle: "All'interno della tua regione e fino alle 22"
       zona:
         - gialla
     18:
@@ -262,7 +262,6 @@ it:
       subtitle: "Una sola volta con al massimo un'altra persona - Minori di 14 anni, disabili e non autosufficienti possono comunque venire con te"
       zona:
         - arancione
-        - rossa
     21:
       emoji: "👨‍👧‍👧"
       title: "Puoi andare a trovare amici o parenti all'interno della tua regione"
@@ -278,7 +277,7 @@ it:
     23:
       emoji: "💅"
       title: "Puoi fare un salto dall'estetista"
-      subtitle: "Mani e piedi, per piacere"
+      subtitle: "Niente french manicure però"
       zona:
         - gialla
     24:
