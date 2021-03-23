@@ -157,13 +157,13 @@ it:
     4:
       emoji: "🚶‍♀️"
       title: "Puoi andare a fare una passeggiata"
-      subtitle: "Ma non allontanarti troppo da casa :)"
+      subtitle: "Durante la camminata puoi uscire dai confini tuo comune per poi successivamente rientrare"
       zona:
         - rossa
     5:
       emoji: "🚶‍♀️"
       title: "Puoi andare a fare una passeggiata"
-      subtitle: "Ma rimani nel tuo comune :)"
+      subtitle: "Durante la camminata puoi uscire dai confini tuo comune per poi successivamente rientrare"
       zona:
         - arancione
     6:
@@ -188,13 +188,13 @@ it:
     9:
       emoji: "🐶"
       title: "Puoi uscire con il tuo animale da compagnia"
-      subtitle: "Solo vicino a casa"
+      subtitle: "Puoi uscire dai confini del tuo comune durante la passeggiata"
       zona:
         - rossa
     10:
       emoji: "🐶"
       title: "Puoi uscire con il tuo animale da compagnia"
-      subtitle: "All'interno del tuo comune"
+      subtitle: "Puoi uscire dai confini del tuo comune durante la passeggiata"
       zona:
         - arancione
     11:
@@ -206,19 +206,19 @@ it:
     12:
       emoji: "🏃‍♀️🚴‍♂️"
       title: "Puoi fare sport e andare in bici"
-      subtitle: "Da solo e unicamente vicino a casa"
+      subtitle: "Dalle 5 alle 22, possibilmente da solo e tenendo le distanze e puoi uscire dal comune durante il tuo giro."
       zona:
         - rossa
     13:
       emoji: "🏃‍♀️🚴‍♂️"
       title: "Puoi fare sport e andare in bici"
-      subtitle: "Da solo e unicamente nel tuo comune"
+      subtitle: "Dalle 5 alle 22, possibilmente da solo e tenendo le distanze e puoi uscire dal comune durante il tuo giro."
       zona:
         - arancione
     14:
       emoji: "🏃‍♀️🚴‍♂️"
       title: "Puoi fare sport e andare in bici"
-      subtitle: "Da solo e unicamente nella tua regione"
+      subtitle: "Dalle 5 alle 22, possibilmente da solo e tenendo le distanze"
       zona:
         - gialla
     15:
@@ -315,6 +315,15 @@ it:
       title: "Puoi bere al bar"
       subtitle: "Bar e pub aperti fino alle 21"
       zona:
+        - bianca
+    30:
+      emoji: "🏠 ➡️ 🏡"
+      title: "Puoi andare nella tua seconda casa"
+      subtitle: "Puoi uscire dalla tua regione per raggiungere la tua seconda casa ma solo con i componenti del tuo nucleo familare"
+      zona:
+        - rossa
+        - arancione
+        - gialla
         - bianca
   misc:
     autocertificazione:
