@@ -157,13 +157,13 @@ it:
     4:
       emoji: "🚶‍♀️"
       title: "Puoi andare a fare una passeggiata"
-      subtitle: "Ma non allontanarti troppo da casa :)"
+      subtitle: "Durante la camminata puoi uscire dai confini del tuo comune per poi successivamente rientrare"
       zona:
         - rossa
     5:
       emoji: "🚶‍♀️"
       title: "Puoi andare a fare una passeggiata"
-      subtitle: "Ma rimani nel tuo comune :)"
+      subtitle: "Durante la camminata puoi uscire dai confini del tuo comune per poi successivamente rientrare"
       zona:
         - arancione
     6:
@@ -188,13 +188,13 @@ it:
     9:
       emoji: "🐶"
       title: "Puoi uscire con il tuo animale da compagnia"
-      subtitle: "Solo vicino a casa"
+      subtitle: "Puoi uscire dai confini del tuo comune durante la passeggiata"
       zona:
         - rossa
     10:
       emoji: "🐶"
       title: "Puoi uscire con il tuo animale da compagnia"
-      subtitle: "All'interno del tuo comune"
+      subtitle: "Puoi uscire dai confini del tuo comune durante la passeggiata"
       zona:
         - arancione
     11:
@@ -206,22 +206,17 @@ it:
     12:
       emoji: "🏃‍♀️🚴‍♂️"
       title: "Puoi fare sport e andare in bici"
-      subtitle: "Da solo e unicamente vicino a casa"
+      subtitle: "Dalle 5 alle 22, possibilmente da solo e tenendo le distanze. Puoi uscire dal comune durante il tuo giro."
       zona:
         - rossa
+        - arancione
     13:
       emoji: "🏃‍♀️🚴‍♂️"
       title: "Puoi fare sport e andare in bici"
-      subtitle: "Da solo e unicamente nel tuo comune"
-      zona:
-        - arancione
-    14:
-      emoji: "🏃‍♀️🚴‍♂️"
-      title: "Puoi fare sport e andare in bici"
-      subtitle: "Da solo e unicamente nella tua regione"
+      subtitle: "Dalle 5 alle 22, possibilmente da solo e tenendo le distanze"
       zona:
         - gialla
-    15:
+    14:
       emoji: "👵🏻"
       title: "Puoi accompagnare un'altra persona che non può usare un mezzo proprio"
       subtitle: "Mi raccomando, porta l'autocertificazione"
@@ -229,92 +224,101 @@ it:
         - gialla
         - arancione
         - rossa
-    16:
+    15:
       emoji: "🍕"
       title: "Puoi andare a prendere del cibo da asporto"
       subtitle: "All'interno del tuo comune e fino alle 22"
       zona:
         - arancione
         - rossa
-    17:
+    16:
       emoji: "🍕"
       title: "Puoi andare a prendere del cibo da asporto"
       subtitle: "All'interno della tua regione e fino alle 22"
       zona:
         - gialla
-    18:
+    17:
       emoji: "💈"
       title: "Puoi andare a tagliarti i capelli"
       subtitle: "Come al solito, grazie"
       zona:
         - gialla
         - arancione
-    19:
+    18:
       emoji: "🍽"
       title: "Puoi mangiare al ristorante o al bar"
       subtitle: "Fino alle 18"
       zona:
         - gialla
-    20:
+    19:
       emoji: "👨‍👧‍👧"
       title: "Puoi andare a trovare amici o parenti se sono nel tuo comune"
       subtitle: "Una sola volta con al massimo un'altra persona - Minori di 14 anni, disabili e non autosufficienti possono comunque venire con te"
       zona:
         - arancione
-    21:
+    20:
       emoji: "👨‍👧‍👧"
       title: "Puoi andare a trovare amici o parenti all'interno della tua regione"
       subtitle: "Una sola volta con al massimo un'altra persona - Minori di 14 anni, disabili e non autosufficienti possono comunque venire con te"
       zona:
         - gialla
-    22:
+    21:
       emoji: "💕"
       title: "Puoi andare a trovare il tuo partner"
       subtitle: "Da te o dall'altr*. Niente fughe d'amore in hotel"
       zona:
         - gialla
-    23:
+    22:
       emoji: "💅"
       title: "Puoi fare un salto dall'estetista"
       subtitle: "Niente french manicure però"
       zona:
         - gialla
-    24:
+    23:
       emoji: "🛍"
       title: "Puoi andare a fare shopping"
       subtitle: "Oggi trattati bene, fatti un regalo 🎁"
       zona:
         - arancione
         - gialla
-    25:
+    24:
       emoji: "🌙"
       title: "Notte (quasi) bianca"
       subtitle: "Coprifuoco ridotto dalle 23.30 alle 5"
       zona:
         - bianca
-    26:
+    25:
       emoji: "⛵️"
       title: "Puoi andare dove vuoi"
       subtitle: "Ricordati l'autocertificazione se ti sposti verso zone di un altro colore"
       zona:
         - bianca
-    27:
+    26:
       emoji: "🏛"
       title: "Puoi andare al museo o ad una mostra"
       subtitle: "Dal lunedì al venerdì, così hai una scusa per staccare presto dal lavoro"
       zona:
         - gialla
-    28:
+    27:
       emoji: "🍽"
       title: "Puoi cenare fuori"
       subtitle: "Ristoranti aperti fino alle 23"
       zona:
         - bianca
-    29:
+    28:
       emoji: "🍺"
       title: "Puoi bere al bar"
       subtitle: "Bar e pub aperti fino alle 21"
       zona:
+        - bianca
+    29:
+      emoji: "🏠 ➡️ 🏡"
+      title: "Puoi andare nella tua seconda casa"
+      subtitle: "Puoi uscire dalla tua regione per raggiungere la tua seconda casa ma solo con i componenti del tuo nucleo familiare"
+      zona:
+        - rossa
+        - arancione
+        - gialla
         - bianca
   misc:
     autocertificazione:

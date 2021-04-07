@@ -31,7 +31,7 @@ const Index = () => {
 					<div className={styles.logo}>
 						<img src='/logo.svg' alt='CheColore Logo' />
 					</div>
-					<span>Scopri cosa puoi fare nella tua regione in base al colore e alle restrizioni dell'ultimo DPCM del Governo Italiano.</span>
+					<span>Scopri cosa puoi fare nella tua regione in base al colore e alle restrizioni previste dal Governo Italiano.</span>
 				</motion.div>
 				<motion.div
 					className={styles.actionContainer}
