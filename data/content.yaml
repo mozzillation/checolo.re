@@ -141,7 +141,7 @@ it:
       zona:
         - arancione
     2:
-      emoji: "🟡 ➡️ 🟡"
+      emoji: "🚂"
       title: "Puoi andare in un'altra regione in zona gialla (o bianca)"
       subtitle: "Mandaci una cartolina!"
       zona:
@@ -149,7 +149,7 @@ it:
 # non è stato spiegato cosa succede per le bianche
 
     3:
-      emoji: "🟡 ➡️ 🟠🔴"
+      emoji: "📃"
       title: "Puoi andare in altre zone con un pass"
       subtitle: "Se negli ultimi 6 mesi hai avuto il Covid o hai fatto il vaccino, oppure se hai fatto un tampone nelle ultime 48 ore ed è negativo."
       zona:
@@ -157,13 +157,13 @@ it:
 # non è stato spiegato cosa succede per le bianche
 
     4:
-      emoji: "🟠 ➡️ 🟡🟠🔴"
+      emoji: "📃"
       title: "Puoi andare in altre zone con un pass"
       subtitle: "Se negli ultimi 6 mesi hai avuto il Covid o hai fatto il vaccino, oppure se hai fatto un tampone nelle ultime 48 ore ed è negativo."
       zona:
         - arancione
     5:
-      emoji: "🔴 ➡️ 🟡🟠🔴"
+      emoji: "📃"
       title: "Puoi andare in altre zone con un pass"
       subtitle: "Se negli ultimi 6 mesi hai avuto il Covid o hai fatto il vaccino, oppure se hai fatto un tampone nelle ultime 48 ore ed è negativo."
       zona:
@@ -419,14 +419,14 @@ it:
         - gialla
         - bianca
     38:
-      emoji: "👱🧔🧑‍🦱👱‍♀️"
+      emoji: "🧔👩👨👱‍♀️"
       title: "Puoi andare a casa di un'altra persona"
       subtitle: "Solo una volta al giorno, insieme ad altri 3 ospiti. Se hai figli minorenni, portali senza problemi :)"
       zona:
         - gialla
         - bianca
     39:
-      emoji: "👱🧔🧑‍🦱👱‍♀️"
+      emoji: "🧔👩👨👱‍♀️"
       title: "Puoi andare a casa di un'altra persona, se vive nel tuo comune"
       subtitle: "Solo una volta al giorno, insieme ad altri 3 ospiti. Se hai figli minorenni, portali senza problemi :)"
       zona:
