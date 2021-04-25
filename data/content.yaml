@@ -174,7 +174,7 @@ it:
 #      subtitle: "Se proprio devi uscire più tardi, porta con te l'autocertificazione"
 #      zona:
 #        - gialla
-    3:
+    6:
       emoji: "🛒"
       title: "Puoi andare al supermercato"
       subtitle: "Anche in un altro comune se non c'è nel tuo. Presa la lista?"
@@ -361,14 +361,14 @@ it:
       zona:
         - gialla
         - bianca
-    31:
+    32:
       emoji: 🖼️
       title: Puoi visitare una mostra
       subtitle: Se vai nel weekend, ricordati di prenotare prima
       zona:
         - gialla
         - bianca
-    32:
+    33:
       emoji: 🎭
       title: Puoi assistere ad uno spettacolo o concerto, fino a 1000 spettatori
       subtitle: Negli spazi chiusi la capienza è limitata (massimo 500 spettatori)
