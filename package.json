@@ -21,7 +21,7 @@
     "@zeit/next-sass": "^1.0.1",
     "d3-geo": "^2.0.1",
     "dayjs": "^1.10.4",
-    "framer-motion": "^3.2.1",
+    "framer-motion": "^4.1.10",
     "gray-matter": "^4.0.2",
     "gsap": "^3.5.1",
     "js-yaml": "^4.0.0",
