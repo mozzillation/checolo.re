@@ -1,5 +1,5 @@
 it:
-  last_update: 25/04/2021
+  last_update: 18/05/2021
   regions:
     abruzzo:
       url_name: abruzzo
@@ -136,7 +136,7 @@ it:
         - rossa
     1:
       emoji: "🛵"
-      title: "Puoi spostarti nel tuo comune, fino alle 22:00"
+      title: "Puoi spostarti nel tuo comune, fino alle 23:00"
       subtitle: "O nel raggio di 30km se vivi in un comune con meno di 5.000 abitanti"
       zona:
         - arancione
@@ -350,14 +350,14 @@ it:
     30:
       emoji: 🍝
       title: Puoi mangiare al ristorante
-      subtitle: Anche a cena, solo seduti all'aperto, fino alle 22
+      subtitle: Anche a cena, solo seduti all'aperto, fino alle 23
       zona:
         - gialla
         - bianca
     31:
       emoji: 🍺
       title: Puoi andare al bar
-      subtitle: Solo seduti all'aperto, fino alle 22
+      subtitle: Solo seduti all'aperto, fino alle 23
       zona:
         - gialla
         - bianca
@@ -391,7 +391,7 @@ it:
     34:
       emoji: "🍕"
       title: "Puoi andare a prendere del cibo da asporto"
-      subtitle: "All'interno del tuo comune e fino alle 22"
+      subtitle: "All'interno del tuo comune e fino alle 23"
       zona:
         - rossa
         - arancione
@@ -414,7 +414,7 @@ it:
     37:
       emoji: "⚽🎾🏀"
       title: "Puoi fare sport con i tuoi amici"
-      subtitle: "Solo all'aperto. Dal 15 maggio vale anche per le piscine."
+      subtitle: "Solo all'aperto, piscine incluse."
       zona:
         - gialla
         - bianca
