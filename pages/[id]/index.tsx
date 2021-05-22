@@ -84,7 +84,7 @@ const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
 			const currentRange = data[i]
 			const currentRangeStart = dayjs(currentRange.date_start, DATE_FORMAT)
 			const currentRangeEnd = dayjs(currentRange.date_end, DATE_FORMAT)
-			const d = currentDate.isBetween(currentRangeStart, currentRangeEnd, 'day', '[]')
+			const d = currentDate.isBetween(currentRangeStart, currentRangeEnd, 'day', '[]') || currentDate.isAfter(currentRangeEnd, 'day')
 
 			if (d === true) setTimerangeIndex(i)
 		}
