@@ -105,7 +105,7 @@ const SingleRegion = ({ content, rules, data }: AppProps): JSX.Element => {
 	return (
 		<>
 			<Head>
-				<title>CheColore è {content.seo}?</title>
+				<title>Che colore è {content.seo}?</title>
 			</Head>
 			<motion.div>
 				<motion.div
