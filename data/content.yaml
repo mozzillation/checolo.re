@@ -1,5 +1,5 @@
 it:
-  last_update: 18/05/2021
+  last_update: 31/05/2021
   regions:
     abruzzo:
       url_name: abruzzo
@@ -151,7 +151,7 @@ it:
     3:
       emoji: "📃"
       title: "Puoi andare in altre zone con un pass"
-      subtitle: "Se negli ultimi 6 mesi hai avuto il Covid o hai fatto il vaccino, oppure se hai fatto un tampone nelle ultime 48 ore ed è negativo."
+      subtitle: "Se hai avuto il Covid negli ultimi 6 mesi, o se sono passati almeno 15 giorni dalla prima dose del vaccino. Puoi ottenere il pass anche con un tampone negativo nelle ultime 48 ore."
       zona:
         - gialla
 # non è stato spiegato cosa succede per le bianche
@@ -159,13 +159,13 @@ it:
     4:
       emoji: "📃"
       title: "Puoi andare in altre zone con un pass"
-      subtitle: "Se negli ultimi 6 mesi hai avuto il Covid o hai fatto il vaccino, oppure se hai fatto un tampone nelle ultime 48 ore ed è negativo."
+      subtitle: "Se hai avuto il Covid negli ultimi 6 mesi, o se sono passati almeno 15 giorni dalla prima dose del vaccino. Puoi ottenere il pass anche con un tampone negativo nelle ultime 48 ore."
       zona:
         - arancione
     5:
       emoji: "📃"
       title: "Puoi andare in altre zone con un pass"
-      subtitle: "Se negli ultimi 6 mesi hai avuto il Covid o hai fatto il vaccino, oppure se hai fatto un tampone nelle ultime 48 ore ed è negativo."
+      subtitle: "Se hai avuto il Covid negli ultimi 6 mesi, o se sono passati almeno 15 giorni dalla prima dose del vaccino. Puoi ottenere il pass anche con un tampone negativo nelle ultime 48 ore."
       zona:
         - rossa
 #    2:
@@ -350,31 +350,27 @@ it:
     30:
       emoji: 🍝
       title: Puoi mangiare al ristorante
-      subtitle: Anche a cena, solo seduti all'aperto, fino alle 23
+      subtitle: Anche a cena, fino alle 23
       zona:
         - gialla
-        - bianca
     31:
       emoji: 🍺
       title: Puoi andare al bar
-      subtitle: Solo seduti all'aperto, fino alle 23
+      subtitle: Fino alle 23
       zona:
         - gialla
-        - bianca
     32:
       emoji: 🖼️
       title: Puoi visitare una mostra
       subtitle: Se vai nel weekend, ricordati di prenotare prima
       zona:
         - gialla
-        - bianca
     33:
       emoji: 🎭
       title: Puoi assistere ad uno spettacolo o concerto, fino a 1000 spettatori
       subtitle: Negli spazi chiusi la capienza è limitata (massimo 500 spettatori)
       zona:
         - gialla
-        - bianca
 
 #    fonti contrastanti:
 #    - https://www.governo.it/it/articolo/comunicato-stampa-del-consiglio-dei-ministri-n-14/16679
@@ -409,41 +405,60 @@ it:
       zona:
         - rossa
         - arancione
-        - gialla
-        - bianca
     37:
+      emoji: "🛍️"
+      title: "Puoi andare a fare shopping"
+      subtitle: "I centri commerciali sono aperti nei weekend"
+      zona:
+        - gialla
+    38:
       emoji: "⚽🎾🏀"
       title: "Puoi fare sport con i tuoi amici"
       subtitle: "Solo all'aperto, piscine incluse."
       zona:
         - gialla
-        - bianca
-    38:
+    39:
       emoji: "🧔👩👨👱‍♀️"
       title: "Puoi andare a casa di un'altra persona"
       subtitle: "Solo una volta al giorno, insieme ad altri 3 ospiti. Se hai figli minorenni, portali senza problemi :)"
       zona:
         - gialla
-        - bianca
-    39:
+    40:
       emoji: "🧔👩👨👱‍♀️"
       title: "Puoi andare a casa di un'altra persona, se vive nel tuo comune"
       subtitle: "Solo una volta al giorno, insieme ad altri 3 ospiti. Se hai figli minorenni, portali senza problemi :)"
       zona:
         - arancione
-    40:
+    41:
       emoji: "🏠 ➡️ 🏡"
       title: "Puoi andare nella tua seconda casa"
       subtitle: "Solo con i componenti del tuo nucleo familiare"
       zona:
         - rossa
-    41:
+    42:
       emoji: "🏠 ➡️ 🏡"
       title: "Puoi andare nella tua seconda casa"
       subtitle: "Puoi invitare fino a 4 ospiti. Ogni ospite può portare con sé i suoi figli minorenni."
       zona:
         - arancione
         - gialla
+    43:
+      emoji: "🌈"
+      title: "Nessuna limitazione!"
+      subtitle: "Ricordati sempre di indossare la mascherina e rispettare le norme di distanziamento."
+      zona:
+        - bianca
+    44:
+      emoji: "📃"
+      title: "Puoi andare zona arancione o rossa, con il pass"
+      subtitle: "Se hai avuto il Covid negli ultimi 6 mesi, o se sono passati almeno 15 giorni dalla prima dose del vaccino. Puoi ottenere il pass anche con un tampone negativo nelle ultime 48 ore."
+      zona:
+        - bianca
+    45:
+      emoji: "🥳"
+      title: "Puoi organizzare una festa"
+      subtitle: "Tutti gli ospiti devono avere il green pass. Sai un buffet, prepara solo monoporzioni."
+      zona:
         - bianca
   misc:
     autocertificazione:
