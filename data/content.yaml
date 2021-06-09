@@ -1,5 +1,5 @@
 it:
-  last_update: 31/05/2021
+  last_update: 07/06/2021
   regions:
     abruzzo:
       url_name: abruzzo
@@ -136,7 +136,7 @@ it:
         - rossa
     1:
       emoji: "🛵"
-      title: "Puoi spostarti nel tuo comune, fino alle 23:00"
+      title: "Puoi spostarti nel tuo comune, fino a mezzanotte"
       subtitle: "O nel raggio di 30km se vivi in un comune con meno di 5.000 abitanti"
       zona:
         - arancione
@@ -350,13 +350,13 @@ it:
     30:
       emoji: 🍝
       title: Puoi mangiare al ristorante
-      subtitle: Anche a cena, fino alle 23
+      subtitle: Anche a cena, fino a mezzanotte
       zona:
         - gialla
     31:
       emoji: 🍺
       title: Puoi andare al bar
-      subtitle: Fino alle 23
+      subtitle: Fino a mezzanotte
       zona:
         - gialla
     32:
@@ -387,7 +387,7 @@ it:
     34:
       emoji: "🍕"
       title: "Puoi andare a prendere del cibo da asporto"
-      subtitle: "All'interno del tuo comune e fino alle 23"
+      subtitle: "All'interno del tuo comune e fino a mezzanotte"
       zona:
         - rossa
         - arancione
