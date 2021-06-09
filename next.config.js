@@ -21,7 +21,5 @@ module.exports = withPWA({
 
 
 webpack: (config, { isServer }) => {
-
-
   return config;
 }
