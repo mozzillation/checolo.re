@@ -151,7 +151,7 @@ it:
     3:
       emoji: "📃"
       title: "Puoi andare in altre zone con un certificato valido"
-      subtitle: "Puoi ottenere la Certificazione Verde COVID-19 con l'app IO o su www.dgc.gov.it"
+      subtitle: "Puoi ottenere la Certificazione Verde COVID-19 su www.dgc.gov.it"
       zona:
         - gialla
 # non è stato spiegato cosa succede per le bianche
@@ -159,13 +159,13 @@ it:
     4:
       emoji: "📃"
       title: "Puoi andare in altre zone con un certificato valido"
-      subtitle: "Puoi ottenere la Certificazione Verde COVID-19 con l'app IO o su www.dgc.gov.it"
+      subtitle: "Puoi ottenere la Certificazione Verde COVID-19 su www.dgc.gov.it"
       zona:
         - arancione
     5:
       emoji: "📃"
       title: "Puoi andare in altre zone con un certificato valido"
-      subtitle: "Puoi ottenere la Certificazione Verde COVID-19 con l'app IO o su www.dgc.gov.it"
+      subtitle: "Puoi ottenere la Certificazione Verde COVID-19 su www.dgc.gov.it"
       zona:
         - rossa
 #    2:
@@ -451,7 +451,7 @@ it:
     44:
       emoji: "📃"
       title: "Puoi andare zona arancione o rossa, con un certificato valido"
-      subtitle: "Puoi ottenere la Certificazione Verde COVID-19 con l'app IO o su www.dgc.gov.it"
+      subtitle: "Puoi ottenere la Certificazione Verde COVID-19 su www.dgc.gov.it"
       zona:
         - bianca
     45:
